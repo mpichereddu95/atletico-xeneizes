@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --ax-black: #111111;
+  --ax-gold: #d4af37;
+  --ax-white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--ax-black);
+}
+
+body {
+  margin: 0;
+  background: var(--ax-black);
+  color: var(--ax-white);
+  font-family: Inter, system-ui, sans-serif;
+}
+
+body::selection {
+  background: var(--ax-gold);
+  color: var(--ax-black);
+}
+
+@keyframes ax-logo-in {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@layer components {
+  .section-shell {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10;
+  }
+
+  .section-kicker {
+    @apply text-[11px] font-semibold uppercase tracking-[0.26em] text-axGold;
+  }
+
+  .section-title {
+    @apply font-display text-4xl font-extrabold leading-[0.95] text-white sm:text-5xl lg:text-6xl;
+  }
+
+  .gold-line {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-axGold/80 to-transparent;
+  }
+}

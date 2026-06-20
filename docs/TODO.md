@@ -1,0 +1,36 @@
+# TODO
+
+## Regole operative
+
+- consultare prima i file `docs/`
+- analizzare solo i file coinvolti
+- evitare modifiche non richieste
+- aggiornare sempre `ROADMAP.md`, `TODO.md`, `DECISIONS.md`
+
+## Checklist immediata
+
+- [x] creare cartella `docs/`
+- [x] creare documenti base
+- [x] registrare regole permanenti
+- [x] definire architettura iniziale
+- [x] centralizzare a livello documentale il principio del single data layer
+
+## Prossimi task raccomandati
+
+- [ ] separare strategicamente il dataset sportivo da contenuti editoriali
+- [ ] progettare file di override ufficiali del club
+- [ ] definire convenzioni per aggiornamento dati sportivi
+- [ ] documentare component ownership per le sezioni principali
+- [ ] allineare README ai nuovi documenti `docs/`
+- [ ] rifinire il resto delle pagine interne con la nuova direzione minimal della home
+- [ ] preparare asset sponsor ufficiali quando il club li fornira
+- [ ] valutare se ridurre o riposizionare la sezione media nella navigazione principale
+
+## Regola per richieste future troppo ampie
+
+Se una richiesta e troppo ampia:
+
+1. spezzarla in fasi
+2. aggiornare `ROADMAP.md`
+3. proporre piano sintetico
+4. attendere conferma prima di implementare tutto
