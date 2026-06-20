@@ -173,3 +173,43 @@ Migliorare leggibilita e percezione visiva senza cambiare layout, contenuti o st
 ### Impatto
 
 Le implementazioni future devono usare il PNG trasparente come sorgente ufficiale, senza dipendere da workaround di blending lato UI.
+
+---
+
+## 2026-06-20 - Avvio area admin
+
+### Ambito
+
+Backoffice, CMS e aggiornamento contenuti
+
+### Decisione
+
+L'area admin viene trattata come una fase autonoma da progettare prima dell'implementazione, includendo autenticazione, database, storage media e modelli dati.
+
+### Motivo
+
+News, giocatori, partite, classifiche, sponsor e media non devono restare modificabili solo da codice. Il sito deve diventare gestibile senza interventi tecnici frequenti.
+
+### Impatto
+
+Prima di sviluppare `/admin` bisogna scegliere il provider dati e definire lo schema centrale, preservando `lib/api.ts` come facciata unica per il frontend.
+
+---
+
+## 2026-06-20 - Supabase come backend admin
+
+### Ambito
+
+Backend, database e autenticazione area admin
+
+### Decisione
+
+La prima versione dell'admin usa Supabase come backend per autenticazione, database e futuro storage media. Il progetto Next.js integra Supabase tramite API REST native per evitare nuove dipendenze nella fondazione.
+
+### Motivo
+
+Supabase consente di arrivare rapidamente a un backoffice reale, mantenendo il progetto semplice e pronto a evolvere verso CRUD completi e storage immagini.
+
+### Impatto
+
+Sono stati creati `/admin`, `/admin/login`, `lib/supabase.ts` e `docs/SUPABASE_SCHEMA.sql`. Prima di usare il pannello vanno create le tabelle SQL, un utente Auth e le variabili ambiente su Hostinger.

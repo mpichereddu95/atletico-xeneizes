@@ -17,6 +17,14 @@
 
 ## Prossimi task raccomandati
 
+- [ ] scegliere provider backend/CMS per admin
+- [x] creare specifica funzionale area `/admin`
+- [x] definire modello dati per news, giocatori, partite, classifiche, sponsor e media
+- [ ] decidere strategia autenticazione admin
+- [ ] creare tabelle Supabase usando `docs/SUPABASE_SCHEMA.sql`
+- [ ] creare utente admin in Supabase Auth
+- [ ] configurare variabili ambiente Supabase su Hostinger
+- [ ] aggiungere CRUD news nel pannello admin
 - [ ] separare strategicamente il dataset sportivo da contenuti editoriali
 - [ ] progettare file di override ufficiali del club
 - [ ] definire convenzioni per aggiornamento dati sportivi

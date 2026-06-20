@@ -54,10 +54,18 @@ Stato: pianificata
 
 ## Fase 5 - Backoffice / aggiornamenti
 
-Stato: pianificata
+Stato: in preparazione
 
 - [ ] dashboard amministrativa
+- [ ] scelta stack admin: autenticazione, database, storage media
+- [ ] protezione area `/admin`
+- [x] creare fondazione `/admin` con login Supabase e dashboard moduli
+- [x] documentare schema Supabase v1
 - [ ] editing manuale dati
+- [ ] gestione news da pannello
+- [ ] gestione giocatori da pannello
+- [ ] gestione partite, risultati e classifiche da pannello
+- [ ] gestione sponsor e media da pannello
 - [ ] sincronizzazione fonte esterna
 
 ## Fase 6 - Presenza ufficiale completa
