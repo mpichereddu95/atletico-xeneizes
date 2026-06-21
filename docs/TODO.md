@@ -26,7 +26,7 @@
 - [ ] configurare variabili ambiente Supabase su Hostinger
 - [ ] aggiungere CRUD news nel pannello admin
 - [x] collegare Sanity come sorgente CMS progressiva per news
-- [ ] creare Sanity Studio/schema `article`
+- [x] creare Sanity Studio/schema `article`
 - [ ] configurare variabili ambiente Sanity su Hostinger
 - [ ] separare strategicamente il dataset sportivo da contenuti editoriali
 - [ ] progettare file di override ufficiali del club

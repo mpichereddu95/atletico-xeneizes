@@ -51,6 +51,7 @@ Stato: in corso
 - [x] scegliere Sanity come CMS editoriale principale
 - [x] documentare modello contenuti Sanity v1
 - [x] adapter CMS per news con fallback statico
+- [x] creare Studio Sanity integrato in `/studio`
 - [ ] workflow redazionale
 - [ ] immagini dedicate per articolo
 

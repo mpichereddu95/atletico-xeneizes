@@ -6,6 +6,10 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "www.calcioliguria.com"
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.sanity.io"
       }
     ]
   }

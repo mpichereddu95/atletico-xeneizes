@@ -233,3 +233,23 @@ L'obiettivo operativo e permettere aggiornamenti senza programmazione. Sanity of
 ### Impatto
 
 Il sito mantiene `lib/api.ts` come facciata unica. Le news possono arrivare da Sanity quando presenti, con fallback sui dati statici esistenti per non rompere la produzione.
+
+---
+
+## 2026-06-21 - Fallback resiliente per Sanity
+
+### Ambito
+
+Build, deploy e disponibilita contenuti
+
+### Decisione
+
+Le chiamate a Sanity devono fallire in modo silenzioso e lasciare attivo il fallback statico gia presente nel sito.
+
+### Motivo
+
+Il sito ufficiale non deve andare offline o fallire la build se il CMS non e raggiungibile, se mancano variabili ambiente o se Sanity non contiene ancora articoli pubblicati.
+
+### Impatto
+
+`lib/sanity.ts` intercetta gli errori di rete/API e restituisce `null`. `lib/api.ts` continua quindi a servire i contenuti statici fino a quando Sanity non e configurato e popolato correttamente.

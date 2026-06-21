@@ -18,7 +18,10 @@ const articleProjection = `{
     "src": coverImage.asset->url,
     "alt": coverImage.alt
   },
-  contentBlocks
+  "contentBlocks": contentBlocks[]{
+    "type": coalesce(type, select(_type == "headingBlock" => "heading", _type == "paragraphBlock" => "paragraph")),
+    text
+  }
 }`;
 
 type SanityArticle = Omit<Article, "content"> & {
@@ -39,16 +42,20 @@ async function sanityFetch<T>(query: string) {
     return null;
   }
 
-  const response = await fetch(queryUrl(query), {
-    next: { revalidate: 60 }
-  });
+  try {
+    const response = await fetch(queryUrl(query), {
+      next: { revalidate: 60 }
+    });
 
-  if (!response.ok) {
+    if (!response.ok) {
+      return null;
+    }
+
+    const payload = (await response.json()) as { result: T };
+    return payload.result;
+  } catch {
     return null;
   }
-
-  const payload = (await response.json()) as { result: T };
-  return payload.result;
 }
 
 function mapSanityArticle(article: SanityArticle): Article {
