@@ -1,19 +1,5 @@
 import { articles, cmsArticles, latestResult, matches, mediaItems, navigation, nextMatch, officialChannels, players, projectStatement, sponsors, staff, standings } from "@/data/club";
-import type { Article, CmsArticleRecord } from "@/lib/types";
-
-function mapCmsArticle(record: CmsArticleRecord): Article {
-  return {
-    id: record.sys.id,
-    slug: record.sys.slug,
-    category: record.fields.category,
-    title: record.fields.title,
-    excerpt: record.fields.excerpt,
-    date: record.sys.publishedAt,
-    author: record.fields.author,
-    coverImage: record.fields.coverImage,
-    content: record.fields.content
-  };
-}
+import { getSanityArticleBySlug, getSanityArticles, getSanityArticleSlugs, mapStaticCmsArticle } from "@/lib/sanity";
 
 export async function getNavigation() {
   return navigation;
@@ -43,17 +29,24 @@ export async function getStandings() {
 }
 
 export async function getArticles() {
-  return articles;
+  const sanityArticles = await getSanityArticles();
+  return sanityArticles.length > 0 ? sanityArticles : articles;
 }
 
 export async function getArticleSlugs() {
-  return cmsArticles.map((article) => article.sys.slug);
+  const sanitySlugs = await getSanityArticleSlugs();
+  return sanitySlugs.length > 0 ? sanitySlugs : cmsArticles.map((article) => article.sys.slug);
 }
 
 export async function getArticleBySlug(slug: string) {
+  const sanityArticle = await getSanityArticleBySlug(slug);
+  if (sanityArticle) {
+    return sanityArticle;
+  }
+
   const article = cmsArticles.find((entry) => entry.sys.slug === slug);
 
-  return article ? mapCmsArticle(article) : null;
+  return article ? mapStaticCmsArticle(article) : null;
 }
 
 export async function getCmsArticles() {

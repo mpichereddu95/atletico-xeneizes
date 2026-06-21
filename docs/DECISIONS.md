@@ -213,3 +213,23 @@ Supabase consente di arrivare rapidamente a un backoffice reale, mantenendo il p
 ### Impatto
 
 Sono stati creati `/admin`, `/admin/login`, `lib/supabase.ts` e `docs/SUPABASE_SCHEMA.sql`. Prima di usare il pannello vanno create le tabelle SQL, un utente Auth e le variabili ambiente su Hostinger.
+
+---
+
+## 2026-06-21 - Sanity come CMS editoriale
+
+### Ambito
+
+Gestione contenuti modificabili senza programmazione
+
+### Decisione
+
+Sanity viene scelto come CMS editoriale principale per news, match report e progressivamente altri contenuti. Supabase resta parcheggiato per funzioni avanzate future, ma non viene usato come centro della gestione contenuti v1.
+
+### Motivo
+
+L'obiettivo operativo e permettere aggiornamenti senza programmazione. Sanity offre uno Studio editoriale gia pronto, mentre Supabase richiederebbe la costruzione manuale di CRUD, upload, form e workflow.
+
+### Impatto
+
+Il sito mantiene `lib/api.ts` come facciata unica. Le news possono arrivare da Sanity quando presenti, con fallback sui dati statici esistenti per non rompere la produzione.

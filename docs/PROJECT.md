@@ -33,6 +33,7 @@ Costruire una piattaforma sportiva ufficiale, moderna, scalabile e mantenibile p
 - `components/`: sezioni UI riutilizzabili
 - `data/club.ts`: dataset centrale statico del club
 - `lib/api.ts`: adapter dati del frontend
+- `lib/sanity.ts`: adapter CMS progressivo per contenuti editoriali
 - `lib/types.ts`: contratti TypeScript condivisi
 - `public/images/club/`: asset principali del club
 
@@ -57,7 +58,7 @@ Le pagine non devono conoscere direttamente la provenienza dei dati sportivi. De
 
 ### Stato attuale
 
-Al momento tutto e centralizzato in `data/club.ts`, che funge gia da singolo punto di verita applicativo.
+Al momento i dati statici sono centralizzati in `data/club.ts`, che funge da singolo punto di verita applicativo. Le news possono leggere da Sanity quando il CMS contiene articoli pubblicati, mantenendo fallback statico.
 
 ### Evoluzione raccomandata
 
@@ -70,6 +71,10 @@ Separare progressivamente:
 - sponsor
 
 senza cambiare i consumer lato componenti.
+
+## CMS
+
+Sanity e il CMS editoriale scelto per permettere aggiornamenti senza programmazione. Supabase resta disponibile come backend tecnico per funzioni avanzate future, ma non e il centro della gestione contenuti della v1.
 
 ## Regole operative permanenti
 

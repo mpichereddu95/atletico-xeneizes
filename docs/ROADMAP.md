@@ -46,18 +46,20 @@ Stato: pianificata
 
 ## Fase 4 - Editoriale e CMS
 
-Stato: pianificata
+Stato: in corso
 
-- [ ] adapter CMS per news
+- [x] scegliere Sanity come CMS editoriale principale
+- [x] documentare modello contenuti Sanity v1
+- [x] adapter CMS per news con fallback statico
 - [ ] workflow redazionale
 - [ ] immagini dedicate per articolo
 
 ## Fase 5 - Backoffice / aggiornamenti
 
-Stato: in preparazione
+Stato: ridimensionata
 
 - [ ] dashboard amministrativa
-- [ ] scelta stack admin: autenticazione, database, storage media
+- [x] scelta stack admin: Sanity per CMS editoriale, Supabase parcheggiato
 - [ ] protezione area `/admin`
 - [x] creare fondazione `/admin` con login Supabase e dashboard moduli
 - [x] documentare schema Supabase v1
