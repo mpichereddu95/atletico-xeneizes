@@ -14,7 +14,7 @@ export default async function NewsPage() {
       <PageHero
         kicker="News"
         title="Articoli, comunicati e match report"
-        text="Archivio editoriale del club con contenuti completi, route dinamica /news/[slug] e struttura pronta per un futuro CMS."
+        text="Archivio editoriale del club con comunicati ufficiali, approfondimenti e match report della stagione."
         primaryCta={{ href: "/", label: "Torna alla home" }}
         secondaryCta={{ href: "/partite", label: "Vai alle partite" }}
       />

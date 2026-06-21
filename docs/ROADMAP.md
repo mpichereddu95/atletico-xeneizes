@@ -16,7 +16,7 @@ Stato: completata
 
 Stato: in corso
 
-- [ ] separare dati sportivi da contenuti editoriali
+- [x] separare dati sportivi da contenuti editoriali
 - [ ] introdurre override ufficiali del club in file dedicato
 - [ ] definire struttura target per ingest da fonte esterna
 - [ ] mantenere `lib/api.ts` come facciata unica
@@ -46,14 +46,15 @@ Stato: pianificata
 
 ## Fase 4 - Editoriale e CMS
 
-Stato: in corso
+Stato: completata per v1
 
 - [x] scegliere Sanity come CMS editoriale principale
 - [x] documentare modello contenuti Sanity v1
 - [x] adapter CMS per news con fallback statico
 - [x] creare Studio Sanity integrato in `/studio`
-- [ ] workflow redazionale
-- [ ] immagini dedicate per articolo
+- [x] workflow redazionale base tramite Studio e token editoriale
+- [x] immagini dedicate per articolo
+- [x] contenuti reali v1 sincronizzati in Sanity
 
 ## Fase 5 - Backoffice / aggiornamenti
 
@@ -64,11 +65,11 @@ Stato: ridimensionata
 - [ ] protezione area `/admin`
 - [x] creare fondazione `/admin` con login Supabase e dashboard moduli
 - [x] documentare schema Supabase v1
-- [ ] editing manuale dati
-- [ ] gestione news da pannello
-- [ ] gestione giocatori da pannello
-- [ ] gestione partite, risultati e classifiche da pannello
-- [ ] gestione sponsor e media da pannello
+- [x] editing manuale dati tramite modelli Sanity
+- [x] gestione news da pannello
+- [x] gestione giocatori da pannello
+- [x] gestione partite, risultati e classifiche da pannello
+- [x] gestione sponsor e media da pannello
 - [ ] sincronizzazione fonte esterna
 
 ## Fase 6 - Presenza ufficiale completa
@@ -77,5 +78,6 @@ Stato: pianificata
 
 - [x] sponsor reale principale confermato in home
 - [x] canali ufficiali base pubblicati
+- [x] SEO base, Open Graph, robots e sitemap
 - [ ] SEO avanzato
 - [ ] performance audit finale

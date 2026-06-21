@@ -3,22 +3,33 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import "./globals.css";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://lightsteelblue-giraffe-291026.hostingersite.com";
+
 export const metadata: Metadata = {
-  title: "Atletico Xeneizes | Sito Ufficiale",
-  description: "La piattaforma ufficiale di Atletico Xeneizes: rosa, partite, classifica, news, media, staff e sponsor.",
-  metadataBase: new URL("https://atleticoxeneizes.local"),
+  title: {
+    default: "Atletico Xeneizes 149 | Sito Ufficiale",
+    template: "%s | Atletico Xeneizes 149"
+  },
+  description: "Sito ufficiale Atletico Xeneizes 149: rosa, partite, classifica, news, media, staff e sponsor.",
+  metadataBase: new URL(siteUrl),
+  alternates: {
+    canonical: "/"
+  },
   icons: {
     icon: "/icon.png",
     apple: "/apple-icon.png"
   },
   openGraph: {
-    title: "Atletico Xeneizes",
-    description: "Risultati, calendario, rosa, news e contenuti ufficiali.",
+    type: "website",
+    url: siteUrl,
+    siteName: "Atletico Xeneizes 149",
+    title: "Atletico Xeneizes 149",
+    description: "Risultati, calendario, rosa, news e contenuti ufficiali dell'Atletico Xeneizes 149.",
     images: ["/opengraph-image.png"]
   },
   twitter: {
     card: "summary_large_image",
-    title: "Atletico Xeneizes",
+    title: "Atletico Xeneizes 149",
     description: "Risultati, calendario, rosa, news e contenuti ufficiali.",
     images: ["/opengraph-image.png"]
   }

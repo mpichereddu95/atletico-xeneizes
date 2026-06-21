@@ -15,7 +15,7 @@ export function NewsSection({ articles }: NewsSectionProps) {
         <SectionHeading
           kicker="News"
           title="Articoli e comunicati"
-          text="Archivio editoriale con route dinamica, contenuti completi e adattatore pronto per essere sostituito da un futuro CMS."
+          text="Archivio editoriale con comunicati ufficiali, aggiornamenti del club e match report."
         />
 
         {articles.length > 0 ? (
@@ -58,7 +58,7 @@ export function NewsSection({ articles }: NewsSectionProps) {
           </div>
         ) : (
           <div className="border border-white/10 bg-white/[0.04] p-6 text-sm leading-7 text-white/64">
-            Nessun articolo pubblicato in questa versione del sito. La struttura editoriale e gia pronta per ospitare news, comunicati e match report da un CMS o da inserimento manuale.
+            Nessun articolo pubblicato al momento.
           </div>
         )}
       </div>

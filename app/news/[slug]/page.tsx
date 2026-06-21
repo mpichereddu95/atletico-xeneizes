@@ -81,13 +81,13 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 <p className="text-xs font-black uppercase tracking-[0.24em] text-axGold">Autore</p>
                 <p className="mt-4 font-display text-3xl font-black uppercase text-white">{article.author}</p>
                 <p className="mt-3 text-sm leading-6 text-white/64">
-                  Struttura pronta per bio autore, avatar, ruolo editoriale e collegamento a un CMS redazionale.
+                  Contenuto pubblicato dalla redazione ufficiale del club.
                 </p>
               </div>
               <div className="border border-white/10 bg-white/[0.04] p-6">
                 <p className="text-xs font-black uppercase tracking-[0.24em] text-axGold">Redazione</p>
                 <p className="mt-3 text-sm leading-6 text-white/64">
-                  Il contenuto di questa pagina arriva gia da un adapter dati che puo essere sostituito con feed CMS mantenendo invariata la UI.
+                  News, comunicati e match report sono organizzati per mantenere uno storico editoriale chiaro e consultabile.
                 </p>
                 <Link href="/news" className="mt-5 inline-flex text-sm font-black uppercase tracking-[0.2em] text-white transition hover:text-axGold">
                   Torna a tutte le news

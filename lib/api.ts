@@ -1,5 +1,15 @@
 import { articles, cmsArticles, latestResult, matches, mediaItems, navigation, nextMatch, officialChannels, players, projectStatement, sponsors, staff, standings } from "@/data/club";
-import { getSanityArticleBySlug, getSanityArticles, getSanityArticleSlugs, mapStaticCmsArticle } from "@/lib/sanity";
+import {
+  getSanityArticleBySlug,
+  getSanityArticles,
+  getSanityArticleSlugs,
+  getSanityMatches,
+  getSanityMediaItems,
+  getSanityPlayers,
+  getSanitySponsors,
+  getSanityStandings,
+  mapStaticCmsArticle
+} from "@/lib/sanity";
 
 export async function getNavigation() {
   return navigation;
@@ -13,19 +23,23 @@ export async function getHomeSnapshot() {
 }
 
 export async function getPlayers() {
-  return players;
+  const sanityPlayers = await getSanityPlayers();
+  return sanityPlayers.length > 0 ? sanityPlayers : players;
 }
 
 export async function getPlayerById(playerId: string) {
-  return players.find((player) => player.id === playerId) ?? null;
+  const allPlayers = await getPlayers();
+  return allPlayers.find((player) => player.id === playerId) ?? null;
 }
 
 export async function getMatches() {
-  return matches;
+  const sanityMatches = await getSanityMatches();
+  return sanityMatches.length > 0 ? sanityMatches : matches;
 }
 
 export async function getStandings() {
-  return standings;
+  const sanityStandings = await getSanityStandings();
+  return sanityStandings.length > 0 ? sanityStandings : standings;
 }
 
 export async function getArticles() {
@@ -54,7 +68,8 @@ export async function getCmsArticles() {
 }
 
 export async function getMediaItems() {
-  return mediaItems;
+  const sanityMediaItems = await getSanityMediaItems();
+  return sanityMediaItems.length > 0 ? sanityMediaItems : mediaItems;
 }
 
 export async function getStaff() {
@@ -62,7 +77,8 @@ export async function getStaff() {
 }
 
 export async function getSponsors() {
-  return sponsors;
+  const sanitySponsors = await getSanitySponsors();
+  return sanitySponsors.length > 0 ? sanitySponsors : sponsors;
 }
 
 export async function getOfficialChannels() {

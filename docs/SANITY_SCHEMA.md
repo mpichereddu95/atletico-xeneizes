@@ -10,7 +10,9 @@
 
 Sanity viene adottato come CMS editoriale progressivo. Supabase resta parcheggiato per eventuali funzioni avanzate future, ma non e il cuore della gestione contenuti della v1.
 
-## Tipi contenuto prioritari
+Il dataset richiede autenticazione per la lettura: in produzione va configurata la variabile server-only `SANITY_API_READ_TOKEN`, senza prefisso `NEXT_PUBLIC_`.
+
+## Tipi contenuto attivi
 
 ### article
 
@@ -26,11 +28,33 @@ Campi:
 - `publishedAt`: datetime
 - `author`: string
 - `coverImage`: image con campo `alt`
+- `relatedMatch`: reference opzionale a `match`
 - `contentBlocks`: array di blocchi semplici:
   - `heading`: string
   - `paragraph`: text
+- `sourceType`: enum `official`, `historical`, `manual`
 
-## Tipi contenuto futuri
+### season
+
+Gestisce le stagioni sportive.
+
+- `name`
+- `slug`
+- `startYear`
+- `endYear`
+- `status`
+- `sourceType`
+
+### competition
+
+Gestisce competizioni e fasi.
+
+- `name`
+- `slug`
+- `season`
+- `phase`
+- `sourceUrl`
+- `sourceType`
 
 ### player
 
@@ -44,6 +68,11 @@ Campi:
 - assist
 - ammonizioni
 - espulsioni
+- autogol
+- premi migliore in campo / miglior portiere
+- stagione
+- fonte ufficiale
+- tipo dato
 
 ### match
 
@@ -57,15 +86,25 @@ Campi:
 - trasferta
 - risultato
 - stato
+- fonte ufficiale
+- match report collegato
+- tipo dato
 
 ### standing
 
+- stagione
+- competizione
 - posizione
 - squadra
 - punti
 - partite
+- vittorie
+- pareggi
+- sconfitte
 - gol fatti
 - gol subiti
+- differenza reti
+- tipo dato
 
 ### sponsor
 
@@ -73,7 +112,9 @@ Campi:
 - livello
 - descrizione
 - link
+- Instagram
 - logo
+- attivo
 
 ### mediaItem
 
@@ -82,12 +123,23 @@ Campi:
 - immagine
 - alt
 - link video opzionale
+- in evidenza
 
 ## Strategia di migrazione
 
-1. News e Match report da Sanity
-2. Giocatori
-3. Partite e classifiche
-4. Sponsor e Media
+1. News e Match report da Sanity: completato per contenuti reali v1.
+2. Giocatori: modello pronto e dati ufficiali 2025/26 sincronizzati.
+3. Partite e classifiche: modello pronto e dati ufficiali 2025/26 sincronizzati.
+4. Sponsor e Media: modello pronto e contenuti v1 sincronizzati.
 
 Ogni sezione deve continuare a passare da `lib/api.ts`, mantenendo fallback statico finche i contenuti CMS non sono completi.
+
+## Contenuti editoriali attivi
+
+I contenuti reali sono sincronizzabili con `npm run sanity:sync` usando un token Sanity lato ambiente.
+
+- `girone-c-2025-26-terzo-posto-e-poule-scudetto`
+- `poule-scudetto-2026-il-cammino-dell-atletico-xeneizes`
+- `rosa-2025-26-statistiche-e-aggiornamenti-del-club`
+
+L'articolo di test editoriale e stato rimosso dal dataset Sanity.

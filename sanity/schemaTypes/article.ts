@@ -88,6 +88,13 @@ export const articleType = defineType({
       validation: (rule) => rule.required()
     }),
     defineField({
+      name: "relatedMatch",
+      title: "Partita collegata",
+      type: "reference",
+      to: [{ type: "match" }],
+      hidden: ({ document }) => document?.category !== "Match report"
+    }),
+    defineField({
       name: "contentBlocks",
       title: "Contenuto articolo",
       type: "array",
@@ -141,6 +148,20 @@ export const articleType = defineType({
         }
       ],
       validation: (rule) => rule.required().min(1)
+    }),
+    defineField({
+      name: "sourceType",
+      title: "Tipo contenuto",
+      type: "string",
+      options: {
+        list: [
+          { title: "Ufficiale", value: "official" },
+          { title: "Storico", value: "historical" },
+          { title: "Manuale club", value: "manual" }
+        ]
+      },
+      initialValue: "manual",
+      validation: (rule) => rule.required()
     })
   ],
   preview: {

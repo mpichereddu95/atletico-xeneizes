@@ -80,7 +80,7 @@ export default async function PlayerDetailPage({ params }: PlayerDetailPageProps
             <div className="border border-white/10 bg-white/[0.04] p-6">
               <p className="text-xs font-black uppercase tracking-[0.24em] text-axGold">Fonte dati</p>
               <p className="mt-3 max-w-2xl text-base leading-7 text-white/68">
-                Questa scheda usa i numeri ufficiali del Girone C 2025/26 pubblicati da Calcio Liguria. Il modello e gia predisposto per aggiungere numero di maglia, assist, storico per stagione e integrazioni da CMS o API.
+                Questa scheda usa i numeri ufficiali del Girone C 2025/26 pubblicati da Calcio Liguria e le correzioni manuali approvate dal club.
               </p>
               <div className="mt-6 flex flex-wrap gap-4">
                 <a href={player.sourceUrl} target="_blank" rel="noreferrer" className="inline-flex text-sm font-black uppercase tracking-[0.2em] text-white transition hover:text-axGold">

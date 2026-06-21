@@ -253,3 +253,43 @@ Il sito ufficiale non deve andare offline o fallire la build se il CMS non e rag
 ### Impatto
 
 `lib/sanity.ts` intercetta gli errori di rete/API e restituisce `null`. `lib/api.ts` continua quindi a servire i contenuti statici fino a quando Sanity non e configurato e popolato correttamente.
+
+---
+
+## 2026-06-21 - Sanity come pannello contenuti completo
+
+### Ambito
+
+CMS, modelli sportivi e contenuti gestibili da interfaccia
+
+### Decisione
+
+Sanity viene esteso oltre le news con modelli per stagioni, competizioni, squadre, giocatori, partite, classifiche, sponsor e gallery/media. `lib/api.ts` continua a fornire fallback statico finche una sezione non contiene dati completi nel CMS.
+
+### Motivo
+
+Il club deve poter aggiornare progressivamente il portale senza modificare codice, mantenendo pero stabilita produttiva e continuita dei contenuti gia online.
+
+### Impatto
+
+Lo Studio `/studio` diventa il pannello operativo principale. I match report reali sono stati caricati nel dataset Sanity, mentre la migrazione completa dei dati sportivi puo procedere per blocchi senza alterare UI e layout approvati.
+
+---
+
+## 2026-06-21 - Sincronizzazione Sanity tramite script
+
+### Ambito
+
+Contenuti CMS, aggiornamenti futuri e gestione da Codex
+
+### Decisione
+
+Viene introdotto `scripts/sync-sanity-content.mjs` con comando `npm run sanity:sync` per sincronizzare in Sanity i dati reali gia presenti nel repository: stagioni, competizioni, squadre, giocatori, partite, classifiche, sponsor, media e articoli.
+
+### Motivo
+
+Il club deve poter aggiornare sia da Studio sia tramite richieste a Codex con testi e immagini allegati, senza ricostruire ogni volta la pipeline. Lo script non contiene token: usa solo variabili ambiente.
+
+### Impatto
+
+Sanity diventa modificabile da pannello e aggiornabile da automazione controllata. In produzione serve la variabile server-only `SANITY_API_READ_TOKEN` per leggere dataset non pubblico senza esporre credenziali nel browser.

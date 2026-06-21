@@ -10,6 +10,7 @@ Il progetto e costruito come base pluriennale: layout responsive, componenti riu
 - React 19
 - TypeScript
 - Tailwind CSS
+- Sanity CMS
 
 ## Avvio locale
 
@@ -27,6 +28,19 @@ npm run build
 npm start
 ```
 
+## Variabili ambiente
+
+Per leggere i contenuti da Sanity:
+
+```bash
+NEXT_PUBLIC_SANITY_PROJECT_ID=pp933t0a
+NEXT_PUBLIC_SANITY_DATASET=production
+SANITY_API_READ_TOKEN=token_server_only
+NEXT_PUBLIC_SITE_URL=https://dominio-definitivo.it
+```
+
+`SANITY_API_READ_TOKEN` non deve avere prefisso `NEXT_PUBLIC_`: serve solo al server per leggere il dataset Sanity non pubblico.
+
 ## Pagine incluse
 
 - `/` home ufficiale
@@ -38,6 +52,7 @@ npm start
 - `/media` foto e contenuti visuali
 - `/staff` area tecnica e societaria
 - `/sponsor` area partner
+- `/studio` pannello Sanity per gestione contenuti
 
 ## Fonti dati
 
@@ -77,7 +92,13 @@ Su indicazione del club, questa versione recepisce i seguenti aggiornamenti risp
   - giocatori, partite, classifica, staff, media, news
 - `lib/api.ts`
   - layer di accesso ai dati
-  - punto naturale per introdurre fetch, cache e revalidation
+  - facciata unica tra Sanity e fallback statico
+- `lib/sanity.ts`
+  - adapter Sanity con lettura autenticata server-side
+- `sanity/`
+  - schema CMS per news, giocatori, partite, classifiche, sponsor e media
+- `scripts/sync-sanity-content.mjs`
+  - sincronizzazione controllata dei dati reali verso Sanity
 - `lib/types.ts`
   - tipi condivisi
 - `public/images/club/`
@@ -133,15 +154,24 @@ Le news usano gia una struttura compatibile con un futuro CMS:
 - immagine copertina
 - contenuto a blocchi
 
-## Pronto per CMS / API
+## Sanity CMS
 
-Per collegare un CMS o una fonte dati automatica:
+Sanity e il pannello contenuti principale. Sono gestibili da interfaccia:
 
-1. sostituisci gli export statici in `data/club.ts`
-2. mantieni invariati i tipi in `lib/types.ts`
-3. espandi `lib/api.ts` con fetch server-side
-4. aggiungi revalidation di Next.js
-5. conserva le correzioni manuali del club in un layer separato di override
+- news e match report
+- giocatori e schede giocatore
+- stagioni, competizioni e partite
+- classifiche
+- sponsor
+- media/gallery
+
+Per risincronizzare i dati reali presenti nel repository:
+
+```bash
+SANITY_AUTH_TOKEN=token_editor npm run sanity:sync
+```
+
+Il sito continua ad avere fallback statico: se Sanity non risponde, la produzione resta online con i dati locali approvati.
 
 ## Note di verifica
 
@@ -153,8 +183,8 @@ Per collegare un CMS o una fonte dati automatica:
 
 Passi successivi naturali:
 
-1. collegare un file JSON o CMS privato per override ufficiali del club
+1. configurare il dominio definitivo su Hostinger
 2. aggiungere tabellini partita e marcatori
-3. introdurre sponsor reali con loghi e link
-4. aggiungere social ufficiali del club
-5. creare una dashboard admin per aggiornamenti manuali
+3. introdurre asset sponsor ufficiali
+4. definire convenzioni editoriali per nuove stagioni
+5. valutare automazioni da Calcio Liguria o altre fonti ufficiali

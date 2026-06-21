@@ -27,12 +27,18 @@
 - [ ] aggiungere CRUD news nel pannello admin
 - [x] collegare Sanity come sorgente CMS progressiva per news
 - [x] creare Sanity Studio/schema `article`
-- [ ] configurare variabili ambiente Sanity su Hostinger
-- [ ] separare strategicamente il dataset sportivo da contenuti editoriali
+- [x] configurare variabili ambiente Sanity su Hostinger
+- [x] separare strategicamente il dataset sportivo da contenuti editoriali
+- [x] creare modelli Sanity per stagioni, competizioni, squadre, giocatori, partite, classifiche, sponsor e media
+- [x] rimuovere articolo test da Sanity
+- [x] reinserire match report e comunicati reali in Sanity
+- [x] sincronizzare dati sportivi reali completi da `data/club.ts` a Sanity
+- [x] aggiungere script riutilizzabile `npm run sanity:sync`
+- [ ] configurare `SANITY_API_READ_TOKEN` su Hostinger
 - [ ] progettare file di override ufficiali del club
 - [ ] definire convenzioni per aggiornamento dati sportivi
 - [ ] documentare component ownership per le sezioni principali
-- [ ] allineare README ai nuovi documenti `docs/`
+- [x] allineare README ai nuovi documenti `docs/`
 - [ ] rifinire il resto delle pagine interne con la nuova direzione minimal della home
 - [ ] preparare asset sponsor ufficiali quando il club li fornira
 - [ ] valutare se ridurre o riposizionare la sezione media nella navigazione principale
