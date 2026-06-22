@@ -32,9 +32,9 @@ export default async function NewsPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-axBlack via-transparent to-transparent" />
               </div>
-              <div className="grid content-end gap-5 p-8 lg:p-10">
+              <div className="grid content-end gap-5 p-6 sm:p-8 lg:p-10">
                 <p className="text-xs font-black uppercase tracking-[0.24em] text-axGold">In evidenza</p>
-                <h2 className="font-display text-4xl font-black uppercase leading-none text-white sm:text-5xl">{featuredArticle.title}</h2>
+                <h2 className="font-display text-3xl font-black uppercase leading-none text-white sm:text-5xl">{featuredArticle.title}</h2>
                 <div className="flex flex-wrap items-center gap-4 text-sm text-white/58">
                   <span>{formatDate(featuredArticle.date)}</span>
                   <span>{featuredArticle.author}</span>

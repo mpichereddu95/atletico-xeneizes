@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { officialChannels, projectStatement } from "@/data/club";
 import { SectionHeading } from "@/components/SectionHeading";
 import type { Sponsor } from "@/lib/types";
@@ -25,6 +26,11 @@ export function SponsorsSection({ sponsors }: SponsorsSectionProps) {
             {primarySponsor ? (
               <>
                 <div className="mt-8 border border-[#C9A84C33] bg-[#111111] px-6 py-8">
+                  {primarySponsor.logo?.src ? (
+                    <div className="mb-6 relative h-14 w-40">
+                      <Image src={primarySponsor.logo.src} alt={primarySponsor.logo.alt} fill sizes="160px" loading="lazy" className="object-contain object-left" />
+                    </div>
+                  ) : null}
                   <p className="font-display text-3xl font-extrabold text-white sm:text-4xl">{primarySponsor.name}</p>
                   <p className="mt-4 max-w-xl text-sm leading-7 text-white/62">{primarySponsor.description}</p>
                 </div>

@@ -68,6 +68,16 @@ export type Article = {
     alt: string;
   };
   content: ArticleContentBlock[];
+  matchReport?: {
+    result?: string;
+    scorers?: string[];
+    mvp?: string;
+    chronicle?: ArticleContentBlock[];
+    gallery?: {
+      src: string;
+      alt: string;
+    }[];
+  };
 };
 
 export type ArticleContentBlock =
@@ -118,4 +128,8 @@ export type Sponsor = {
   tier: string;
   description: string;
   href: string | null;
+  logo?: {
+    src: string;
+    alt: string;
+  } | null;
 };

@@ -95,6 +95,45 @@ export const articleType = defineType({
       hidden: ({ document }) => document?.category !== "Match report"
     }),
     defineField({
+      name: "matchReport",
+      title: "Struttura match report",
+      type: "object",
+      hidden: ({ document }) => document?.category !== "Match report",
+      fields: [
+        defineField({ name: "result", title: "Risultato", type: "string" }),
+        defineField({ name: "scorers", title: "Marcatori", type: "array", of: [{ type: "string" }] }),
+        defineField({ name: "mvp", title: "MVP", type: "string" }),
+        defineField({
+          name: "chronicle",
+          title: "Cronaca",
+          type: "array",
+          of: [
+            {
+              name: "paragraphBlock",
+              title: "Paragrafo",
+              type: "object",
+              fields: [
+                defineField({ name: "type", type: "string", initialValue: "paragraph", hidden: true }),
+                defineField({ name: "text", title: "Testo", type: "text", rows: 5 })
+              ]
+            }
+          ]
+        }),
+        defineField({
+          name: "gallery",
+          title: "Gallery",
+          type: "array",
+          of: [
+            {
+              type: "image",
+              options: { hotspot: true },
+              fields: [defineField({ name: "alt", title: "Testo alternativo", type: "string" })]
+            }
+          ]
+        })
+      ]
+    }),
+    defineField({
       name: "contentBlocks",
       title: "Contenuto articolo",
       type: "array",

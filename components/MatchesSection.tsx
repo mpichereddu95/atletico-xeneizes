@@ -77,7 +77,7 @@ export function MatchesSection({ matches, standings }: MatchesSectionProps) {
               <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
                 <div>
                   <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-axGold">Vista stagione</p>
-                  <h3 className="mt-3 font-display text-4xl font-light leading-none text-axBlack">
+                  <h3 className="mt-3 font-display text-3xl font-light leading-none text-axBlack sm:text-4xl">
                     {filteredMatches[0]?.phase ?? "Archivio"} · {season}
                   </h3>
                 </div>
@@ -152,11 +152,11 @@ function OverviewPane({ matches, standings }: { matches: Match[]; standings: Sta
               return (
                 <div
                   key={match.id}
-                  className="grid grid-cols-[78px_1fr_auto] items-center gap-3 border-b border-l-[3px] border-axBlack/8 pb-3 pl-3 last:border-b-0"
+                  className="grid grid-cols-[70px_minmax(0,1fr)_auto] items-center gap-3 border-b border-l-[3px] border-axBlack/8 pb-3 pl-3 sm:grid-cols-[78px_minmax(0,1fr)_auto] last:border-b-0"
                   style={{ borderLeftColor: outcome.accent }}
                 >
                   <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-axBlack/42">{match.round}</p>
-                  <p className="text-sm font-light text-axBlack">{match.home === "ATLETICO XENEIZES 149" ? match.away : match.home}</p>
+                  <p className="min-w-0 text-sm font-light text-axBlack">{match.home === "ATLETICO XENEIZES 149" ? match.away : match.home}</p>
                   <span
                     className={`inline-flex min-w-10 justify-center px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] ${outcome.badgeClass}`}
                     style={{ color: outcome.accent }}
@@ -173,11 +173,11 @@ function OverviewPane({ matches, standings }: { matches: Match[]; standings: Sta
       {standings.length > 0 ? (
         <div className="border border-axBlack/10">
           <PanelHeader kicker="Classifica sintetica" title="Top 5" />
-          <div className="grid gap-0">
+          <div className="grid gap-0 overflow-x-auto [scrollbar-width:thin]">
             {standings.slice(0, 5).map((row) => (
-              <div key={row.team} className="grid grid-cols-[40px_1fr_50px_50px] items-center gap-3 border-b border-axBlack/8 px-5 py-4 last:border-b-0">
+              <div key={row.team} className="grid min-w-[420px] grid-cols-[40px_minmax(0,1fr)_50px_50px] items-center gap-3 border-b border-axBlack/8 px-5 py-4 last:border-b-0">
                 <span className="font-display text-2xl font-light text-axGold">{row.position}</span>
-                <p className={`text-sm ${row.team === "ATLETICO XENEIZES 149" ? "font-semibold text-axBlack" : "font-light text-axBlack/78"}`}>{row.team}</p>
+                <p className={`min-w-0 text-sm ${row.team === "ATLETICO XENEIZES 149" ? "font-semibold text-axBlack" : "font-light text-axBlack/78"}`}>{row.team}</p>
                 <span className="text-right text-sm font-semibold text-axBlack">{row.points}</span>
                 <span className="text-right text-sm font-light text-axBlack/55">{row.difference}</span>
               </div>
@@ -241,8 +241,8 @@ function TablePane({ standings }: { standings: Standing[] }) {
   }
 
   return (
-    <div className="overflow-hidden border border-axBlack/10">
-      <div className="grid grid-cols-[48px_1.4fr_60px_60px_60px_80px_80px] bg-[#f7f5ef] px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-axBlack/58">
+    <div className="overflow-x-auto border border-axBlack/10 [scrollbar-width:thin]">
+      <div className="grid min-w-[680px] grid-cols-[48px_minmax(220px,1.4fr)_60px_60px_60px_80px_80px] bg-[#f7f5ef] px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-axBlack/58">
         <span>Pos</span>
         <span>Squadra</span>
         <span className="text-right">Pt</span>
@@ -252,7 +252,7 @@ function TablePane({ standings }: { standings: Standing[] }) {
         <span className="text-right">GS</span>
       </div>
       {standings.map((row) => (
-        <div key={row.team} className="grid grid-cols-[48px_1.4fr_60px_60px_60px_80px_80px] items-center border-t border-axBlack/8 px-5 py-4 text-sm">
+        <div key={row.team} className="grid min-w-[680px] grid-cols-[48px_minmax(220px,1.4fr)_60px_60px_60px_80px_80px] items-center border-t border-axBlack/8 px-5 py-4 text-sm">
           <span className="font-display text-2xl font-light text-axGold">{row.position}</span>
           <div>
             <p className={`${row.team === "ATLETICO XENEIZES 149" ? "font-semibold text-axBlack" : "font-light text-axBlack/78"}`}>{row.team}</p>
@@ -278,14 +278,14 @@ function CompactMatchRow({ match }: { match: Match }) {
 
   return (
     <div
-      className="grid gap-4 border border-axBlack/10 border-l-[3px] p-4 md:grid-cols-[120px_1fr_auto_auto] md:items-center"
+      className="grid min-w-0 gap-4 border border-axBlack/10 border-l-[3px] p-4 md:grid-cols-[120px_minmax(0,1fr)_auto_auto] md:items-center"
       style={{ borderLeftColor: outcome.accent }}
     >
       <div>
         <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-axGold">{formatDate(match.date)}</p>
         <p className="mt-1 text-xs font-light text-axBlack/58">{homeAway}</p>
       </div>
-      <div>
+      <div className="min-w-0">
         <p className="text-base font-light text-axBlack">{opponent}</p>
         <p className="mt-1 text-sm font-light text-axBlack/58">
           {match.phase} · {match.venue}

@@ -34,14 +34,16 @@ Stato: in corso
 - [x] applicare aggiornamenti puntuali a hero, logo e cover news senza alterare il resto del layout
 - [x] consolidare un unico asset logo attivo eliminando i riferimenti al file precedente
 - [x] migliorare resa del logo su fondo scuro e crop immagini nella sezione news
+- [x] ottimizzare responsivita trasversale di navigazione, card staff, news e tabelle sportive senza cambiare identita visiva
+- [x] ribilanciare home in chiave sportiva con Match Center, classifica sintetica, preview rosa e anteprime editoriali
 
 ## Fase 3 - Dati sportivi avanzati
 
-Stato: pianificata
+Stato: in corso
 
-- [ ] tabellini partita
-- [ ] marcatori
-- [ ] storico stagioni
+- [x] predisporre struttura match report con risultato, marcatori, MVP, cronaca e gallery
+- [ ] tabellini partita completi
+- [ ] storico stagioni completo
 - [ ] statistiche aggregate
 
 ## Fase 4 - Editoriale e CMS
@@ -79,5 +81,7 @@ Stato: pianificata
 - [x] sponsor reale principale confermato in home
 - [x] canali ufficiali base pubblicati
 - [x] SEO base, Open Graph, robots e sitemap
+- [x] pagine dedicate per calendario, risultati, classifica, match report e stagioni
 - [ ] SEO avanzato
+- [x] controllo responsive desktop/tablet/mobile
 - [ ] performance audit finale

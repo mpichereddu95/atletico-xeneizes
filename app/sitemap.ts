@@ -7,7 +7,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [players, articleSlugs] = await Promise.all([getPlayers(), getArticleSlugs()]);
   const now = new Date();
 
-  const staticRoutes = ["", "/rosa", "/partite", "/news", "/media", "/staff", "/sponsor"].map((route) => ({
+  const staticRoutes = ["", "/rosa", "/giocatori", "/partite", "/calendario", "/risultati", "/classifica", "/match-report", "/stagioni", "/news", "/media", "/staff", "/sponsor"].map((route) => ({
     url: `${siteUrl}${route}`,
     lastModified: now
   }));

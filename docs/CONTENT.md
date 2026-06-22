@@ -9,11 +9,14 @@ Contiene:
 - hero
 - payoff sintetico
 - una sola CTA primaria
-- modulo squadra
-- modulo calendario e risultati
-- modulo news
-- blocco sponsor + canali ufficiali + progetto
+- Match Center con prossima partita, ultimo risultato e classifica sintetica
+- classifica sintetica
+- preview squadra collegata al database completo
+- anteprime match report
+- anteprime news
+- predisposizione community
 - staff
+- blocco sponsor + canali ufficiali + progetto
 
 ### Rosa
 
@@ -41,12 +44,32 @@ Contiene:
 - calendario
 - classifica
 
+### Stagioni
+
+Contiene:
+
+- archivio stagionale separabile
+- conteggio partite e competizioni
+- collegamenti a calendario e risultati
+
 ### News
 
 Contiene:
 
 - lista articoli
 - articolo completo con route dinamica
+
+### Match report
+
+Contiene:
+
+- risultato
+- marcatori
+- MVP
+- cronaca
+- gallery
+
+I campi strutturati sono opzionali e gestibili da Sanity.
 
 ### Media
 

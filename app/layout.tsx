@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     default: "Atletico Xeneizes 149 | Sito Ufficiale",
     template: "%s | Atletico Xeneizes 149"
   },
-  description: "Sito ufficiale Atletico Xeneizes 149: rosa, partite, classifica, news, media, staff e sponsor.",
+  description: "Sito ufficiale Atletico Xeneizes 149: match center, rosa, calendario, risultati, classifica, news, media, staff e sponsor.",
   metadataBase: new URL(siteUrl),
   alternates: {
     canonical: "/"
@@ -24,13 +24,13 @@ export const metadata: Metadata = {
     url: siteUrl,
     siteName: "Atletico Xeneizes 149",
     title: "Atletico Xeneizes 149",
-    description: "Risultati, calendario, rosa, news e contenuti ufficiali dell'Atletico Xeneizes 149.",
+    description: "Match center, risultati, calendario, rosa, news e contenuti ufficiali dell'Atletico Xeneizes 149.",
     images: ["/opengraph-image.png"]
   },
   twitter: {
     card: "summary_large_image",
     title: "Atletico Xeneizes 149",
-    description: "Risultati, calendario, rosa, news e contenuti ufficiali.",
+    description: "Match center, risultati, calendario, rosa, news e contenuti ufficiali.",
     images: ["/opengraph-image.png"]
   }
 };

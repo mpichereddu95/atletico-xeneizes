@@ -19,8 +19,14 @@ Costruire una piattaforma sportiva ufficiale, moderna, scalabile e mantenibile p
 
 - `/` home
 - `/rosa`
+- `/giocatori`
 - `/rosa/[playerId]`
 - `/partite`
+- `/calendario`
+- `/risultati`
+- `/classifica`
+- `/match-report`
+- `/stagioni`
 - `/news`
 - `/news/[slug]`
 - `/media`
@@ -88,10 +94,12 @@ Sanity e il CMS editoriale scelto per permettere aggiornamenti senza programmazi
 
 Versione funzionante con:
 
-- home editoriale
-- database giocatori
-- sezione partite
+- home sportiva con Match Center
+- database giocatori con alias SEO `/giocatori`
+- sezione partite, calendario, risultati e classifica
 - news con route dinamica
+- match report con struttura CMS predisposta
+- archivio stagioni
 - media
 - staff
 - sponsor placeholder
@@ -99,9 +107,9 @@ Versione funzionante con:
 ## Rischi attuali
 
 1. dataset ancora monolitico in `data/club.ts`
-2. contenuti sportivi e contenuti editoriali non ancora separati
+2. contenuti sportivi e contenuti editoriali separati a livello CMS, ma ancora da rifinire nei flussi operativi
 3. override manuali non ancora formalizzati in file dedicati
-4. assenza di CMS o backoffice
+4. performance audit finale produzione ancora da completare
 
 ## Principio di sviluppo futuro
 

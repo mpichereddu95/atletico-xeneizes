@@ -293,3 +293,43 @@ Il club deve poter aggiornare sia da Studio sia tramite richieste a Codex con te
 ### Impatto
 
 Sanity diventa modificabile da pannello e aggiornabile da automazione controllata. In produzione serve la variabile server-only `SANITY_API_READ_TOKEN` per leggere dataset non pubblico senza esporre credenziali nel browser.
+
+---
+
+## 2026-06-21 - Responsive QA senza redesign
+
+### Ambito
+
+Resa responsive su desktop, laptop, tablet e smartphone
+
+### Decisione
+
+Le correzioni responsive devono limitarsi a classi di layout, overflow controllato, dimensioni tipografiche mobili e griglie adattive, senza modificare palette, contenuti, CMS, SEO o struttura informativa approvata.
+
+### Motivo
+
+Il sito ha gia una direzione visuale approvata. La priorita e garantire leggibilita, tap target e assenza di overflow su viewport piccoli, mantenendo invariata l'identita premium/minimale.
+
+### Impatto
+
+Navigazione mobile, card staff, heading interni, news e tabelle sportive usano vincoli piu robusti per evitare compressioni e uscite dallo schermo.
+
+---
+
+## 2026-06-22 - Home come piattaforma sportiva
+
+### Ambito
+
+Home page, gerarchia sportiva, SEO e scalabilita stagioni
+
+### Decisione
+
+La home deve funzionare come dashboard sportiva: Hero, Match Center, classifica, preview rosa, match report, news e sponsor. Le sezioni profonde restano su pagine dedicate con URL pulite: `/giocatori`, `/calendario`, `/risultati`, `/classifica`, `/match-report` e `/stagioni`.
+
+### Motivo
+
+Il sito deve servire tifosi e aggiornamenti sportivi prima della comunicazione istituzionale. Ridurre il peso della rosa in home e spostare gli archivi su pagine dedicate migliora lettura, performance e crescita pluriennale.
+
+### Impatto
+
+La home carica meno contenuti visibili subito, usa preview editoriali e sportive, mantiene il design approvato e prepara archivio stagioni e match report strutturati senza cambiare identita visiva. `/rosa` resta la route storica della squadra, mentre `/giocatori` viene aggiunta come alias SEO senza duplicare componenti.

@@ -39,9 +39,16 @@
 - [ ] definire convenzioni per aggiornamento dati sportivi
 - [ ] documentare component ownership per le sezioni principali
 - [x] allineare README ai nuovi documenti `docs/`
+- [x] completare QA responsive su desktop, tablet e mobile
+- [x] portare il Match Center in alto nella home
+- [x] ridurre la rosa in home a preview responsive 4/3/2 colonne
+- [x] separare anteprime match report e news in home
+- [x] predisporre pagine `/giocatori`, `/calendario`, `/risultati`, `/classifica`, `/match-report`, `/stagioni`
+- [x] predisporre campi CMS opzionali per risultato, marcatori, MVP, cronaca e gallery dei match report
 - [ ] rifinire il resto delle pagine interne con la nuova direzione minimal della home
 - [ ] preparare asset sponsor ufficiali quando il club li fornira
 - [ ] valutare se ridurre o riposizionare la sezione media nella navigazione principale
+- [ ] eseguire performance audit finale su produzione Hostinger
 
 ## Regola per richieste future troppo ampie
 

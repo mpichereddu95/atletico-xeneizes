@@ -14,8 +14,10 @@
 }
 
 html {
+  max-width: 100%;
   scroll-behavior: smooth;
   background: var(--ax-black);
+  overflow-x: clip;
 }
 
 body {
@@ -23,6 +25,14 @@ body {
   background: var(--ax-black);
   color: var(--ax-white);
   font-family: Inter, system-ui, sans-serif;
+  overflow-x: clip;
+}
+
+img,
+video,
+canvas,
+svg {
+  max-width: 100%;
 }
 
 body::selection {
@@ -57,5 +67,10 @@ body::selection {
 
   .gold-line {
     @apply h-px w-full bg-gradient-to-r from-transparent via-axGold/80 to-transparent;
+  }
+
+  .content-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 520px;
   }
 }

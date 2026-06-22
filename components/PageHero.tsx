@@ -22,19 +22,19 @@ export function PageHero({ kicker, title, text, primaryCta, secondaryCta }: Page
         <p className="section-kicker">{kicker}</p>
         <div className="mt-5 grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
           <div>
-            <h1 className="font-display text-5xl font-black uppercase leading-[0.92] text-white sm:text-6xl lg:text-7xl">{title}</h1>
+            <h1 className="font-display text-4xl font-black uppercase leading-[0.92] text-white sm:text-6xl lg:text-7xl">{title}</h1>
           </div>
           <div>
             <p className="max-w-xl text-lg leading-8 text-white/72">{text}</p>
             {(primaryCta || secondaryCta) && (
-              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+              <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
                 {primaryCta ? (
-                  <Link href={primaryCta.href} className="bg-axGold px-6 py-4 text-center text-sm font-black uppercase tracking-[0.2em] text-axBlack transition hover:bg-white">
+                  <Link href={primaryCta.href} className="bg-axGold px-6 py-4 text-center text-sm font-black uppercase tracking-[0.16em] text-axBlack transition hover:bg-white sm:tracking-[0.2em]">
                     {primaryCta.label}
                   </Link>
                 ) : null}
                 {secondaryCta ? (
-                  <Link href={secondaryCta.href} className="border border-white/20 px-6 py-4 text-center text-sm font-black uppercase tracking-[0.2em] text-white transition hover:border-axGold hover:text-axGold">
+                  <Link href={secondaryCta.href} className="border border-white/20 px-6 py-4 text-center text-sm font-black uppercase tracking-[0.16em] text-white transition hover:border-axGold hover:text-axGold sm:tracking-[0.2em]">
                     {secondaryCta.label}
                   </Link>
                 ) : null}

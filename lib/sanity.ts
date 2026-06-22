@@ -22,7 +22,20 @@ const articleProjection = `{
   "contentBlocks": contentBlocks[]{
     "type": coalesce(type, select(_type == "headingBlock" => "heading", _type == "paragraphBlock" => "paragraph")),
     text
-  }
+  },
+  "matchReport": select(defined(matchReport) => {
+    "result": matchReport.result,
+    "scorers": matchReport.scorers,
+    "mvp": matchReport.mvp,
+    "chronicle": matchReport.chronicle[]{
+      "type": coalesce(type, "paragraph"),
+      text
+    },
+    "gallery": matchReport.gallery[]{
+      "src": asset->url,
+      "alt": coalesce(alt, "Gallery Atletico Xeneizes")
+    }
+  }, null)
 }`;
 
 const playerProjection = `{
@@ -84,7 +97,11 @@ const sponsorProjection = `{
   name,
   tier,
   description,
-  "href": coalesce(href, null)
+  "href": coalesce(href, null),
+  "logo": select(defined(logo.asset) => {
+    "src": logo.asset->url,
+    "alt": coalesce(logo.alt, name)
+  }, null)
 }`;
 
 const mediaProjection = `{
