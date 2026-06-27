@@ -43,6 +43,7 @@ const playerProjection = `{
   name,
   number,
   role,
+  "currentRoster": coalesce(currentRoster, true),
   birthLabel,
   "photo": {
     "src": coalesce(photo.asset->url, externalPhotoUrl),
@@ -98,6 +99,8 @@ const sponsorProjection = `{
   tier,
   description,
   "href": coalesce(href, null),
+  "instagramHref": coalesce(instagramHref, instagram, null),
+  services,
   "logo": select(defined(logo.asset) => {
     "src": logo.asset->url,
     "alt": coalesce(logo.alt, name)

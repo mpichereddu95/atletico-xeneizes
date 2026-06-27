@@ -173,6 +173,12 @@ SANITY_AUTH_TOKEN=token_editor npm run sanity:sync
 
 Il sito continua ad avere fallback statico: se Sanity non risponde, la produzione resta online con i dati locali approvati.
 
+## Memoria operativa
+
+- `AGENTS.md` e il riferimento sintetico per Codex e per le future modifiche.
+- `docs/UI_UX_PRO_MAX.md` registra la reference esterna UI/UX Pro Max senza integrarla come dipendenza runtime.
+- UI/UX Pro Max va consultato solo per audit o decisioni progettuali mirate, mantenendo invariati brand, palette e identita approvati.
+
 ## Note di verifica
 
 - Build di produzione verificata con `next build --webpack`

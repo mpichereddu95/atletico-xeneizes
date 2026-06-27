@@ -333,3 +333,43 @@ Il sito deve servire tifosi e aggiornamenti sportivi prima della comunicazione i
 ### Impatto
 
 La home carica meno contenuti visibili subito, usa preview editoriali e sportive, mantiene il design approvato e prepara archivio stagioni e match report strutturati senza cambiare identita visiva. `/rosa` resta la route storica della squadra, mentre `/giocatori` viene aggiunta come alias SEO senza duplicare componenti.
+
+---
+
+## 2026-06-27 - UI/UX Pro Max come reference leggera
+
+### Ambito
+
+Memoria operativa, qualita UI/UX e consumo di contesto
+
+### Decisione
+
+Il repository `nextlevelbuilder/ui-ux-pro-max-skill` non viene integrato come Git Submodule. Viene registrato come riferimento esterno in `docs/UI_UX_PRO_MAX.md`, mentre le regole operative ad alto valore vengono sintetizzate in `AGENTS.md`.
+
+### Motivo
+
+La skill e un toolkit per assistenti AI, non una dipendenza runtime del sito. Un submodule aumenterebbe peso, rumore nei diff e manutenzione senza migliorare build o UX in modo diretto.
+
+### Impatto
+
+Codex deve leggere prima `AGENTS.md` e consultare UI/UX Pro Max solo per audit o decisioni progettuali mirate. Branding, palette e identita Atletico Xeneizes restano governati da `docs/BRAND.md`.
+
+---
+
+## 2026-06-27 - Stagione attuale e archivio storico
+
+### Ambito
+
+Home, partite, stagioni, rosa e contenuti pubblici
+
+### Decisione
+
+La stagione attuale viene separata dall'archivio 2025/26. Se il calendario ufficiale non e disponibile, il sito mostra uno stato pubblico "in aggiornamento" senza inventare gare. Montiel e Hrustic restano nello storico, ma sono esclusi dalla rosa attuale tramite `currentRoster: false` e filtro in `lib/api.ts`.
+
+### Motivo
+
+Il sito deve sembrare ufficiale e vivo anche tra una stagione e l'altra, senza cancellare dati storici o pubblicare informazioni non confermate.
+
+### Impatto
+
+La home usa una preview della rosa corrente, `/rosa` conserva il database storico, il Match Center include countdown dinamico con fallback elegante e la pagina stagioni distingue stagione in corso, archivio 2025/26 e archivio estivo.

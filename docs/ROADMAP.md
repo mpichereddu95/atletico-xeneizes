@@ -11,6 +11,8 @@ Stato: completata
 - [x] creare struttura documentale base
 - [x] definire regole permanenti di progetto
 - [x] allineare memoria del progetto ai file in `docs/`
+- [x] aggiungere `AGENTS.md` come indice operativo permanente
+- [x] registrare UI/UX Pro Max come reference esterna sintetica
 
 ## Fase 1 - Consolidamento architettura dati
 
@@ -36,12 +38,15 @@ Stato: in corso
 - [x] migliorare resa del logo su fondo scuro e crop immagini nella sezione news
 - [x] ottimizzare responsivita trasversale di navigazione, card staff, news e tabelle sportive senza cambiare identita visiva
 - [x] ribilanciare home in chiave sportiva con Match Center, classifica sintetica, preview rosa e anteprime editoriali
+- [x] separare stagione attuale, archivio 2025/26 e archivio estivo senza inventare dati non ufficiali
+- [x] aggiungere countdown prossima partita con stato in aggiornamento
 
 ## Fase 3 - Dati sportivi avanzati
 
 Stato: in corso
 
 - [x] predisporre struttura match report con risultato, marcatori, MVP, cronaca e gallery
+- [x] aggiungere grafico andamento squadra leggero senza nuove dipendenze
 - [ ] tabellini partita completi
 - [ ] storico stagioni completo
 - [ ] statistiche aggregate

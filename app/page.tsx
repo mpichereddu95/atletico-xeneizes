@@ -6,17 +6,19 @@ import { PlayersSection } from "@/components/PlayersSection";
 import { SponsorsSection } from "@/components/SponsorsSection";
 import { StaffSection } from "@/components/StaffSection";
 import { StandingsPreviewSection } from "@/components/StandingsPreviewSection";
-import { getArticles, getHomeSnapshot, getMatches, getPlayers, getSponsors, getStaff, getStandings } from "@/lib/api";
+import { SeasonStatusSection } from "@/components/SeasonStatusSection";
+import { getArticles, getCurrentPlayers, getHomeSnapshot, getMatches, getSeasonSummaries, getSponsors, getStaff, getStandings } from "@/lib/api";
 
 export default async function Home() {
-  const [{ latestResult, nextMatch }, players, matches, standings, articles, staff, sponsors] = await Promise.all([
+  const [{ latestResult, nextMatch }, players, matches, standings, articles, staff, sponsors, seasons] = await Promise.all([
     getHomeSnapshot(),
-    getPlayers(),
+    getCurrentPlayers(),
     getMatches(),
     getStandings(),
     getArticles(),
     getStaff(),
-    getSponsors()
+    getSponsors(),
+    getSeasonSummaries()
   ]);
   const matchReports = articles.filter((article) => article.category === "Match report");
   const newsArticles = articles.filter((article) => article.category !== "Match report");
@@ -25,13 +27,14 @@ export default async function Home() {
     <main>
       <Hero latestResult={latestResult} nextMatch={nextMatch} />
       <MatchCenterSection latestResult={latestResult} nextMatch={nextMatch} matches={matches} standings={standings} />
+      <SeasonStatusSection seasons={seasons} />
       <StandingsPreviewSection standings={standings} />
       <PlayersSection players={players} variant="preview" limit={8} />
       <NewsSection
         articles={matchReports}
         kicker="Match report"
         title="Report ufficiali"
-        text="Anteprime dei report gara: risultato, protagonisti, cronaca e gallery saranno gestibili dal CMS."
+        text="Le cronache raccolgono risultati, protagonisti e momenti chiave delle gare ufficiali."
         limit={3}
         ctaHref="/match-report"
         ctaLabel="Tutti i match report"
@@ -40,7 +43,7 @@ export default async function Home() {
         articles={newsArticles}
         kicker="News"
         title="Ultime news"
-        text="Solo le anteprime piu recenti in home, con archivio completo nella sezione editoriale."
+        text="Comunicati e aggiornamenti del club raccolti nello spazio ufficiale Atletico Xeneizes 149."
         limit={3}
         ctaHref="/news"
         ctaLabel="Archivio news"

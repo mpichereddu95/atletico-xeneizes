@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getArticleSlugs, getPlayers } from "@/lib/api";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://lightsteelblue-giraffe-291026.hostingersite.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.atleticoxeneizes149.com";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [players, articleSlugs] = await Promise.all([getPlayers(), getArticleSlugs()]);

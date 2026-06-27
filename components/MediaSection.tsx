@@ -13,7 +13,7 @@ export function MediaSection({ mediaItems }: MediaSectionProps) {
         <SectionHeading
           kicker="Media"
           title="Foto e contenuti visuali"
-          text="Raccolta iniziale di asset ufficiali del club, con impianto pronto per gallery stagionali, video e archivi fotografici estesi."
+          text="Foto, video e contenuti visuali ufficiali della squadra saranno raccolti qui con ordine stagione per stagione."
         />
         <div className="grid gap-5 lg:grid-cols-3">
           {mediaItems.map((item) => (

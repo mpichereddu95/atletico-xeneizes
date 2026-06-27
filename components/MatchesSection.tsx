@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import type { Match, Standing } from "@/lib/types";
 import { formatDate } from "@/lib/utils";
 import { SectionHeading } from "@/components/SectionHeading";
+import { SeasonTrendChart } from "@/components/SeasonTrendChart";
 
 type MatchesSectionProps = {
   matches: Match[];
@@ -52,7 +53,7 @@ export function MatchesSection({ matches, standings }: MatchesSectionProps) {
         <SectionHeading
           kicker="Partite"
           title="Stagione, risultati e classifica"
-          text="Una sezione piu compatta e professionale, con viste distinte per leggere la stagione senza trasformare la pagina in un lungo nastro di blocchi."
+          text="Calendario, risultati, classifica e andamento della squadra raccolti in una lettura chiara della stagione."
           tone="light"
         />
 
@@ -145,28 +146,8 @@ function OverviewPane({ matches, standings }: { matches: Match[]; standings: Sta
         </div>
 
         <div className="border border-axBlack/10">
-          <PanelHeader kicker="Andamento" title="Timeline stagione" />
-          <div className="grid gap-3 p-5">
-            {matches.slice(0, 6).map((match) => {
-              const outcome = getOutcome(match);
-              return (
-                <div
-                  key={match.id}
-                  className="grid grid-cols-[70px_minmax(0,1fr)_auto] items-center gap-3 border-b border-l-[3px] border-axBlack/8 pb-3 pl-3 sm:grid-cols-[78px_minmax(0,1fr)_auto] last:border-b-0"
-                  style={{ borderLeftColor: outcome.accent }}
-                >
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-axBlack/42">{match.round}</p>
-                  <p className="min-w-0 text-sm font-light text-axBlack">{match.home === "ATLETICO XENEIZES 149" ? match.away : match.home}</p>
-                  <span
-                    className={`inline-flex min-w-10 justify-center px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] ${outcome.badgeClass}`}
-                    style={{ color: outcome.accent }}
-                  >
-                    {outcome.label}
-                  </span>
-                </div>
-              );
-            })}
-          </div>
+          <PanelHeader kicker="Andamento" title="Punti nel tempo" />
+          <SeasonTrendChart matches={matches} />
         </div>
       </div>
 

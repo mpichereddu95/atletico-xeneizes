@@ -11,6 +11,12 @@ export const sponsorType = defineType({
     defineField({ name: "href", title: "Link", type: "url" }),
     defineField({ name: "instagram", title: "Instagram", type: "url" }),
     defineField({
+      name: "services",
+      title: "Servizi principali",
+      type: "array",
+      of: [{ type: "string" }]
+    }),
+    defineField({
       name: "logo",
       title: "Logo",
       type: "image",

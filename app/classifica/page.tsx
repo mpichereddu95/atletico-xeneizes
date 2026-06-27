@@ -16,7 +16,7 @@ export default async function ClassificaPage() {
       <PageHero
         kicker="Classifica"
         title="Classifica completa"
-        text="Tabella sportiva della stagione, pronta per archiviare competizioni e annate successive."
+        text="Tabella sportiva della stagione con il percorso competitivo dell'Atletico Xeneizes 149."
         primaryCta={{ href: "/calendario", label: "Calendario" }}
         secondaryCta={{ href: "/risultati", label: "Risultati" }}
       />

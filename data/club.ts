@@ -4,6 +4,7 @@ import type {
   Match,
   MediaItem,
   Player,
+  SeasonSummary,
   Sponsor,
   StaffMember,
   Standing
@@ -29,9 +30,41 @@ export const clubSources = {
 };
 
 const season = "2025/26";
+export const currentSeasonLabel = "2026/27";
+export const archiveSeasonLabel = season;
 const groupCompetition = "Coppa Cobram - Girone C";
 const pouleCompetition = "Coppa Cobram - Poule Scudetto";
 const fallbackAssists = null;
+
+export const seasonSummaries: SeasonSummary[] = [
+  {
+    id: "current-season",
+    label: "Stagione attuale",
+    title: currentSeasonLabel,
+    status: "current",
+    description: "Calendario ufficiale in aggiornamento. La nuova stagione verra pubblicata appena saranno disponibili i dati ufficiali.",
+    href: "/partite",
+    hasOfficialData: false
+  },
+  {
+    id: "archive-2025-26",
+    label: "Archivio storico",
+    title: archiveSeasonLabel,
+    status: "archive",
+    description: "Risultati, classifica, rosa e statistiche della stagione 2025/26 restano consultabili come memoria sportiva del club.",
+    href: "/stagioni",
+    hasOfficialData: true
+  },
+  {
+    id: "world-cup-estate-2026",
+    label: "Archivio estivo",
+    title: "World Cup / Estate 2026",
+    status: "archive",
+    description: "Archivio estivo concluso. Risultati, contenuti e materiali ufficiali saranno pubblicati quando confermati dal club.",
+    href: "/stagioni",
+    hasOfficialData: false
+  }
+];
 
 export const matches: Match[] = [
   {
@@ -373,6 +406,8 @@ export const players: Player[] = [
     name: "Stefano Montiel Noguera",
     number: null,
     role: "Portiere",
+    seasons: [archiveSeasonLabel],
+    currentRoster: false,
     birthLabel: "16/06/1993",
     photo: {
       src: playerPhoto("/images/joomleague/giocatori/MONTIELSTEFANO.JPG"),
@@ -580,6 +615,8 @@ export const players: Player[] = [
     name: "Senad Hrustic",
     number: null,
     role: "Attaccante",
+    seasons: [archiveSeasonLabel],
+    currentRoster: false,
     birthLabel: "14/04/1995",
     photo: {
       src: playerPhoto("/images/joomleague/giocatori/senad.JPG"),
@@ -639,9 +676,11 @@ export const staff: StaffMember[] = [
 export const sponsors: Sponsor[] = [
   {
     name: "Wonderland Hair",
-    tier: "Sponsor principale",
-    description: "Partner principale del club in questa prima versione del sito ufficiale.",
-    href: "https://www.wonderlandhair.it"
+    tier: "Main Sponsor",
+    description: "Wonderland Hair sostiene Atletico Xeneizes 149 come main sponsor, accompagnando il progetto sportivo e l'identita del gruppo dentro e fuori dal campo.",
+    href: "https://www.wonderlandhair.it",
+    instagramHref: "https://www.instagram.com/wonderland_hair_genova",
+    services: ["Hair styling", "Cura immagine", "Consulenza look"]
   }
 ];
 
@@ -749,11 +788,11 @@ export const cmsArticles: CmsArticleRecord[] = [
         },
         {
           type: "heading",
-          text: "Una base dati pronta a crescere"
+          text: "La fase finale"
         },
         {
           type: "paragraph",
-          text: "Questa pagina e stata costruita per distinguere chiaramente stagione regolare e fase finale, cosi da poter ospitare in futuro tabellini, cronache, foto e collegamenti automatici a fonti esterne o a un CMS del club."
+          text: "Il percorso nella Poule Scudetto resta uno dei passaggi piu importanti della stagione: una tappa che conferma crescita, competitivita e presenza dell'Atletico Xeneizes nelle gare che contano."
         }
       ]
     }
@@ -784,7 +823,7 @@ export const cmsArticles: CmsArticleRecord[] = [
         },
         {
           type: "paragraph",
-          text: "Il modello dati e gia predisposto per aggiungere nuove stagioni, numeri di maglia, assist, minutaggi, biografie estese e ulteriori collegamenti a fonti ufficiali."
+          text: "La rosa viene aggiornata seguendo le indicazioni ufficiali del club e le fonti sportive disponibili, mantenendo separati i dati della stagione in corso dallo storico."
         }
       ]
     }

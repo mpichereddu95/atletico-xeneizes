@@ -91,7 +91,15 @@ Contiene:
   - Wonderland Hair
   - sito: `https://www.wonderlandhair.it`
   - instagram: `https://www.instagram.com/wonderland_hair_genova`
-- sezione elegante predisposta per loghi e materiali futuri
+- tono premium e legame esplicito con il progetto sportivo
+
+### Stagioni
+
+Contiene:
+
+- stagione attuale con stato pubblico in aggiornamento finche non sono disponibili dati ufficiali
+- archivio storico 2025/26 con risultati, classifica, rosa e statistiche
+- archivio estivo World Cup / Estate 2026 da completare solo con materiali confermati dal club
 
 ### Canali ufficiali
 
@@ -119,7 +127,7 @@ Placeholder approvato:
 - fonti Calcio Liguria memorizzate in `clubSources`
 - asset locali del club
 
-## Contenuti da separare in futuro
+## Contenuti da mantenere separati
 
 - editoriale / news
 - dati sportivi

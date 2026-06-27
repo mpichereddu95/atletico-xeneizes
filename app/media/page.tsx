@@ -10,7 +10,7 @@ export default async function MediaPage() {
       <PageHero
         kicker="Media"
         title="Gallery e contenuti visuali"
-        text="Raccolta iniziale di immagini ufficiali del club con struttura pronta per espandersi in gallery stagionali, highlight video e archivi fotografici."
+        text="I contenuti ufficiali della squadra saranno pubblicati in questa sezione: foto, video, grafiche matchday e momenti del gruppo."
         primaryCta={{ href: "/", label: "Torna alla home" }}
         secondaryCta={{ href: "/news", label: "Apri le news" }}
       />

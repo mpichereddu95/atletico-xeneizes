@@ -19,7 +19,7 @@ export default async function RisultatiPage() {
       <PageHero
         kicker="Risultati"
         title="Risultati completi"
-        text="Cronologia ufficiale dei risultati, separabile per stagioni e competizioni future."
+        text="Cronologia ufficiale dei risultati Atletico Xeneizes 149, consultabile per stagione e competizione."
         primaryCta={{ href: "/calendario", label: "Calendario" }}
         secondaryCta={{ href: "/match-report", label: "Match report" }}
       />

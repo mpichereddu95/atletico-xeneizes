@@ -186,6 +186,7 @@ async function main() {
         bio: player.bio,
         sourceUrl: player.sourceUrl,
         season: ref(seasonId),
+        currentRoster: player.currentRoster ?? true,
         appearances: player.stats.appearances,
         goals: player.stats.goals,
         assists: player.stats.assists,
@@ -252,6 +253,8 @@ async function main() {
         tier: sponsor.tier,
         description: sponsor.description,
         href: sponsor.href,
+        instagram: sponsor.instagramHref,
+        services: sponsor.services,
         active: true
       }
     });

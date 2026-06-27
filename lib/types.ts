@@ -5,6 +5,8 @@ export type Player = {
   name: string;
   number: number | null;
   role: "Portiere" | "Difensore" | "Centrocampista" | "Attaccante";
+  seasons?: string[];
+  currentRoster?: boolean;
   birthLabel: string;
   photo: {
     src: string;
@@ -38,6 +40,16 @@ export type Match = {
   score?: string;
   status: "played" | "scheduled";
   sourceUrl?: string;
+};
+
+export type SeasonSummary = {
+  id: string;
+  label: string;
+  title: string;
+  status: "current" | "archive";
+  description: string;
+  href: string;
+  hasOfficialData: boolean;
 };
 
 export type Standing = {
@@ -128,6 +140,8 @@ export type Sponsor = {
   tier: string;
   description: string;
   href: string | null;
+  services?: string[];
+  instagramHref?: string | null;
   logo?: {
     src: string;
     alt: string;

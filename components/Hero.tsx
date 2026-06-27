@@ -22,7 +22,7 @@ export function Hero({ latestResult: _latestResult, nextMatch: _nextMatch }: Her
             Atletico Xeneizes 149
           </h1>
           <p className="mt-5 mx-auto max-w-2xl text-base leading-7 text-white/78 sm:text-lg">
-            Una piattaforma essenziale per seguire squadra, stagione e identita del club con una struttura pronta a crescere nel tempo.
+            Il punto ufficiale per seguire squadra, partite, risultati e identita Atletico Xeneizes 149.
           </p>
           <Link
             href="/rosa"

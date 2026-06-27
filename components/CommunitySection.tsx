@@ -3,19 +3,19 @@ import { SectionHeading } from "@/components/SectionHeading";
 const communityItems = [
   {
     title: "Newsletter",
-    text: "Spazio predisposto per aggiornamenti ufficiali, convocazioni e comunicazioni del club."
+    text: "Aggiornamenti ufficiali, comunicazioni del club e appuntamenti della squadra."
   },
   {
     title: "WhatsApp community",
-    text: "Canale futuro per avvisi rapidi, matchday e contenuti riservati ai tifosi."
+    text: "Uno spazio diretto per vivere matchday, avvisi rapidi e iniziative dedicate ai tifosi."
   },
   {
     title: "Telegram",
-    text: "Area pronta per notifiche leggere e archivio dei comunicati."
+    text: "Notizie essenziali e comunicazioni ufficiali in un canale semplice da seguire."
   },
   {
     title: "Registrazione tifosi",
-    text: "Base futura per creare una community ordinata e aggiornabile nel tempo."
+    text: "Un percorso pensato per avvicinare sostenitori, amici e persone legate al progetto."
   }
 ];
 
@@ -26,7 +26,7 @@ export function CommunitySection() {
         <SectionHeading
           kicker="Community"
           title="Canali tifosi"
-          text="Struttura pronta per attivare servizi community senza collegare strumenti esterni in questa fase."
+          text="Atletico Xeneizes 149 vuole raccogliere attorno alla squadra una community riconoscibile, presente e informata."
         />
 
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">

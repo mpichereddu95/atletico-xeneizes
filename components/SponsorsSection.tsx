@@ -17,7 +17,7 @@ export function SponsorsSection({ sponsors }: SponsorsSectionProps) {
         <SectionHeading
           kicker="Club"
           title="Sponsor, canali ufficiali e progetto"
-          text="Un blocco piu ordinato che raccoglie i riferimenti ufficiali del club senza appesantire la home con sezioni frammentate."
+          text="Partner, canali ufficiali e identita del progetto raccolti in un unico spazio."
         />
 
         <div className="grid gap-5 lg:grid-cols-[1.2fr_0.8fr]">
@@ -33,6 +33,15 @@ export function SponsorsSection({ sponsors }: SponsorsSectionProps) {
                   ) : null}
                   <p className="font-display text-3xl font-extrabold text-white sm:text-4xl">{primarySponsor.name}</p>
                   <p className="mt-4 max-w-xl text-sm leading-7 text-white/62">{primarySponsor.description}</p>
+                  {primarySponsor.services?.length ? (
+                    <div className="mt-6 flex flex-wrap gap-2">
+                      {primarySponsor.services.map((service) => (
+                        <span key={service} className="border border-[#C9A84C33] px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-axGold">
+                          {service}
+                        </span>
+                      ))}
+                    </div>
+                  ) : null}
                 </div>
                 <div className="mt-5 flex flex-wrap gap-3">
                   {primarySponsor.href ? (
@@ -46,7 +55,7 @@ export function SponsorsSection({ sponsors }: SponsorsSectionProps) {
                     </Link>
                   ) : null}
                   <Link
-                    href="https://www.instagram.com/wonderland_hair_genova"
+                    href={primarySponsor.instagramHref ?? "https://www.instagram.com/wonderland_hair_genova"}
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex border border-white/12 px-4 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-white transition hover:border-axGold hover:text-axGold"
@@ -56,7 +65,7 @@ export function SponsorsSection({ sponsors }: SponsorsSectionProps) {
                 </div>
               </>
             ) : (
-              <p className="mt-4 max-w-xl text-sm leading-7 text-white/62">Area predisposta per i partner ufficiali del club.</p>
+              <p className="mt-4 max-w-xl text-sm leading-7 text-white/62">I partner ufficiali saranno presentati in questa sezione.</p>
             )}
           </article>
 

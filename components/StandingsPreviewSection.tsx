@@ -24,7 +24,7 @@ export function StandingsPreviewSection({ standings, limit = 6, showLink = true 
         <SectionHeading
           kicker="Classifica"
           title="Situazione stagione"
-          text="Lettura sintetica della graduatoria, con accesso alla tabella completa per archivio e stagioni future."
+          text="Lettura sintetica della graduatoria, con accesso alla tabella completa della stagione."
         />
 
         {rows.length > 0 ? (

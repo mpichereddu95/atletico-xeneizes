@@ -18,7 +18,7 @@ export function PlayersSection({ players, variant = "full", limit = 8 }: Players
           <SectionHeading
             kicker="Rosa"
             title="Database giocatori"
-            text="Preview leggera della rosa: schede cliccabili, statistiche essenziali e database completo nella sezione dedicata."
+            text="Una selezione della rosa attuale con schede cliccabili e statistiche essenziali."
           />
 
           <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">
@@ -41,7 +41,7 @@ export function PlayersSection({ players, variant = "full", limit = 8 }: Players
         <SectionHeading
           kicker="Rosa"
           title="Database giocatori"
-          text="Statistiche ufficiali del Girone C 2025/26, schede cliccabili e struttura dati pronta per nuove stagioni, CMS o API sportive."
+          text="Statistiche ufficiali, schede giocatore e archivio storico della rosa Atletico Xeneizes 149."
         />
 
         <div className="grid gap-8">

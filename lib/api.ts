@@ -1,4 +1,4 @@
-import { articles, cmsArticles, latestResult, matches, mediaItems, navigation, nextMatch, officialChannels, players, projectStatement, sponsors, staff, standings } from "@/data/club";
+import { articles, cmsArticles, latestResult, matches, mediaItems, navigation, nextMatch, officialChannels, players, projectStatement, seasonSummaries, sponsors, staff, standings } from "@/data/club";
 import {
   getSanityArticleBySlug,
   getSanityArticles,
@@ -27,6 +27,13 @@ export async function getPlayers() {
   return sanityPlayers.length > 0 ? sanityPlayers : players;
 }
 
+export async function getCurrentPlayers() {
+  const excludedFromCurrentRoster = new Set(["stefano-montiel-noguera", "senad-hrustic"]);
+  const allPlayers = await getPlayers();
+
+  return allPlayers.filter((player) => player.currentRoster !== false && !excludedFromCurrentRoster.has(player.id));
+}
+
 export async function getPlayerById(playerId: string) {
   const allPlayers = await getPlayers();
   return allPlayers.find((player) => player.id === playerId) ?? null;
@@ -35,6 +42,10 @@ export async function getPlayerById(playerId: string) {
 export async function getMatches() {
   const sanityMatches = await getSanityMatches();
   return sanityMatches.length > 0 ? sanityMatches : matches;
+}
+
+export async function getSeasonSummaries() {
+  return seasonSummaries;
 }
 
 export async function getStandings() {

@@ -10,7 +10,7 @@ export default async function SponsorPage() {
       <PageHero
         kicker="Sponsor"
         title="Partner e presenza commerciale"
-        text="Sezione preparata per partner ufficiali, loghi, link e visibilita per tier, senza pubblicare brand non ancora confermati."
+        text="Partner ufficiali, legami commerciali e realta che sostengono il percorso di Atletico Xeneizes 149."
         primaryCta={{ href: "/", label: "Torna alla home" }}
         secondaryCta={{ href: "/media", label: "Apri media" }}
       />

@@ -12,7 +12,7 @@ export function StaffSection({ staff }: StaffSectionProps) {
         <SectionHeading
           kicker="Staff"
           title="Area tecnica e societaria"
-          text="Ruoli aggiornati secondo le indicazioni del club, con struttura pronta per biografie complete, contatti e futuri ampliamenti della dirigenza."
+          text="Le figure che guidano il progetto sportivo e organizzativo di Atletico Xeneizes 149."
         />
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-4">
           {staff.map((member) => (

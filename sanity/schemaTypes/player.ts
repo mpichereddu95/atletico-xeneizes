@@ -34,6 +34,13 @@ export const playerType = defineType({
     defineField({ name: "bio", title: "Biografia", type: "text", rows: 5, validation: (rule) => rule.required() }),
     defineField({ name: "sourceUrl", title: "Fonte ufficiale", type: "url" }),
     defineField({ name: "season", title: "Stagione", type: "reference", to: [{ type: "season" }] }),
+    defineField({
+      name: "currentRoster",
+      title: "Mostra nella rosa attuale",
+      type: "boolean",
+      initialValue: true,
+      description: "Disattiva per mantenere il giocatore nello storico senza mostrarlo nella rosa della stagione in corso."
+    }),
     defineField({ name: "appearances", title: "Presenze", type: "number", initialValue: 0, validation: (rule) => rule.integer().min(0) }),
     defineField({ name: "goals", title: "Gol", type: "number", initialValue: 0, validation: (rule) => rule.integer().min(0) }),
     defineField({ name: "assists", title: "Assist", type: "number", validation: (rule) => rule.integer().min(0) }),

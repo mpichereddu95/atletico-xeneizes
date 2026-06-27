@@ -17,7 +17,7 @@ export default async function CalendarioPage() {
       <PageHero
         kicker="Calendario"
         title="Calendario completo"
-        text="Archivio ordinato delle gare ufficiali, predisposto per stagioni e competizioni future."
+        text="Archivio ordinato delle gare ufficiali e spazio dedicato al calendario della stagione in corso."
         primaryCta={{ href: "/risultati", label: "Risultati" }}
         secondaryCta={{ href: "/partite", label: "Partite" }}
       />

@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Match, Standing } from "@/lib/types";
 import { formatDate } from "@/lib/utils";
 import { SectionHeading } from "@/components/SectionHeading";
+import { MatchCountdown } from "@/components/MatchCountdown";
 
 type MatchCenterSectionProps = {
   latestResult: Match | null;
@@ -31,7 +32,7 @@ export function MatchCenterSection({ latestResult, nextMatch, matches, standings
         />
 
         <div className="grid gap-4 lg:grid-cols-[1fr_1fr_0.9fr]">
-          <MatchPanel kicker="Prossima partita" match={next} empty="Nessuna partita programmata." />
+          <NextMatchPanel match={next} />
           <MatchPanel kicker="Ultimo risultato" match={latest} empty="Nessun risultato disponibile." />
 
           <article className="border border-axBlack/10 bg-[#f7f5ef] p-5 sm:p-6">
@@ -72,6 +73,15 @@ export function MatchCenterSection({ latestResult, nextMatch, matches, standings
         </div>
       </div>
     </section>
+  );
+}
+
+function NextMatchPanel({ match }: { match: Match | null }) {
+  return (
+    <article className="border border-axBlack/10 bg-white p-5 sm:p-6">
+      <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-axGold">Prossima partita</p>
+      <MatchCountdown match={match} />
+    </article>
   );
 }
 
