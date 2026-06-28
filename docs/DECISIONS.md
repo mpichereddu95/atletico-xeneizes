@@ -413,3 +413,23 @@ Sanity copre gia news, match report, giocatori, partite, classifiche, sponsor e 
 ### Impatto
 
 Le future modifiche contenutistiche devono partire da Sanity e dal layer `lib/api.ts`. `/admin` non va usato come dashboard definitiva finche non sara progettato come prodotto separato e sicuro.
+
+---
+
+## 2026-06-28 - Build Hostinger stabilizzata su Webpack
+
+### Ambito
+
+Deploy produzione Hostinger, Next.js 16 e stabilita runtime
+
+### Decisione
+
+Lo script `npm run build` usa `next build --webpack` invece del build predefinito con Turbopack.
+
+### Motivo
+
+La build Webpack compila correttamente il progetto e genera tutte le pagine. Turbopack ha mostrato un errore interno locale durante la build; usare Webpack riduce il rischio di deploy instabili e 503 su Hostinger.
+
+### Impatto
+
+Hostinger continuera a usare `npm run build`, ma con pipeline Webpack. Non cambia design, contenuti, CMS o comportamento pubblico del sito.
