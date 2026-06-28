@@ -316,6 +316,26 @@ Navigazione mobile, card staff, heading interni, news e tabelle sportive usano v
 
 ---
 
+## 2026-06-28 - Dashboard Sanity semplificata
+
+### Ambito
+
+Backoffice editoriale `/studio`
+
+### Decisione
+
+Lo Studio Sanity usa una struttura custom orientata al flusso reale del club: Avvio rapido, News, Match report, Rosa attuale, Archivio giocatori, Partite programmate, Risultati, Classifiche, Sponsor, Media e Stagioni/Competizioni.
+
+### Motivo
+
+La lista tecnica degli schema era corretta ma poco adatta a un editor non tecnico. La nuova struttura riduce attrito e separa contenuti attuali, archivio e contenuti editoriali senza modificare il sito pubblico.
+
+### Impatto
+
+La gestione contenuti diventa piu ordinata. Gli schema restano invariati e il frontend continua a leggere tramite `lib/api.ts`.
+
+---
+
 ## 2026-06-22 - Home come piattaforma sportiva
 
 ### Ambito

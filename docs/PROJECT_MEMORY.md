@@ -40,6 +40,7 @@ Costruire una piattaforma sportiva ufficiale per:
 ## Decisioni Prese
 
 - Sanity e il CMS operativo della v1.
+- Sanity non va reinstallato: e gia integrato su `/studio` e registrato sul dominio ufficiale. Il prossimo lavoro e rifinire dashboard, schema mancanti e flusso editoriale.
 - Supabase resta parcheggiato per funzioni avanzate future.
 - `lib/api.ts` resta il punto unico da cui le pagine leggono dati.
 - La hero attuale non va sostituita: rappresenta il quartiere di nascita della squadra.
@@ -96,10 +97,12 @@ Costruire una piattaforma sportiva ufficiale per:
 ## Prossimi Step Prioritari
 
 1. Inserire contenuti reali minimi in Sanity seguendo `docs/EDITORIAL_WORKFLOW.md`.
-2. Audit responsive/performance su produzione.
-3. Definire override club separati dai dati ufficiali.
-4. Chiarire o disattivare `/admin` finche non sara sicuro.
-5. Aggiornare dati 2026/27 quando Calcio Liguria pubblichera calendario e tesseramenti.
+2. Personalizzare Sanity Studio con viste editoriali per Home, Rosa attuale, Archivio, Partite, Match report, Sponsor e Media.
+3. Aggiungere o rifinire gli schema mancanti: `staff`, `homepage`, `siteSettings` e stato roster/season piu leggibile.
+4. Audit responsive/performance su produzione.
+5. Definire override club separati dai dati ufficiali.
+6. Chiarire o disattivare `/admin` finche non sara sicuro.
+7. Aggiornare dati 2026/27 quando Calcio Liguria pubblichera calendario e tesseramenti.
 
 ## Come Usare Questa Memoria Nelle Prossime Sessioni
 

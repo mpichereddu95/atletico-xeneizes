@@ -30,6 +30,7 @@
 - [x] configurare variabili ambiente Sanity su Hostinger
 - [x] separare strategicamente il dataset sportivo da contenuti editoriali
 - [x] creare modelli Sanity per stagioni, competizioni, squadre, giocatori, partite, classifiche, sponsor e media
+- [x] creare dashboard Sanity semplificata per flusso editoriale
 - [x] rimuovere articolo test da Sanity
 - [x] reinserire match report e comunicati reali in Sanity
 - [x] sincronizzare dati sportivi reali completi da `data/club.ts` a Sanity
