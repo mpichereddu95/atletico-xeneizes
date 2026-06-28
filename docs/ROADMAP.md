@@ -60,6 +60,7 @@ Stato: completata per v1
 - [x] adapter CMS per news con fallback statico
 - [x] creare Studio Sanity integrato in `/studio`
 - [x] workflow redazionale base tramite Studio e token editoriale
+- [x] documentare checklist editoriale Sanity
 - [x] immagini dedicate per articolo
 - [x] contenuti reali v1 sincronizzati in Sanity
 
@@ -69,6 +70,8 @@ Stato: ridimensionata
 
 - [ ] dashboard amministrativa
 - [x] scelta stack admin: Sanity per CMS editoriale, Supabase parcheggiato
+- [x] dichiarare `/studio` come backoffice operativo v1
+- [x] documentare `/admin` come prototipo non definitivo
 - [ ] protezione area `/admin`
 - [x] creare fondazione `/admin` con login Supabase e dashboard moduli
 - [x] documentare schema Supabase v1
@@ -90,3 +93,4 @@ Stato: pianificata
 - [ ] SEO avanzato
 - [x] controllo responsive desktop/tablet/mobile
 - [ ] performance audit finale
+- [ ] aggiornamento controllato dipendenze moderate segnalate da audit

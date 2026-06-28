@@ -2,7 +2,7 @@
 
 ## Priorita
 
-- Prima di modificare codice, consulta questo file e i documenti mirati in `docs/`.
+- Prima di modificare codice, consulta questo file, `docs/PROJECT_MEMORY.md` e i documenti mirati in `docs/`.
 - Limita l'analisi ai file coinvolti dalla richiesta.
 - Non modificare branding, logo, palette, tono o identita visiva senza richiesta esplicita.
 - Mantieni `lib/api.ts` come facciata dati del frontend.
@@ -10,8 +10,11 @@
 ## Documentazione
 
 - Usa `docs/PROJECT.md` per architettura, route e stato prodotto.
+- Usa `docs/PROJECT_MEMORY.md` per contesto essenziale e decisioni operative recenti.
 - Usa `docs/BRAND.md` per identita visiva, colori, logo e tipografia.
 - Usa `docs/CONTENT.md` e `docs/PLAYERS.md` per contenuti sportivi.
+- Usa `docs/EDITORIAL_WORKFLOW.md` per inserimento contenuti tramite Sanity.
+- Usa `docs/SECURITY_CHECKLIST.md` per variabili, CMS, admin, token e deploy.
 - Aggiorna `docs/ROADMAP.md`, `docs/TODO.md` e `docs/DECISIONS.md` quando cambia il progetto.
 
 ## UI/UX

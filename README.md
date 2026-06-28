@@ -30,6 +30,8 @@ npm start
 
 ## Variabili ambiente
 
+Usa `.env.example` come template e non committare mai valori reali.
+
 Per leggere i contenuti da Sanity:
 
 ```bash
@@ -40,6 +42,7 @@ NEXT_PUBLIC_SITE_URL=https://dominio-definitivo.it
 ```
 
 `SANITY_API_READ_TOKEN` non deve avere prefisso `NEXT_PUBLIC_`: serve solo al server per leggere il dataset Sanity non pubblico.
+`SANITY_AUTH_TOKEN` serve solo localmente per sincronizzare contenuti verso Sanity con `npm run sanity:sync`.
 
 ## Pagine incluse
 
@@ -172,6 +175,12 @@ SANITY_AUTH_TOKEN=token_editor npm run sanity:sync
 ```
 
 Il sito continua ad avere fallback statico: se Sanity non risponde, la produzione resta online con i dati locali approvati.
+
+Per il flusso editoriale usare:
+
+- `/studio` come backoffice operativo v1;
+- `docs/EDITORIAL_WORKFLOW.md` come checklist contenuti;
+- `/admin` solo come prototipo tecnico Supabase, non come dashboard definitiva.
 
 ## Memoria operativa
 

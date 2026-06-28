@@ -373,3 +373,23 @@ Il sito deve sembrare ufficiale e vivo anche tra una stagione e l'altra, senza c
 ### Impatto
 
 La home usa una preview della rosa corrente, `/rosa` conserva il database storico, il Match Center include countdown dinamico con fallback elegante e la pagina stagioni distingue stagione in corso, archivio 2025/26 e archivio estivo.
+
+---
+
+## 2026-06-28 - Sanity come backoffice v1 e sicurezza operativa
+
+### Ambito
+
+CMS, variabili ambiente, sicurezza, memoria progetto e flusso editoriale.
+
+### Decisione
+
+Sanity Studio su `/studio` e il backoffice operativo della v1. Supabase e `/admin` restano parcheggiati/prototipali finche non verra definita una protezione server-side adeguata. Le variabili ambiente sono documentate in `.env.example`; il flusso editoriale e in `docs/EDITORIAL_WORKFLOW.md`; la checklist sicurezza e in `docs/SECURITY_CHECKLIST.md`.
+
+### Motivo
+
+Sanity copre gia news, match report, giocatori, partite, classifiche, sponsor e media senza richiedere programmazione. Mantenere due sistemi admin attivi aumenterebbe complessita, rischio operativo e consumo di contesto.
+
+### Impatto
+
+Le future modifiche contenutistiche devono partire da Sanity e dal layer `lib/api.ts`. `/admin` non va usato come dashboard definitiva finche non sara progettato come prodotto separato e sicuro.

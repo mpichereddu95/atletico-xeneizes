@@ -12,6 +12,8 @@ Sanity viene adottato come CMS editoriale progressivo. Supabase resta parcheggia
 
 Il dataset richiede autenticazione per la lettura: in produzione va configurata la variabile server-only `SANITY_API_READ_TOKEN`, senza prefisso `NEXT_PUBLIC_`.
 
+Il flusso operativo v1 passa da `/studio`. La checklist redazionale e in `docs/EDITORIAL_WORKFLOW.md`.
+
 ## Tipi contenuto attivi
 
 ### article
@@ -113,6 +115,7 @@ Gestisce competizioni e fasi.
 - descrizione
 - link
 - Instagram
+- servizi principali
 - logo
 - attivo
 

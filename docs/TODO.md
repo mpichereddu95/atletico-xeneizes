@@ -41,6 +41,11 @@
 - [x] allineare README ai nuovi documenti `docs/`
 - [x] completare QA responsive su desktop, tablet e mobile
 - [x] creare `AGENTS.md` come memoria operativa sintetica del progetto
+- [x] creare `docs/PROJECT_MEMORY.md` come memoria essenziale per sessioni future
+- [x] creare `.env.example` senza segreti reali
+- [x] documentare flusso editoriale Sanity
+- [x] documentare checklist sicurezza
+- [x] dichiarare `/studio` come backoffice operativo v1 e `/admin` come prototipo
 - [x] integrare UI/UX Pro Max come reference documentale senza submodule
 - [x] portare il Match Center in alto nella home
 - [x] ridurre la rosa in home a preview responsive 4/3/2 colonne
@@ -56,6 +61,7 @@
 - [ ] aggiornare calendario, tesseramenti e statistiche 2026/27 quando Calcio Liguria pubblichera dati ufficiali
 - [ ] valutare se ridurre o riposizionare la sezione media nella navigazione principale
 - [ ] eseguire performance audit finale su produzione Hostinger
+- [ ] aggiornare dipendenze transitive moderate in step controllato
 
 ## Regola per richieste future troppo ampie
 
