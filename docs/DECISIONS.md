@@ -433,3 +433,23 @@ La build Webpack compila correttamente il progetto e genera tutte le pagine. Tur
 ### Impatto
 
 Hostinger continuera a usare `npm run build`, ma con pipeline Webpack. Non cambia design, contenuti, CMS o comportamento pubblico del sito.
+
+---
+
+## 2026-06-28 - Start command esplicito per Hostinger
+
+### Ambito
+
+Runtime produzione Hostinger e reverse proxy Node.js
+
+### Decisione
+
+Lo script `npm run start` avvia Next con host esplicito `0.0.0.0` e porta `${PORT:-3000}`.
+
+### Motivo
+
+I log Hostinger mostravano l'app pronta senza errori, ma il dominio restituiva 503. Rendere espliciti host e porta evita disallineamenti tra processo Next e reverse proxy della piattaforma.
+
+### Impatto
+
+Il sito resta invariato. Cambia solo il comando runtime usato da Hostinger per servire l'app.
