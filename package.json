@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build --webpack",
-    "start": "next start -H 0.0.0.0 -p ${PORT:-3000}",
+    "build": "next build --webpack && node scripts/prepare-standalone.mjs",
+    "start": "HOSTNAME=0.0.0.0 node .next/standalone/server.js",
     "sanity:sync": "node scripts/sync-sanity-content.mjs",
     "typecheck": "tsc --noEmit"
   },

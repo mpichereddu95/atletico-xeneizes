@@ -11,7 +11,7 @@ export function SeasonStatusSection({ seasons }: SeasonStatusSectionProps) {
   const secondaryArchive = seasons.find((season) => season.id === "world-cup-estate-2026");
 
   return (
-    <section className="bg-[#f7f5ef] py-14 text-axBlack lg:py-18">
+    <section className="bg-[#f7f5ef] py-14 text-axBlack lg:py-20">
       <div className="section-shell">
         <SectionHeading
           kicker="Stagioni"

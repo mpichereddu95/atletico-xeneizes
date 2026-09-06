@@ -57,6 +57,7 @@
 - [x] introdurre stato "calendario in aggiornamento" per la nuova stagione
 - [x] rimuovere dal sito pubblico testi tecnici o da sviluppo
 - [x] aggiungere grafico andamento squadra nella sezione Partite
+- [x] rifinire la home con gerarchia premium controllata senza redesign
 - [ ] rifinire il resto delle pagine interne con la nuova direzione minimal della home
 - [ ] preparare asset sponsor ufficiali quando il club li fornira
 - [ ] aggiornare calendario, tesseramenti e statistiche 2026/27 quando Calcio Liguria pubblichera dati ufficiali

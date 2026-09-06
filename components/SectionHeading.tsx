@@ -10,7 +10,7 @@ export function SectionHeading({ kicker, title, text, tone = "dark" }: SectionHe
   const textClass = tone === "light" ? "text-axBlack/62" : "text-white/65";
 
   return (
-    <div className="mb-10 flex flex-col gap-5 lg:mb-14 lg:flex-row lg:items-end lg:justify-between">
+    <div className="mb-9 flex flex-col gap-5 lg:mb-12 lg:flex-row lg:items-end lg:justify-between">
       <div>
         <p className="section-kicker">{kicker}</p>
         <h2 className={`section-title mt-3 ${titleClass}`}>{title}</h2>

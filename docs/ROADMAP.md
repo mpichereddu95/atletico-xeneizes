@@ -40,6 +40,7 @@ Stato: in corso
 - [x] ribilanciare home in chiave sportiva con Match Center, classifica sintetica, preview rosa e anteprime editoriali
 - [x] separare stagione attuale, archivio 2025/26 e archivio estivo senza inventare dati non ufficiali
 - [x] aggiungere countdown prossima partita con stato in aggiornamento
+- [x] rifinire hero, header, Match Center, news e preview rosa con gerarchia premium senza cambiare identita
 
 ## Fase 3 - Dati sportivi avanzati
 

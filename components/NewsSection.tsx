@@ -49,24 +49,25 @@ export function NewsSection({
                     ? "bg-[#FF8C9418]"
                     : "";
               const imageClass = getArticleCoverClass(article.id);
+              const featured = index === 0 && visibleArticles.length > 2;
 
               return (
-              <article key={article.id} className="content-auto overflow-hidden border border-white/10 bg-white/[0.04] transition hover:border-axGold/70">
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <Image src={article.coverImage.src} alt={article.coverImage.alt} fill sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw" loading="lazy" className={`${imageClass} transition duration-500 hover:scale-105`} />
+              <article key={article.id} className={`content-auto premium-panel group overflow-hidden transition hover:border-axGold/70 ${featured ? "lg:col-span-2" : ""}`}>
+                <div className={`relative overflow-hidden ${featured ? "aspect-[16/10]" : "aspect-[4/3]"}`}>
+                  <Image src={article.coverImage.src} alt={article.coverImage.alt} fill sizes={featured ? "(max-width: 1024px) 100vw, 66vw" : "(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"} loading="lazy" className={`${imageClass} transition duration-500 group-hover:scale-105`} />
                   <div className="absolute inset-0 bg-gradient-to-t from-axBlack via-transparent to-transparent" />
                   {repeatedSource ? <div className={`absolute inset-0 ${overlayTint}`} /> : null}
-                  <span className="absolute left-4 top-4 bg-[#0A0A0Acc] px-3 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-white">
+                  <span className="absolute left-4 top-4 rounded-[6px] bg-[#0A0A0Acc] px-3 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-white">
                     {article.category} · {formatDate(article.date)}
                   </span>
                 </div>
-                <div className="grid gap-4 p-6">
+                <div className="grid gap-4 p-5 sm:p-6">
                   <div className="flex items-center justify-end gap-4">
                     <span className="text-xs font-bold text-white/55">{article.author}</span>
                   </div>
-                  <h3 className="font-display text-3xl font-black uppercase leading-tight text-white">{article.title}</h3>
+                  <h3 className={`${featured ? "text-3xl sm:text-4xl" : "text-2xl sm:text-3xl"} font-display font-black uppercase leading-tight text-white`}>{article.title}</h3>
                   <p className="text-sm leading-6 text-white/62">{article.excerpt}</p>
-                  <Link href={`/news/${article.slug}`} className="inline-flex text-sm font-black uppercase tracking-[0.2em] text-white transition hover:text-axGold">
+                  <Link href={`/news/${article.slug}`} className="focus-ring inline-flex w-fit rounded-sm text-sm font-black uppercase tracking-[0.2em] text-white transition hover:text-axGold">
                     Leggi l'articolo
                   </Link>
                 </div>
@@ -81,7 +82,7 @@ export function NewsSection({
         )}
 
         {ctaHref && ctaLabel ? (
-          <Link href={ctaHref} className="mt-5 inline-flex border border-white/12 px-4 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-white transition hover:border-axGold hover:text-axGold">
+          <Link href={ctaHref} className="focus-ring mt-5 inline-flex rounded-[6px] border border-white/12 px-4 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-white transition hover:border-axGold hover:text-axGold">
             {ctaLabel}
           </Link>
         ) : null}

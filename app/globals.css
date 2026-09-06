@@ -7,6 +7,9 @@
   --ax-black: #111111;
   --ax-gold: #d4af37;
   --ax-white: #ffffff;
+  --ax-line: rgba(255, 255, 255, 0.1);
+  --ax-muted: rgba(255, 255, 255, 0.64);
+  --ax-panel: rgba(255, 255, 255, 0.045);
 }
 
 * {
@@ -26,6 +29,8 @@ body {
   color: var(--ax-white);
   font-family: Inter, system-ui, sans-serif;
   overflow-x: clip;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 img,
@@ -62,7 +67,19 @@ body::selection {
   }
 
   .section-title {
-    @apply font-display text-4xl font-extrabold leading-[0.95] text-white sm:text-5xl lg:text-6xl;
+    @apply font-display text-[clamp(2.2rem,5vw,4.25rem)] font-extrabold leading-[0.95] text-white;
+  }
+
+  .premium-panel {
+    @apply rounded-[10px] border border-white/10 bg-white/[0.045] shadow-[0_24px_80px_rgba(0,0,0,0.22)];
+  }
+
+  .premium-panel-light {
+    @apply rounded-[10px] border border-axBlack/10 bg-white shadow-[0_22px_70px_rgba(17,17,17,0.08)];
+  }
+
+  .focus-ring {
+    @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-axGold;
   }
 
   .gold-line {
@@ -72,5 +89,16 @@ body::selection {
   .content-auto {
     content-visibility: auto;
     contain-intrinsic-size: 1px 520px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   }
 }

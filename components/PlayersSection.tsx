@@ -27,7 +27,7 @@ export function PlayersSection({ players, variant = "full", limit = 8 }: Players
             ))}
           </div>
 
-          <Link href="/rosa" className="mt-5 inline-flex border border-white/12 px-4 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-white transition hover:border-axGold hover:text-axGold">
+          <Link href="/rosa" className="focus-ring mt-5 inline-flex rounded-[6px] border border-white/12 px-4 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-white transition hover:border-axGold hover:text-axGold">
             Database completo
           </Link>
         </div>
@@ -80,7 +80,7 @@ function PlayerCard({ player, compact = false }: { player: Player; compact?: boo
   return (
     <Link
       href={`/rosa/${player.id}`}
-      className={`group rounded-[8px] border border-[#C9A84C22] bg-[#111111] transition hover:-translate-y-1 hover:border-[#C9A84C55] ${compact ? "p-3" : "p-4"}`}
+      className={`focus-ring group rounded-[8px] border border-[#C9A84C22] bg-[#111111] transition hover:-translate-y-1 hover:border-[#C9A84C55] ${compact ? "p-3" : "p-4"}`}
     >
       <div className={`${compact ? "text-[1.65rem]" : "text-[2rem]"} font-semibold uppercase leading-none tracking-[-0.02em] text-[#C9A84C] opacity-60`}>
         {player.number ?? "—"}

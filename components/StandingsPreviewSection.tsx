@@ -28,7 +28,7 @@ export function StandingsPreviewSection({ standings, limit = 6, showLink = true 
         />
 
         {rows.length > 0 ? (
-          <div className="overflow-x-auto border border-white/10 bg-white/[0.03] [scrollbar-width:thin]">
+          <div className="premium-panel overflow-x-auto [scrollbar-width:thin]">
             <div className="grid min-w-[620px] grid-cols-[48px_minmax(220px,1.4fr)_60px_60px_70px_70px] px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-white/42">
               <span>Pos</span>
               <span>Squadra</span>
@@ -53,7 +53,7 @@ export function StandingsPreviewSection({ standings, limit = 6, showLink = true 
         )}
 
         {showLink ? (
-          <Link href="/classifica" className="mt-5 inline-flex border border-white/12 px-4 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-white transition hover:border-axGold hover:text-axGold">
+          <Link href="/classifica" className="focus-ring mt-5 inline-flex rounded-[6px] border border-white/12 px-4 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-white transition hover:border-axGold hover:text-axGold">
             Apri classifica completa
           </Link>
         ) : null}

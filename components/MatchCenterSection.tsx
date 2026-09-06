@@ -22,7 +22,7 @@ export function MatchCenterSection({ latestResult, nextMatch, matches, standings
   const clubStanding = tableRows.find((row) => row.team === CLUB_NAME);
 
   return (
-    <section id="match-center" className="bg-white py-14 text-axBlack lg:py-18">
+    <section id="match-center" className="bg-white py-14 text-axBlack lg:py-20">
       <div className="section-shell">
         <SectionHeading
           kicker="Match center"
@@ -35,10 +35,10 @@ export function MatchCenterSection({ latestResult, nextMatch, matches, standings
           <NextMatchPanel match={next} />
           <MatchPanel kicker="Ultimo risultato" match={latest} empty="Nessun risultato disponibile." />
 
-          <article className="border border-axBlack/10 bg-[#f7f5ef] p-5 sm:p-6">
+          <article className="premium-panel-light bg-[#f7f5ef] p-5 sm:p-6">
             <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-axGold">Classifica sintetica</p>
             {clubStanding ? (
-              <div className="mt-5 border border-axBlack/10 bg-white p-4">
+              <div className="mt-5 rounded-[8px] border border-axBlack/10 bg-white p-4">
                 <div className="flex items-center justify-between gap-4">
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-[0.18em] text-axBlack/45">Atletico Xeneizes</p>
@@ -64,10 +64,10 @@ export function MatchCenterSection({ latestResult, nextMatch, matches, standings
         </div>
 
         <div className="mt-5 flex flex-wrap gap-3">
-          <Link href="/calendario" className="inline-flex border border-axBlack/12 px-4 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-axBlack transition hover:border-axGold hover:text-axGold">
+          <Link href="/calendario" className="focus-ring inline-flex rounded-[6px] border border-axBlack/12 px-4 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-axBlack transition hover:border-axGold hover:text-axGold">
             Calendario completo
           </Link>
-          <Link href="/risultati" className="inline-flex border border-axBlack/12 px-4 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-axBlack transition hover:border-axGold hover:text-axGold">
+          <Link href="/risultati" className="focus-ring inline-flex rounded-[6px] border border-axBlack/12 px-4 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-axBlack transition hover:border-axGold hover:text-axGold">
             Risultati completi
           </Link>
         </div>
@@ -78,7 +78,7 @@ export function MatchCenterSection({ latestResult, nextMatch, matches, standings
 
 function NextMatchPanel({ match }: { match: Match | null }) {
   return (
-    <article className="border border-axBlack/10 bg-white p-5 sm:p-6">
+    <article className="premium-panel-light p-5 sm:p-6">
       <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-axGold">Prossima partita</p>
       <MatchCountdown match={match} />
     </article>
@@ -87,7 +87,7 @@ function NextMatchPanel({ match }: { match: Match | null }) {
 
 function MatchPanel({ kicker, match, empty }: { kicker: string; match: Match | null; empty: string }) {
   return (
-    <article className="border border-axBlack/10 bg-white p-5 sm:p-6">
+    <article className="premium-panel-light p-5 sm:p-6">
       <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-axGold">{kicker}</p>
       {match ? (
         <div className="mt-5 grid gap-4">
@@ -102,7 +102,7 @@ function MatchPanel({ kicker, match, empty }: { kicker: string; match: Match | n
             <span>{match.phase}</span>
             {match.venue ? <span>{match.venue}</span> : null}
           </div>
-          <p className="inline-flex w-fit border border-axBlack/12 px-4 py-2 font-display text-2xl font-light text-axBlack">{match.score ?? "TBD"}</p>
+          <p className="inline-flex w-fit rounded-[6px] border border-axBlack/12 px-4 py-2 font-display text-2xl font-light text-axBlack">{match.score ?? "TBD"}</p>
         </div>
       ) : (
         <p className="mt-5 text-sm leading-7 text-axBlack/62">{empty}</p>

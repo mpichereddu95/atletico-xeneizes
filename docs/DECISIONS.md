@@ -453,3 +453,43 @@ I log Hostinger mostravano l'app pronta senza errori, ma il dominio restituiva 5
 ### Impatto
 
 Il sito resta invariato. Cambia solo il comando runtime usato da Hostinger per servire l'app.
+
+---
+
+## 2026-06-28 - Runtime standalone per Hostinger
+
+### Ambito
+
+Deploy produzione Hostinger e compatibilita Node.js
+
+### Decisione
+
+Next.js genera output `standalone` e lo script `npm run start` avvia direttamente `.next/standalone/server.js` con `HOSTNAME=0.0.0.0`. Dal 2026-09-06 la build copia anche `public` e `.next/static` nel pacchetto standalone tramite `scripts/prepare-standalone.mjs`, per servire immagini e stili.
+
+### Motivo
+
+Hostinger mostrava il processo Next pronto nei log, ma il dominio restituiva ancora 503. Il runtime standalone riduce la dipendenza dal wrapper `next start` e rende piu esplicito il server Node da eseguire in produzione.
+
+### Impatto
+
+Non cambia il sito pubblico, il CMS o il design. Cambia solo il modo in cui l'app viene avviata in produzione.
+
+---
+
+## 2026-08-31 - Rifinitura UI premium senza redesign
+
+### Ambito
+
+Home pubblica, gerarchia visiva, responsive e accessibilita base.
+
+### Decisione
+
+Applicare una rifinitura mirata su hero, header, Match Center, anteprime news, preview rosa e classifica senza cambiare identita, palette, contenuti, route o CMS.
+
+### Motivo
+
+La piattaforma era gia completa nelle funzioni principali, ma alcune sezioni avevano peso visivo simile e un ritmo piu tecnico che editoriale. La rifinitura rende la home piu leggibile e piu vicina a un sito ufficiale sportivo, mantenendo l'architettura esistente.
+
+### Impatto
+
+Nessuna nuova dipendenza. Le modifiche sono concentrate su componenti visuali riutilizzabili e utility CSS. `lib/api.ts`, Sanity, dati sportivi e configurazione Hostinger restano invariati.
