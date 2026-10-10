@@ -62,18 +62,18 @@ pnpm outdated --prod
 
 Ultimo audit eseguito:
 
-- 4 vulnerabilita moderate transitive.
-- Pacchetti coinvolti: `js-yaml`, `postcss`, `uuid`.
-- Origine principale: dipendenze transitive di Sanity/Next/next-sanity.
-- `sanity` risulta aggiornabile da `6.1.0` a `6.2.0`.
+- Hostinger ha rilevato 33 avvisi (3 critici, 14 alti, 16 moderati) il 2026-10-11.
+- La correzione automatica ha proposto `next` 16.3.8 e `postcss` 8.5.23; il registry offre patch piu recenti `next` 16.4.0 e `postcss` 8.5.29.
+- L'audit npm ha rilevato inoltre dipendenze transitive obsolete del CMS; aggiornare `sanity` e `next-sanity` entro le rispettive major.
+- Il primo tentativo di deploy e fallito per un override PostCSS non allineato; dipendenza diretta e override devono avere lo stesso intervallo.
 
 Intervento consigliato:
 
-1. aggiornare Sanity in una branch dedicata;
-2. rigenerare lockfile;
+1. mantenere allineati la dipendenza diretta PostCSS e il relativo override;
+2. rigenerare i lockfile con npm e pnpm;
 3. eseguire `typecheck` e `build`;
-4. verificare `/studio`;
-5. pubblicare solo se tutto passa.
+4. verificare `/studio` e le route pubbliche;
+5. ridistribuire e ripetere la scansione Hostinger.
 
 ## Deploy
 

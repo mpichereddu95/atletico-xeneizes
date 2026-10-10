@@ -30,6 +30,13 @@
 - L'archivio compare come sezione dedicata in Stagioni e come competizione selezionabile in Partite; nuove gare si aggiungono ai dati strutturati o a Sanity.
 - Quando Sanity restituisce altre partite, le amichevoli presenti solo nel fallback statico vengono unite senza duplicare quelle gia inserite nel CMS.
 
+## 2026-10-11 - Patch vulnerabilita Node.js
+
+- Hostinger ha segnalato vulnerabilita critiche in Next.js 16.2.9 e vulnerabilita in PostCSS 8.5.15.
+- Aggiornare Next.js, PostCSS, Sanity e next-sanity entro le rispettive major, scegliendo versioni patch/minor verificate dal registry.
+- La dipendenza PostCSS diretta e il suo override npm devono mantenere lo stesso intervallo; un disallineamento blocca `npm install` e il deploy.
+- Verificare build Hostinger e nuova scansione prima di considerare risolti gli avvisi.
+
 ## Formato
 
 Ogni decisione va registrata con:

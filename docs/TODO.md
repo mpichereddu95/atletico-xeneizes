@@ -13,6 +13,14 @@
 - [x] Inserire i 16 risultati riportati nella locandina del club e predisporre la sezione per aggiornamenti successivi.
 - [ ] Aggiungere le prossime amichevoli quando confermate.
 
+## Vulnerabilita Node.js - 11 ottobre 2026
+
+- [x] Aggiornare Next.js, next-sanity, Sanity e PostCSS con versioni compatibili.
+- [x] Allineare l'override PostCSS che impediva l'installazione npm.
+- [x] Rigenerare lockfile npm e pnpm; typecheck superato.
+- [ ] Validare build Linux Hostinger e ridistribuire.
+- [ ] Ripetere la scansione vulnerabilita Hostinger.
+
 ## Responsive - 10 ottobre 2026
 
 - [x] Riorganizzare le card dei risultati: data separata, punteggio ed esito distinti, avversaria e dettagli leggibili su una riga dedicata.
