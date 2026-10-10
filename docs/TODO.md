@@ -9,8 +9,9 @@
 
 ## Responsive - 10 ottobre 2026
 
-- [x] Riorganizzare le card dei risultati: data e punteggio nella prima riga, avversaria e dettagli su una riga larga, esito separato.
+- [x] Riorganizzare le card dei risultati: data separata, punteggio ed esito distinti, avversaria e dettagli leggibili su una riga dedicata.
 - [x] Rendere piu conservative le griglie dense e abilitare wrapping sicuro per contenuti lunghi.
+- [x] Ridisegnare il grafico punti come andamento cumulativo a gradini, con scala e dimensioni responsive.
 - [ ] Completare QA visuale desktop/tablet/mobile nel browser dell'utente dopo il deploy.
 
 ## Regole operative

@@ -14,6 +14,7 @@ type TrendPoint = {
   goalsFor: number;
   goalsAgainst: number;
   date: string;
+  round: string;
 };
 
 const CLUB_NAME = "ATLETICO XENEIZES 149";
@@ -26,28 +27,39 @@ export function SeasonTrendChart({ matches }: { matches: Match[] }) {
     return <p className="p-5 text-sm leading-7 text-axBlack/62">Andamento non ancora disponibile per questa selezione.</p>;
   }
 
-  const maxPoints = Math.max(...points.map((point) => point.cumulativePoints), 1);
+  const maxPoints = Math.max(6, Math.ceil(Math.max(...points.map((point) => point.cumulativePoints), 1) / 6) * 6);
   const width = 640;
-  const height = 220;
-  const padding = 28;
-  const plotWidth = width - padding * 2;
-  const plotHeight = height - padding * 2;
+  const height = 340;
+  const padding = { top: 24, right: 18, bottom: 42, left: 48 };
+  const plotWidth = width - padding.left - padding.right;
+  const plotHeight = height - padding.top - padding.bottom;
 
   const coordinates = points.map((point, index) => {
-    const x = padding + (points.length === 1 ? plotWidth / 2 : (index / (points.length - 1)) * plotWidth);
-    const y = padding + plotHeight - (point.cumulativePoints / maxPoints) * plotHeight;
+    const x = padding.left + (points.length === 1 ? plotWidth / 2 : (index / (points.length - 1)) * plotWidth);
+    const y = padding.top + plotHeight - (point.cumulativePoints / maxPoints) * plotHeight;
     return { ...point, x, y };
   });
 
-  const polyline = coordinates.map((point) => `${point.x},${point.y}`).join(" ");
+  const stepPath = coordinates.reduce((path, point, index) => {
+    if (index === 0) return `M ${point.x} ${point.y}`;
+    return `${path} H ${point.x} V ${point.y}`;
+  }, "");
+  const yTicks = [0, maxPoints / 3, (maxPoints * 2) / 3, maxPoints];
 
   return (
-    <div className="p-5">
-      <div className="overflow-x-auto [scrollbar-width:thin]">
-        <svg viewBox={`0 0 ${width} ${height}`} role="img" aria-label="Grafico andamento punti Atletico Xeneizes" className="min-w-[520px]">
-          <line x1={padding} y1={height - padding} x2={width - padding} y2={height - padding} stroke="rgba(17,17,17,0.16)" />
-          <line x1={padding} y1={padding} x2={padding} y2={height - padding} stroke="rgba(17,17,17,0.16)" />
-          <polyline fill="none" stroke="#D4AF37" strokeWidth="3" points={polyline} />
+    <div className="flex min-h-[280px] min-w-0 flex-1 flex-col p-4 sm:p-5">
+      <div className="min-w-0 flex-1">
+        <svg viewBox={`0 0 ${width} ${height}`} role="img" aria-label={`Punti cumulativi per giornata: da ${coordinates[0].cumulativePoints} a ${coordinates.at(-1)?.cumulativePoints}`} className="block aspect-[16/9] w-full">
+          {yTicks.map((tick) => {
+            const y = padding.top + plotHeight - (tick / maxPoints) * plotHeight;
+            return (
+              <g key={tick}>
+                <line x1={padding.left} y1={y} x2={width - padding.right} y2={y} stroke="rgba(17,17,17,0.10)" strokeDasharray={tick === 0 ? undefined : "3 6"} />
+                <text x={padding.left - 10} y={y + 4} textAnchor="end" fill="rgba(17,17,17,0.48)" fontSize="12">{tick}</text>
+              </g>
+            );
+          })}
+          <path d={stepPath} fill="none" stroke="#D4AF37" strokeWidth="4" strokeLinejoin="round" />
           {coordinates.map((point) => (
             <g
               key={point.id}
@@ -56,30 +68,34 @@ export function SeasonTrendChart({ matches }: { matches: Match[] }) {
               onClick={() => setActivePoint(point)}
               onKeyDown={(event) => {
                 if (event.key === "Enter" || event.key === " ") {
+                  event.preventDefault();
                   setActivePoint(point);
                 }
               }}
-              className="cursor-pointer outline-none"
-              aria-label={`${point.label}, ${point.score}, ${point.cumulativePoints} punti`}
+              className="cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-axGold"
+              aria-label={`${point.label}, ${point.opponent}, ${point.score}, ${point.cumulativePoints} punti totali`}
+              aria-pressed={activePoint?.id === point.id}
             >
-              <circle cx={point.x} cy={point.y} r={activePoint?.id === point.id ? 7 : 5} fill={activePoint?.id === point.id ? "#111111" : "#D4AF37"} stroke="#D4AF37" strokeWidth="2" />
+              <circle cx={point.x} cy={point.y} r={activePoint?.id === point.id ? 8 : 5} fill={activePoint?.id === point.id ? "#111111" : "#D4AF37"} stroke="#D4AF37" strokeWidth="2" />
             </g>
           ))}
+          <text x={padding.left} y={height - 10} fill="rgba(17,17,17,0.48)" fontSize="12">Giornata {points[0].round}</text>
+          <text x={width - padding.right} y={height - 10} textAnchor="end" fill="rgba(17,17,17,0.48)" fontSize="12">Giornata {points.at(-1)?.round}</text>
         </svg>
       </div>
 
       {activePoint ? (
-        <div className="mt-4 grid min-w-0 gap-3 border border-axBlack/10 bg-[#f7f5ef] p-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center">
+        <div className="mt-3 grid min-w-0 gap-3 border border-axBlack/10 bg-[#f7f5ef] p-3 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center sm:p-4">
           <div className="min-w-0">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-axGold">
-              {activePoint.label} · {formatDate(activePoint.date)}
+            <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-axGold sm:text-[11px] sm:tracking-[0.18em]">
+              {activePoint.label} · {formatDate(activePoint.date)} · +{activePoint.points}
             </p>
-            <p className="mt-2 text-sm font-light text-axBlack [overflow-wrap:anywhere]">
+            <p className="mt-1 text-sm font-medium text-axBlack [overflow-wrap:anywhere] sm:mt-2">
               {activePoint.opponent} · {activePoint.score}
             </p>
           </div>
           <div className="grid grid-cols-3 gap-3 text-center">
-            <Stat label="Pt" value={activePoint.cumulativePoints} />
+            <Stat label="Tot" value={activePoint.cumulativePoints} />
             <Stat label="GF" value={activePoint.goalsFor} />
             <Stat label="GS" value={activePoint.goalsAgainst} />
           </div>
@@ -118,7 +134,8 @@ function buildTrendPoints(matches: Match[]) {
         cumulativePoints,
         goalsFor,
         goalsAgainst,
-        date: match.date
+        date: match.date,
+        round: match.round
       };
     });
 }

@@ -135,7 +135,7 @@ function OverviewPane({ matches, standings }: { matches: Match[]; standings: Sta
         <MetricCard label="Sconfitte" value={String(matches.filter((match) => match.status === "played" && getOutcome(match).key === "loss").length)} />
       </div>
 
-      <div className="grid min-w-0 gap-5 2xl:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
+      <div className="grid min-w-0 gap-5 xl:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
         <div className="border border-axBlack/10">
           <PanelHeader kicker="Ultimi risultati" title="Forma recente" />
           <div>
@@ -146,7 +146,7 @@ function OverviewPane({ matches, standings }: { matches: Match[]; standings: Sta
           </div>
         </div>
 
-        <div className="border border-axBlack/10">
+        <div className="flex min-w-0 flex-col border border-axBlack/10">
           <PanelHeader kicker="Andamento" title="Punti nel tempo" />
           <SeasonTrendChart matches={matches} />
         </div>
@@ -260,26 +260,31 @@ function CompactMatchRow({ match }: { match: Match }) {
 
   return (
     <div
-      className="grid min-w-0 gap-x-4 gap-y-2 border border-axBlack/10 border-l-[3px] p-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center"
+      className="grid min-w-0 gap-3 border border-axBlack/10 border-l-[3px] p-4"
       style={{ borderLeftColor: outcome.accent }}
     >
-      <div className="min-w-0">
-        <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-axGold sm:text-[11px] sm:tracking-[0.16em]">{formatDate(match.date)}</p>
-        <p className="mt-1 text-[11px] font-light text-axBlack/58 sm:text-xs">{homeAway}</p>
+      <div className="flex min-w-0 items-start justify-between gap-3">
+        <div className="min-w-0">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-axGold sm:text-[11px] sm:tracking-[0.16em]">{formatDate(match.date)}</p>
+          <p className="mt-1 text-[11px] font-light text-axBlack/58 sm:text-xs">{homeAway}</p>
+        </div>
+        <div className="flex shrink-0 items-center gap-2">
+          <span className="inline-flex min-w-16 justify-center border border-axBlack/12 px-2 py-2 text-sm font-semibold tabular-nums text-axBlack sm:min-w-20 sm:px-3">{match.score}</span>
+          <span
+            className={`inline-flex min-w-9 justify-center px-2 py-2 text-[10px] font-semibold uppercase tracking-[0.1em] sm:min-w-10 sm:text-[11px] ${outcome.badgeClass}`}
+            style={{ color: outcome.accent }}
+            aria-label={`Esito: ${outcome.label}`}
+          >
+            {outcome.label}
+          </span>
+        </div>
       </div>
-      <div className="col-span-2 row-start-2 min-w-0 sm:col-span-1 sm:col-start-1 sm:row-start-2">
+      <div className="min-w-0">
         <p className="text-[15px] font-medium leading-snug text-axBlack [overflow-wrap:anywhere] sm:text-base">{opponent}</p>
         <p className="mt-1 text-xs font-light leading-snug text-axBlack/58 [overflow-wrap:anywhere] sm:text-sm">
           {match.phase} · {match.venue}
         </p>
       </div>
-      <span className="col-start-2 row-start-2 inline-flex min-w-16 justify-center self-start border border-axBlack/12 px-2 py-2 text-sm font-semibold text-axBlack sm:row-start-1 sm:min-w-20 sm:px-3">{match.score}</span>
-      <span
-        className={`col-start-2 row-start-1 inline-flex min-w-10 justify-center self-start px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] sm:min-w-11 sm:px-3 sm:py-2 sm:text-[11px] sm:tracking-[0.16em] ${outcome.badgeClass}`}
-        style={{ color: outcome.accent }}
-      >
-        {outcome.label}
-      </span>
     </div>
   );
 }

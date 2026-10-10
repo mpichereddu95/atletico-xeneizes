@@ -17,6 +17,12 @@
 - Gli elementi con testi dinamici ricevono larghezza minima zero e wrapping sicuro; tabelle e grafici conservano lo scorrimento confinato ai rispettivi contenitori.
 - Evitare quattro colonne a tablet per pannelli piccoli; usare griglie progressive. La QA browser locale resta da eseguire: server e Chrome sono bloccati dal sandbox.
 
+## 2026-10-11 - Leggibilita risultati e grafico andamento
+
+- Punteggio ed esito sono elementi separati con spaziatura esplicita; non condivideranno piu una cella di griglia con date o dettagli partita.
+- Il grafico stagione usa una linea a gradini per i punti cumulativi partita per partita, una scala leggibile, riferimenti alle giornate e dimensione proporzionale al pannello.
+- La selezione del punto mantiene dettaglio di giornata, avversario, risultato, punti guadagnati e totale, utilizzabile anche da tastiera.
+
 ## Formato
 
 Ogni decisione va registrata con:
