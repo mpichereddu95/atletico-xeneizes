@@ -11,9 +11,9 @@ export function SectionHeading({ kicker, title, text, tone = "dark" }: SectionHe
 
   return (
     <div className="mb-9 flex flex-col gap-5 lg:mb-12 lg:flex-row lg:items-end lg:justify-between">
-      <div>
+      <div className="min-w-0">
         <p className="section-kicker">{kicker}</p>
-        <h2 className={`section-title mt-3 ${titleClass}`}>{title}</h2>
+        <h2 className={`section-title mt-3 break-words ${titleClass}`}>{title}</h2>
       </div>
       {text ? <p className={`max-w-xl text-base leading-7 ${textClass}`}>{text}</p> : null}
     </div>

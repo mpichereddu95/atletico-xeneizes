@@ -128,14 +128,14 @@ function OverviewPane({ matches, standings }: { matches: Match[]; standings: Sta
 
   return (
     <div className="grid gap-5">
-      <div className="grid gap-4 lg:grid-cols-4">
+      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         <MetricCard label="Gare disputate" value={String(matches.filter((match) => match.status === "played").length)} />
         <MetricCard label="Vittorie" value={String(matches.filter((match) => match.status === "played" && getOutcome(match).key === "win").length)} />
         <MetricCard label="Pareggi" value={String(matches.filter((match) => match.status === "played" && getOutcome(match).key === "draw").length)} />
         <MetricCard label="Sconfitte" value={String(matches.filter((match) => match.status === "played" && getOutcome(match).key === "loss").length)} />
       </div>
 
-      <div className="grid gap-5 xl:grid-cols-[1.1fr_0.9fr]">
+      <div className="grid min-w-0 gap-5 2xl:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
         <div className="border border-axBlack/10">
           <PanelHeader kicker="Ultimi risultati" title="Forma recente" />
           <div>
@@ -193,13 +193,13 @@ function CalendarPane({ matches }: { matches: Match[] }) {
   return (
     <div className="grid gap-3">
       {matches.map((match) => (
-        <div key={match.id} className="grid gap-4 border border-axBlack/10 p-4 md:grid-cols-[120px_1fr_auto] md:items-center">
+        <div key={match.id} className="grid min-w-0 gap-4 border border-axBlack/10 p-4 lg:grid-cols-[120px_minmax(0,1fr)_auto] lg:items-center">
           <div>
             <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-axGold">{formatDate(match.date)}</p>
             <p className="mt-1 text-xs font-light text-axBlack/58">{match.kickoff}</p>
           </div>
-          <div>
-            <p className="text-base font-light text-axBlack">
+          <div className="min-w-0">
+            <p className="text-base font-light text-axBlack [overflow-wrap:anywhere]">
               {match.home} <span className="text-axGold">vs</span> {match.away}
             </p>
             <p className="mt-1 text-sm font-light text-axBlack/58">
@@ -260,22 +260,22 @@ function CompactMatchRow({ match }: { match: Match }) {
 
   return (
     <div
-      className="grid min-w-0 gap-4 border border-axBlack/10 border-l-[3px] p-4 md:grid-cols-[120px_minmax(0,1fr)_auto_auto] md:items-center"
+      className="grid min-w-0 gap-x-4 gap-y-2 border border-axBlack/10 border-l-[3px] p-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center"
       style={{ borderLeftColor: outcome.accent }}
     >
-      <div>
-        <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-axGold">{formatDate(match.date)}</p>
-        <p className="mt-1 text-xs font-light text-axBlack/58">{homeAway}</p>
-      </div>
       <div className="min-w-0">
-        <p className="text-base font-light text-axBlack">{opponent}</p>
-        <p className="mt-1 text-sm font-light text-axBlack/58">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-axGold sm:text-[11px] sm:tracking-[0.16em]">{formatDate(match.date)}</p>
+        <p className="mt-1 text-[11px] font-light text-axBlack/58 sm:text-xs">{homeAway}</p>
+      </div>
+      <div className="col-span-2 row-start-2 min-w-0 sm:col-span-1 sm:col-start-1 sm:row-start-2">
+        <p className="text-[15px] font-medium leading-snug text-axBlack [overflow-wrap:anywhere] sm:text-base">{opponent}</p>
+        <p className="mt-1 text-xs font-light leading-snug text-axBlack/58 [overflow-wrap:anywhere] sm:text-sm">
           {match.phase} · {match.venue}
         </p>
       </div>
-      <span className="inline-flex min-w-24 justify-center border border-axBlack/12 px-4 py-2 text-sm font-semibold text-axBlack">{match.score}</span>
+      <span className="col-start-2 row-start-2 inline-flex min-w-16 justify-center self-start border border-axBlack/12 px-2 py-2 text-sm font-semibold text-axBlack sm:row-start-1 sm:min-w-20 sm:px-3">{match.score}</span>
       <span
-        className={`inline-flex min-w-11 justify-center px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] ${outcome.badgeClass}`}
+        className={`col-start-2 row-start-1 inline-flex min-w-10 justify-center self-start px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] sm:min-w-11 sm:px-3 sm:py-2 sm:text-[11px] sm:tracking-[0.16em] ${outcome.badgeClass}`}
         style={{ color: outcome.accent }}
       >
         {outcome.label}

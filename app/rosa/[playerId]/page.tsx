@@ -38,7 +38,7 @@ export default async function PlayerDetailPage({ params }: PlayerDetailPageProps
       />
 
       <section className="bg-axBlack py-20 lg:py-24">
-        <div className="section-shell grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
+        <div className="section-shell grid min-w-0 gap-10 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)]">
           <div className="relative aspect-[4/5] overflow-hidden border border-white/10 bg-black">
             <Image src={player.photo.src} alt={player.photo.alt} fill sizes="(max-width: 1024px) 100vw, 40vw" priority className="object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-axBlack via-transparent to-transparent" />
@@ -50,7 +50,7 @@ export default async function PlayerDetailPage({ params }: PlayerDetailPageProps
             </span>
           </div>
 
-          <div className="grid gap-8">
+          <div className="grid min-w-0 gap-8">
             <div className="grid gap-4 border border-white/10 bg-white/[0.04] p-6">
               <p className="text-xs font-black uppercase tracking-[0.24em] text-axGold">Scheda anagrafica</p>
               <div className="grid gap-3 text-base leading-7 text-white/74 sm:grid-cols-2">
@@ -63,7 +63,7 @@ export default async function PlayerDetailPage({ params }: PlayerDetailPageProps
                   {player.birthLabel}
                 </p>
               </div>
-              <p className="text-base leading-7 text-white/74">{player.bio}</p>
+              <p className="text-base leading-7 text-white/74 [overflow-wrap:anywhere]">{player.bio}</p>
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
@@ -102,7 +102,7 @@ function DetailCard({ label, value }: { label: string; value: PlayerStatValue })
   return (
     <article className="border border-white/10 bg-white/[0.04] p-6">
       <p className="font-display text-5xl font-black text-white">{value ?? "n.d."}</p>
-      <p className="mt-2 text-xs font-black uppercase tracking-[0.2em] text-axGold">{label}</p>
+      <p className="mt-2 break-words text-xs font-black uppercase tracking-[0.2em] text-axGold">{label}</p>
     </article>
   );
 }

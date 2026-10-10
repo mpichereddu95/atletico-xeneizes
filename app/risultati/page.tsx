@@ -29,16 +29,16 @@ export default async function RisultatiPage() {
           {!rows.some((match) => match.season === currentSeasonLabel) ? <p className="mb-6 text-sm leading-7">2026/27 · Coppa Cobram - Girone D: nessun risultato pubblicato. Di seguito l'archivio delle stagioni precedenti.</p> : null}
           <div className="grid gap-3">
             {rows.map((match) => (
-              <article key={match.id} className="grid gap-4 border border-axBlack/10 p-4 md:grid-cols-[120px_1fr_auto] md:items-center">
+              <article key={match.id} className="grid min-w-0 gap-4 border border-axBlack/10 p-4 lg:grid-cols-[120px_minmax(0,1fr)_auto] lg:items-center">
                 <div>
                   <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-axGold">{formatDate(match.date)}</p>
                   <p className="mt-1 text-xs font-light text-axBlack/58">{match.round}</p>
                 </div>
-                <div>
-                  <h2 className="text-base font-light text-axBlack">
+                <div className="min-w-0">
+                  <h2 className="text-base font-light text-axBlack [overflow-wrap:anywhere]">
                     {match.home} <span className="text-axGold">vs</span> {match.away}
                   </h2>
-                  <p className="mt-1 text-sm font-light text-axBlack/58">
+                  <p className="mt-1 text-sm font-light text-axBlack/58 [overflow-wrap:anywhere]">
                     {match.season} · {match.competition}
                   </p>
                 </div>

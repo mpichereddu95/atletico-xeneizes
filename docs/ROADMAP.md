@@ -42,6 +42,7 @@ Stato: in corso
 - [x] consolidare un unico asset logo attivo eliminando i riferimenti al file precedente
 - [x] migliorare resa del logo su fondo scuro e crop immagini nella sezione news
 - [x] ottimizzare responsivita trasversale di navigazione, card staff, news e tabelle sportive senza cambiare identita visiva
+- [x] riorganizzare righe risultati e correggere wrapping nelle sezioni responsive dense (Partite, Match Center, rose, contenuti editoriali)
 - [x] ribilanciare home in chiave sportiva con Match Center, classifica sintetica, preview rosa e anteprime editoriali
 - [x] separare stagione attuale, archivio 2025/26 e archivio estivo senza inventare dati non ufficiali
 - [x] aggiungere countdown prossima partita con stato in aggiornamento

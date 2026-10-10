@@ -14,7 +14,7 @@ export function Logo() {
         />
       </span>
       <span className="flex min-w-0 items-center leading-none">
-        <span className="whitespace-nowrap font-display text-lg font-black uppercase text-white sm:text-xl">
+        <span className="whitespace-nowrap font-display text-base font-black uppercase text-white sm:text-xl">
           Atletico <span className="text-axGold">Xeneizes</span>
         </span>
       </span>

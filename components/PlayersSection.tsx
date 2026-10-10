@@ -87,11 +87,9 @@ function PlayerCard({ player, compact = false }: { player: Player; compact?: boo
       </div>
       <h4 className={`${compact ? "mt-3 text-sm leading-5" : "mt-4 text-base leading-5"} font-bold text-white`}>{player.name}</h4>
       <p className="mt-2 text-[0.68rem] uppercase tracking-[0.2em] text-[#888888]">{player.role}</p>
-      <div className={`${compact ? "mt-3 pt-3" : "mt-5 pt-4"} border-t border-white/10 text-[0.72rem] font-medium text-white/68`}>
+      <div className={`${compact ? "mt-3 pt-3" : "mt-5 pt-4"} flex flex-wrap gap-x-2 gap-y-1 border-t border-white/10 text-[0.72rem] font-medium text-white/68`}>
         <span>{player.stats.appearances} presenze</span>
-        <span className="px-1.5 text-white/30">·</span>
         <span>{player.stats.goals} gol</span>
-        <span className="px-1.5 text-white/30">·</span>
         <span>{player.stats.bestPlayerAwards ?? 0} MVP</span>
       </div>
     </Link>

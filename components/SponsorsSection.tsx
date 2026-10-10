@@ -20,7 +20,7 @@ export function SponsorsSection({ sponsors }: SponsorsSectionProps) {
           text="Partner, canali ufficiali e identita del progetto raccolti in un unico spazio."
         />
 
-        <div className="grid gap-5 lg:grid-cols-[1.2fr_0.8fr]">
+        <div className="grid min-w-0 gap-5 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
           <article className="border border-white/10 bg-white/[0.03] p-6 sm:p-8">
             <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-axGold">Sponsor principale</p>
             {primarySponsor ? (
@@ -81,11 +81,11 @@ export function SponsorsSection({ sponsors }: SponsorsSectionProps) {
                     rel="noreferrer"
                     className="flex items-center justify-between gap-4 border border-white/8 px-4 py-4 text-sm text-white transition hover:border-axGold/50"
                   >
-                    <span className="flex items-center gap-3">
+                    <span className="flex min-w-0 items-center gap-3">
                       <ChannelIcon channel={channel.id} />
                       <span className="font-medium text-white">{channel.label}</span>
                     </span>
-                    <span className="text-white/48">{channel.value}</span>
+                    <span className="min-w-0 text-right text-white/48 [overflow-wrap:anywhere]">{channel.value}</span>
                   </a>
                 ))}
               </div>

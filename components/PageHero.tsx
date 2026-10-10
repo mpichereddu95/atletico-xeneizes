@@ -20,9 +20,9 @@ export function PageHero({ kicker, title, text, primaryCta, secondaryCta }: Page
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-axGold/70 to-transparent" />
       <div className="section-shell pb-16 lg:pb-20">
         <p className="section-kicker">{kicker}</p>
-        <div className="mt-5 grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
+        <div className="mt-5 grid min-w-0 gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:items-end">
           <div>
-            <h1 className="font-display text-4xl font-black uppercase leading-[0.92] text-white sm:text-6xl lg:text-7xl">{title}</h1>
+            <h1 className="break-words font-display text-4xl font-black uppercase leading-[0.92] text-white sm:text-6xl lg:text-7xl">{title}</h1>
           </div>
           <div>
             <p className="max-w-xl text-lg leading-8 text-white/72">{text}</p>

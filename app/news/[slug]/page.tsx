@@ -72,8 +72,8 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         </div>
 
         <div className="section-shell pb-20">
-          <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_280px]">
-            <div className="border border-white/10 bg-white/[0.04] p-6 sm:p-8 lg:p-10">
+          <div className="grid min-w-0 gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(240px,280px)]">
+            <div className="min-w-0 border border-white/10 bg-white/[0.04] p-6 sm:p-8 lg:p-10">
               {article.category === "Match report" && article.matchReport ? (
                 <div className="mb-8 grid gap-4 border border-white/10 bg-white/[0.03] p-5 sm:grid-cols-3">
                   <ReportStat label="Risultato" value={article.matchReport.result} />

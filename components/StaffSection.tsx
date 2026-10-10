@@ -14,7 +14,7 @@ export function StaffSection({ staff }: StaffSectionProps) {
           title="Area tecnica e societaria"
           text="Le figure che guidano il progetto sportivo e organizzativo di Atletico Xeneizes 149."
         />
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-4">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 2xl:grid-cols-4">
           {staff.map((member) => (
             <article key={member.name} className="min-w-0 rounded-[8px] border border-white/10 bg-white/[0.04] p-5">
               <div className="flex min-w-0 items-center gap-4">
@@ -25,7 +25,7 @@ export function StaffSection({ staff }: StaffSectionProps) {
                   {member.role}
                 </span>
               </div>
-              <h3 className="mt-5 text-base font-bold leading-5 text-white">{member.name}</h3>
+              <h3 className="mt-5 break-words text-base font-bold leading-5 text-white">{member.name}</h3>
               {member.bio ? <p className="mt-3 text-sm leading-6 text-white/50">{member.bio}</p> : null}
             </article>
           ))}

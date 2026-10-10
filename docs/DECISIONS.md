@@ -10,6 +10,13 @@
 - Il riepilogo di Poule e ora filtrato per stagione; le gare programmate non contano come pareggi.
 - QA mobile: contenitori della tabella con larghezza minima zero per confinare lo scorrimento; corretta la sintassi dell'opacita del fondo header per mantenere i link leggibili.
 
+## 2026-10-11 - Layout responsive dei risultati
+
+- Le card dei risultati recenti usano una gerarchia in due righe: data e punteggio in alto, avversaria e dettagli su tutta la larghezza sottostante, esito distinto.
+- Nelle card delle partite i breakpoint multi-colonna devono considerare la larghezza effettiva del pannello, non solo quella del viewport.
+- Gli elementi con testi dinamici ricevono larghezza minima zero e wrapping sicuro; tabelle e grafici conservano lo scorrimento confinato ai rispettivi contenitori.
+- Evitare quattro colonne a tablet per pannelli piccoli; usare griglie progressive. La QA browser locale resta da eseguire: server e Chrome sono bloccati dal sandbox.
+
 ## Formato
 
 Ogni decisione va registrata con:

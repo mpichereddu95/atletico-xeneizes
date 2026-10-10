@@ -69,12 +69,12 @@ export function SeasonTrendChart({ matches }: { matches: Match[] }) {
       </div>
 
       {activePoint ? (
-        <div className="mt-4 grid gap-3 border border-axBlack/10 bg-[#f7f5ef] p-4 sm:grid-cols-[1fr_auto] sm:items-center">
-          <div>
+        <div className="mt-4 grid min-w-0 gap-3 border border-axBlack/10 bg-[#f7f5ef] p-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center">
+          <div className="min-w-0">
             <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-axGold">
               {activePoint.label} · {formatDate(activePoint.date)}
             </p>
-            <p className="mt-2 text-sm font-light text-axBlack">
+            <p className="mt-2 text-sm font-light text-axBlack [overflow-wrap:anywhere]">
               {activePoint.opponent} · {activePoint.score}
             </p>
           </div>

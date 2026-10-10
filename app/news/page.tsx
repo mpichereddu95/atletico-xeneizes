@@ -21,7 +21,7 @@ export default async function NewsPage() {
       {featuredArticle ? (
         <section className="bg-axBlack pb-4 pt-10">
           <div className="section-shell">
-            <article className="grid overflow-hidden border border-white/10 bg-white/[0.04] lg:grid-cols-[1.15fr_0.85fr]">
+            <article className="grid min-w-0 overflow-hidden border border-white/10 bg-white/[0.04] lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
               <div className="relative min-h-[360px]">
                 <Image
                   src={featuredArticle.coverImage.src}
@@ -34,12 +34,12 @@ export default async function NewsPage() {
               </div>
               <div className="grid content-end gap-5 p-6 sm:p-8 lg:p-10">
                 <p className="text-xs font-black uppercase tracking-[0.24em] text-axGold">In evidenza</p>
-                <h2 className="font-display text-3xl font-black uppercase leading-none text-white sm:text-5xl">{featuredArticle.title}</h2>
+                <h2 className="break-words font-display text-3xl font-black uppercase leading-tight text-white sm:text-5xl">{featuredArticle.title}</h2>
                 <div className="flex flex-wrap items-center gap-4 text-sm text-white/58">
                   <span>{formatDate(featuredArticle.date)}</span>
                   <span>{featuredArticle.author}</span>
                 </div>
-                <p className="max-w-xl text-base leading-7 text-white/72">{featuredArticle.excerpt}</p>
+                <p className="max-w-xl text-base leading-7 text-white/72 [overflow-wrap:anywhere]">{featuredArticle.excerpt}</p>
                 <Link href={`/news/${featuredArticle.slug}`} className="inline-flex text-sm font-black uppercase tracking-[0.2em] text-white transition hover:text-axGold">
                   Apri l'articolo completo
                 </Link>

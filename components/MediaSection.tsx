@@ -17,7 +17,7 @@ export function MediaSection({ mediaItems }: MediaSectionProps) {
         />
         <div className="grid gap-5 lg:grid-cols-3">
           {mediaItems.map((item) => (
-            <article key={item.id} className="group overflow-hidden border border-white/10 bg-axBlack">
+            <article key={item.id} className="group min-w-0 overflow-hidden border border-white/10 bg-axBlack">
               <div className="relative aspect-[16/11] overflow-hidden">
                 <Image
                   src={item.image}
@@ -27,10 +27,10 @@ export function MediaSection({ mediaItems }: MediaSectionProps) {
                   className={`transition duration-500 group-hover:scale-105 ${item.id === "media-logo" ? "object-contain p-6" : "object-cover"}`}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-axBlack via-transparent to-transparent" />
-                <span className="absolute left-4 top-4 bg-axGold px-3 py-2 text-xs font-black uppercase tracking-[0.18em] text-axBlack">{item.type}</span>
+                <span className="absolute left-3 top-3 max-w-[calc(100%-1.5rem)] bg-axGold px-3 py-2 text-xs font-black uppercase tracking-[0.18em] text-axBlack">{item.type}</span>
               </div>
               <div className="p-5">
-                <h3 className="font-display text-2xl font-black uppercase text-white">{item.title}</h3>
+                <h3 className="break-words font-display text-2xl font-black uppercase text-white">{item.title}</h3>
               </div>
             </article>
           ))}

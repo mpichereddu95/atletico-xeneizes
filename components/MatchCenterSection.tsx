@@ -31,7 +31,7 @@ export function MatchCenterSection({ latestResult, nextMatch, matches, standings
           tone="light"
         />
 
-        <div className="grid gap-4 lg:grid-cols-[1fr_1fr_0.9fr]">
+        <div className="grid min-w-0 gap-4 2xl:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,0.9fr)]">
           <NextMatchPanel match={next} />
           <MatchPanel kicker="Ultimo risultato" match={latest} empty="Nessun risultato pubblicato per questa stagione." />
 
@@ -91,9 +91,9 @@ function MatchPanel({ kicker, match, empty }: { kicker: string; match: Match | n
       <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-axGold">{kicker}</p>
       {match ? (
         <div className="mt-5 grid gap-4">
-          <div>
+          <div className="min-w-0">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-axBlack/45">{formatDate(match.date)} · {match.kickoff || "Orario da definire"}</p>
-            <h3 className="mt-3 font-display text-3xl font-light leading-none text-axBlack sm:text-4xl">
+            <h3 className="mt-3 break-words font-display text-3xl font-light leading-tight text-axBlack sm:text-4xl">
               {match.home} <span className="text-axGold">vs</span> {match.away}
             </h3>
           </div>
