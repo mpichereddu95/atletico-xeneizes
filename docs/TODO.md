@@ -18,8 +18,16 @@
 - [x] Aggiornare Next.js, next-sanity, Sanity e PostCSS con versioni compatibili.
 - [x] Allineare l'override PostCSS che impediva l'installazione npm.
 - [x] Rigenerare lockfile npm e pnpm; typecheck superato.
-- [ ] Validare build Linux Hostinger e ridistribuire.
+- [x] Ridistribuire la prima patch: Hostinger completato, critici scesi da 3 a 0.
 - [ ] Ripetere la scansione vulnerabilita Hostinger.
+
+## Vulnerabilita transitive Hostinger - 11 ottobre 2026
+
+- [x] Identificare le dipendenze parent per `js-yaml`, `smol-toml`, `uuid` e `postcss-selector-parser`.
+- [x] Aggiornare nel lock npm `js-yaml`, `smol-toml` e `uuid` alle patch compatibili.
+- [ ] Aggiornare i parent legacy `@sanity/codegen`/`chokidar` e `argparse` per rimuovere `braces` e `sprintf-js` vulnerabili.
+- [ ] Verificare `/studio`, build Linux Hostinger e nuova scansione.
+- [ ] Ripetere la scansione dopo il deploy.
 
 ## Responsive - 10 ottobre 2026
 
