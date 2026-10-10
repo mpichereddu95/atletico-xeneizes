@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/PageHero";
 import { getMatches } from "@/lib/api";
 import { formatDate } from "@/lib/utils";
+import { currentSeasonLabel } from "@/data/season-2026-27";
 
 export const metadata: Metadata = {
   title: "Calendario",
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
 
 export default async function CalendarioPage() {
   const matches = await getMatches();
-  const rows = [...matches].sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+  const rows = [...matches].sort((a, b) => b.season.localeCompare(a.season) || a.date.localeCompare(b.date));
 
   return (
     <main>
@@ -23,6 +24,7 @@ export default async function CalendarioPage() {
       />
       <section className="bg-white py-14 text-axBlack lg:py-20">
         <div className="section-shell">
+          {!rows.some((match) => match.season === currentSeasonLabel) ? <p className="mb-6 text-sm leading-7">2026/27 · Coppa Cobram - Girone D: calendario ufficiale in aggiornamento. Di seguito le gare delle stagioni precedenti.</p> : null}
           <div className="grid gap-3">
             {rows.map((match) => (
               <article key={match.id} className="grid gap-4 border border-axBlack/10 p-4 md:grid-cols-[120px_1fr_auto] md:items-center">
@@ -35,7 +37,7 @@ export default async function CalendarioPage() {
                     {match.home} <span className="text-axGold">vs</span> {match.away}
                   </h2>
                   <p className="mt-1 text-sm font-light text-axBlack/58">
-                    {match.competition} · {match.phase} · {match.venue || "Campo da definire"}
+                    {match.season} · {match.competition} · {match.venue || "Campo da definire"}
                   </p>
                 </div>
                 <span className="inline-flex min-w-24 justify-center border border-axBlack/12 px-4 py-2 text-sm font-semibold text-axBlack">{match.score ?? "TBD"}</span>

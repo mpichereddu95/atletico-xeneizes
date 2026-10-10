@@ -17,6 +17,7 @@ export const matchType = defineType({
       options: {
         list: [
           { title: "Girone C", value: "Girone C" },
+          { title: "Girone D", value: "Girone D" },
           { title: "Poule Scudetto", value: "Poule Scudetto" }
         ]
       },

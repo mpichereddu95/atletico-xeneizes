@@ -44,6 +44,7 @@ const playerProjection = `{
   number,
   role,
   "currentRoster": coalesce(currentRoster, true),
+  "seasons": [season->name],
   birthLabel,
   "photo": {
     "src": coalesce(photo.asset->url, externalPhotoUrl),

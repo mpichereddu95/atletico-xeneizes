@@ -1,5 +1,15 @@
 # DECISIONS
 
+## 2026-10-10 - Avvio stagione 2026/27
+
+- Fonte: Calcio Liguria, Coppa Cobram Girone D, progetto 1283; schede Info, Rosa e Calendario del club verificate il 10 ottobre.
+- Importate le nove squadre e i valori iniziali a zero. La posizione resta nulla prima dell'inizio del campionato, senza trasformare l'ordine dell'elenco in piazzamento.
+- Nessuna gara o rosa 2026/27 pubblicata nella fonte: nessun dato inventato, amichevoli escluse dal campionato.
+- Archivio 2025/26 e correzioni dei ruoli conservati. Home limitata alla stagione corrente; filtri partite disponibili anche per stagioni con sola classifica.
+- Sanity mantiene priorita per stagione/competizione. Senza token di scrittura disponibile si aggiunge lo snapshot verificato al fallback, senza sovrascrivere documenti CMS.
+- Il riepilogo di Poule e ora filtrato per stagione; le gare programmate non contano come pareggi.
+- QA mobile: contenitori della tabella con larghezza minima zero per confinare lo scorrimento; corretta la sintassi dell'opacita del fondo header per mantenere i link leggibili.
+
 ## Formato
 
 Ogni decisione va registrata con:

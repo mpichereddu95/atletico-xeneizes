@@ -30,7 +30,7 @@ export type Match = {
   id: string;
   season: string;
   competition: string;
-  phase: "Girone C" | "Poule Scudetto";
+  phase: "Girone C" | "Girone D" | "Poule Scudetto";
   round: string;
   date: string;
   kickoff: string;
@@ -53,7 +53,7 @@ export type SeasonSummary = {
 };
 
 export type Standing = {
-  position: number;
+  position: number | null;
   season: string;
   competition: string;
   team: string;

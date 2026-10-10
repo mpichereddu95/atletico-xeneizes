@@ -8,6 +8,7 @@ import { StaffSection } from "@/components/StaffSection";
 import { StandingsPreviewSection } from "@/components/StandingsPreviewSection";
 import { SeasonStatusSection } from "@/components/SeasonStatusSection";
 import { getArticles, getCurrentPlayers, getHomeSnapshot, getMatches, getSeasonSummaries, getSponsors, getStaff, getStandings } from "@/lib/api";
+import { currentSeasonLabel } from "@/data/season-2026-27";
 
 export default async function Home() {
   const [{ latestResult, nextMatch }, players, matches, standings, articles, staff, sponsors, seasons] = await Promise.all([
@@ -26,7 +27,7 @@ export default async function Home() {
   return (
     <main>
       <Hero latestResult={latestResult} nextMatch={nextMatch} />
-      <MatchCenterSection latestResult={latestResult} nextMatch={nextMatch} matches={matches} standings={standings} />
+      <MatchCenterSection latestResult={latestResult} nextMatch={nextMatch} matches={matches.filter((match) => match.season === currentSeasonLabel)} standings={standings.filter((row) => row.season === currentSeasonLabel)} />
       <SeasonStatusSection seasons={seasons} />
       <StandingsPreviewSection standings={standings} />
       <PlayersSection players={players} variant="preview" limit={8} />

@@ -15,7 +15,7 @@ export function StandingsPreviewSection({ standings, limit = 6, showLink = true 
   const competition = standings[0]?.competition ?? "Classifica";
   const rows = standings
     .filter((row) => row.season === season && row.competition === competition)
-    .sort((a, b) => a.position - b.position)
+    .sort((a, b) => (a.position ?? Infinity) - (b.position ?? Infinity))
     .slice(0, limit);
 
   return (
@@ -24,7 +24,7 @@ export function StandingsPreviewSection({ standings, limit = 6, showLink = true 
         <SectionHeading
           kicker="Classifica"
           title="Situazione stagione"
-          text="Lettura sintetica della graduatoria, con accesso alla tabella completa della stagione."
+          text={`${competition} · ${season}${rows.length && rows.every((row) => row.played === 0) ? ". Campionato non ancora iniziato: tutte le squadre a zero punti." : ""}`}
         />
 
         {rows.length > 0 ? (
@@ -39,7 +39,7 @@ export function StandingsPreviewSection({ standings, limit = 6, showLink = true 
             </div>
             {rows.map((row) => (
               <div key={row.team} className="grid min-w-[620px] grid-cols-[48px_minmax(220px,1.4fr)_60px_60px_70px_70px] items-center border-t border-white/8 px-5 py-4 text-sm">
-                <span className="font-display text-2xl font-light text-axGold">{row.position}</span>
+                <span className="font-display text-2xl font-light text-axGold">{row.position ?? "-"}</span>
                 <span className={row.team === CLUB_NAME ? "font-semibold text-white" : "font-light text-white/72"}>{row.team}</span>
                 <span className="text-right font-semibold text-white">{row.points}</span>
                 <span className="text-right text-white/58">{row.played}</span>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { clubSources, navigation } from "@/data/club";
+import { currentSeasonSources } from "@/data/season-2026-27";
 import { Logo } from "@/components/Logo";
 
 export function Footer() {
@@ -20,6 +21,11 @@ export function Footer() {
               Fonti dati
             </summary>
             <div className="mt-3 grid gap-2">
+              <p>
+                Stagione 2026/27: Coppa Cobram - Girone D, verificata il 10 ottobre 2026 su{" "}
+                <a href={currentSeasonSources.standings} target="_blank" rel="noreferrer" className="transition hover:text-white/55">Calcio Liguria</a>.
+                {" "}Calendario e tesseramenti ancora in aggiornamento.
+              </p>
               <p>
                 Dati stagione 2025/26 basati principalmente su Calcio Liguria, con correzioni manuali richieste dal club per presidente, allenatore, capitano, ruoli di alcuni giocatori e composizione della dirigenza.
               </p>

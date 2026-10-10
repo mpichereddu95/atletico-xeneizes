@@ -1,5 +1,10 @@
 # ROADMAP
 
+## Stagione 2026/27
+
+- [x] Girone D Coppa Cobram verificato il 10 ottobre 2026, classifica iniziale e archivio separati.
+- [ ] Calendario e rosa in attesa di pubblicazione della fonte.
+
 ## Visione
 
 Trasformare l'attuale v1 in un portale ufficiale stabile, aggiornabile e gestibile nel tempo.

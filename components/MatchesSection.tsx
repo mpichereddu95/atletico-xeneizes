@@ -15,7 +15,7 @@ type MatchView = "overview" | "results" | "calendar" | "table";
 type OutcomeFilter = "all" | "win" | "draw" | "loss";
 
 export function MatchesSection({ matches, standings }: MatchesSectionProps) {
-  const seasons = Array.from(new Set(matches.map((match) => match.season))).sort().reverse();
+  const seasons = Array.from(new Set([...matches.map((match) => match.season), ...standings.map((row) => row.season)])).sort().reverse();
   const [season, setSeason] = useState(seasons[0] ?? "");
   const [view, setView] = useState<MatchView>("overview");
   const [outcomeFilter, setOutcomeFilter] = useState<OutcomeFilter>("all");
@@ -25,7 +25,7 @@ export function MatchesSection({ matches, standings }: MatchesSectionProps) {
     [matches, season]
   );
 
-  const competitions = Array.from(new Set(seasonMatches.map((match) => match.competition)));
+  const competitions = Array.from(new Set([...seasonMatches.map((match) => match.competition), ...standings.filter((row) => row.season === season).map((row) => row.competition)]));
   const defaultCompetition = competitions.includes("Coppa Cobram - Girone C") ? "Coppa Cobram - Girone C" : competitions[0] ?? "";
   const [competition, setCompetition] = useState(defaultCompetition);
   const effectiveCompetition = competitions.includes(competition) ? competition : defaultCompetition;
@@ -34,7 +34,7 @@ export function MatchesSection({ matches, standings }: MatchesSectionProps) {
   const playedMatches = filteredMatches.filter((match) => match.status === "played").sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
   const standingsRows = standings
     .filter((row) => row.season === season && row.competition === effectiveCompetition)
-    .sort((a, b) => a.position - b.position);
+    .sort((a, b) => (a.position ?? Infinity) - (b.position ?? Infinity));
 
   const filteredResults = playedMatches.filter((match) => {
     if (outcomeFilter === "all") {
@@ -57,8 +57,8 @@ export function MatchesSection({ matches, standings }: MatchesSectionProps) {
           tone="light"
         />
 
-        <div className="grid gap-6 xl:grid-cols-[280px_1fr]">
-          <aside className="border border-axBlack/10 bg-[#f7f5ef] p-5">
+        <div className="grid min-w-0 gap-6 xl:grid-cols-[280px_minmax(0,1fr)]">
+          <aside className="min-w-0 border border-axBlack/10 bg-[#f7f5ef] p-5">
             <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-axGold">Controlli</p>
             <div className="mt-5 grid gap-4">
               <FilterField label="Stagione" value={season} options={seasons} onChange={setSeason} />
@@ -66,20 +66,20 @@ export function MatchesSection({ matches, standings }: MatchesSectionProps) {
             </div>
 
             <div className="mt-8 grid gap-3">
-              <SummaryItem label="Posizione Girone C" value={summary.position} />
+              <SummaryItem label="Posizione nel girone" value={summary.position} />
               <SummaryItem label="Bilancio" value={summary.record} />
               <SummaryItem label="Reti" value={summary.goals} />
               <SummaryItem label="Fase finale" value={summary.finalPhase} />
             </div>
           </aside>
 
-          <div className="border border-axBlack/10 bg-white">
+          <div className="min-w-0 border border-axBlack/10 bg-white">
             <div className="border-b border-axBlack/10 px-5 py-5">
               <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
                 <div>
                   <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-axGold">Vista stagione</p>
                   <h3 className="mt-3 font-display text-3xl font-light leading-none text-axBlack sm:text-4xl">
-                    {filteredMatches[0]?.phase ?? "Archivio"} · {season}
+                    {effectiveCompetition} · {season}
                   </h3>
                 </div>
                 <SegmentedControl
@@ -129,16 +129,17 @@ function OverviewPane({ matches, standings }: { matches: Match[]; standings: Sta
   return (
     <div className="grid gap-5">
       <div className="grid gap-4 lg:grid-cols-4">
-        <MetricCard label="Gare ufficiali" value={String(matches.length)} />
-        <MetricCard label="Vittorie" value={String(matches.filter((match) => getOutcome(match).key === "win").length)} />
-        <MetricCard label="Pareggi" value={String(matches.filter((match) => getOutcome(match).key === "draw").length)} />
-        <MetricCard label="Sconfitte" value={String(matches.filter((match) => getOutcome(match).key === "loss").length)} />
+        <MetricCard label="Gare disputate" value={String(matches.filter((match) => match.status === "played").length)} />
+        <MetricCard label="Vittorie" value={String(matches.filter((match) => match.status === "played" && getOutcome(match).key === "win").length)} />
+        <MetricCard label="Pareggi" value={String(matches.filter((match) => match.status === "played" && getOutcome(match).key === "draw").length)} />
+        <MetricCard label="Sconfitte" value={String(matches.filter((match) => match.status === "played" && getOutcome(match).key === "loss").length)} />
       </div>
 
       <div className="grid gap-5 xl:grid-cols-[1.1fr_0.9fr]">
         <div className="border border-axBlack/10">
           <PanelHeader kicker="Ultimi risultati" title="Forma recente" />
           <div>
+            {lastThree.length === 0 ? <EmptyState message="Nessun risultato pubblicato per questa stagione." /> : null}
             {lastThree.map((match) => (
               <CompactMatchRow key={match.id} match={match} />
             ))}
@@ -153,11 +154,11 @@ function OverviewPane({ matches, standings }: { matches: Match[]; standings: Sta
 
       {standings.length > 0 ? (
         <div className="border border-axBlack/10">
-          <PanelHeader kicker="Classifica sintetica" title="Top 5" />
+          <PanelHeader kicker="Classifica sintetica" title={standings.every((row) => row.played === 0) ? "Squadre del girone" : "Top 5"} />
           <div className="grid gap-0 overflow-x-auto [scrollbar-width:thin]">
             {standings.slice(0, 5).map((row) => (
               <div key={row.team} className="grid min-w-[420px] grid-cols-[40px_minmax(0,1fr)_50px_50px] items-center gap-3 border-b border-axBlack/8 px-5 py-4 last:border-b-0">
-                <span className="font-display text-2xl font-light text-axGold">{row.position}</span>
+                <span className="font-display text-2xl font-light text-axGold">{row.position ?? "-"}</span>
                 <p className={`min-w-0 text-sm ${row.team === "ATLETICO XENEIZES 149" ? "font-semibold text-axBlack" : "font-light text-axBlack/78"}`}>{row.team}</p>
                 <span className="text-right text-sm font-semibold text-axBlack">{row.points}</span>
                 <span className="text-right text-sm font-light text-axBlack/55">{row.difference}</span>
@@ -186,7 +187,7 @@ function ResultsPane({ matches, emptyMessage }: { matches: Match[]; emptyMessage
 
 function CalendarPane({ matches }: { matches: Match[] }) {
   if (matches.length === 0) {
-    return <EmptyState message="Nessuna gara disponibile per i filtri selezionati." />;
+    return <EmptyState message="Calendario ufficiale in aggiornamento." />;
   }
 
   return (
@@ -234,7 +235,7 @@ function TablePane({ standings }: { standings: Standing[] }) {
       </div>
       {standings.map((row) => (
         <div key={row.team} className="grid min-w-[680px] grid-cols-[48px_minmax(220px,1.4fr)_60px_60px_60px_80px_80px] items-center border-t border-axBlack/8 px-5 py-4 text-sm">
-          <span className="font-display text-2xl font-light text-axGold">{row.position}</span>
+          <span className="font-display text-2xl font-light text-axGold">{row.position ?? "-"}</span>
           <div>
             <p className={`${row.team === "ATLETICO XENEIZES 149" ? "font-semibold text-axBlack" : "font-light text-axBlack/78"}`}>{row.team}</p>
             <p className="mt-1 text-[11px] font-light uppercase tracking-[0.14em] text-axBlack/42">
@@ -375,10 +376,10 @@ function EmptyState({ message }: { message: string }) {
 
 function getSummary(matches: Match[], standings: Standing[], season: string) {
   const tableRow = standings.find((row) => row.season === season && row.team === "ATLETICO XENEIZES 149");
-  const finalPhaseMatches = matches.filter((match) => match.phase === "Poule Scudetto");
+  const finalPhaseMatches = matches.filter((match) => match.season === season && match.phase === "Poule Scudetto");
 
   return {
-    position: tableRow ? `${tableRow.position}° posto` : "n.d.",
+    position: tableRow?.position ? `${tableRow.position}° posto` : "Non ancora assegnata",
     record: tableRow ? `${tableRow.wins}V · ${tableRow.draws}N · ${tableRow.losses}P` : "n.d.",
     goals: tableRow ? `${tableRow.goalsFor} fatti · ${tableRow.goalsAgainst} subiti` : "n.d.",
     finalPhase: finalPhaseMatches.length > 0 ? `${finalPhaseMatches.length} gare di Poule` : "non disponibile"

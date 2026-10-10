@@ -96,6 +96,15 @@ Costruire una piattaforma sportiva ufficiale per:
 
 ## Prossimi Step Prioritari
 
+### Verifica sportiva 10 ottobre 2026
+
+- Atletico Xeneizes 149 iscritto alla Coppa Cobram 2026/27, Girone D (Calcio Liguria, progetto 1283).
+- Nove squadre, tutte a zero gare e zero punti; posizioni non ancora assegnate sul sito del club.
+- Rosa e calendario del club risultano vuoti sulla fonte: non trasferire tesseramenti o statistiche 2025/26 nella stagione attuale.
+- Snapshot verificato in `data/season-2026-27.ts`. Sanity resta prioritario per ogni coppia stagione/competizione; lo snapshot integra solo le competizioni assenti dal CMS.
+- Nessun token di scrittura Sanity disponibile in questa sessione: nessuna modifica ai documenti CMS.
+- Le correzioni Cantoro centrocampista, Gallone e Nucera difensori restano valide; Montiel e Hrustic restano nello storico.
+
 1. Inserire contenuti reali minimi in Sanity seguendo `docs/EDITORIAL_WORKFLOW.md`.
 2. Personalizzare Sanity Studio con viste editoriali per Home, Rosa attuale, Archivio, Partite, Match report, Sponsor e Media.
 3. Aggiungere o rifinire gli schema mancanti: `staff`, `homepage`, `siteSettings` e stato roster/season piu leggibile.

@@ -7,7 +7,7 @@ export const standingType = defineType({
   fields: [
     defineField({ name: "season", title: "Stagione", type: "reference", to: [{ type: "season" }], validation: (rule) => rule.required() }),
     defineField({ name: "competition", title: "Competizione", type: "reference", to: [{ type: "competition" }], validation: (rule) => rule.required() }),
-    defineField({ name: "position", title: "Posizione", type: "number", validation: (rule) => rule.required().integer().min(1) }),
+    defineField({ name: "position", title: "Posizione", description: "Lascia vuoto prima dell'inizio del campionato, se la posizione non e assegnata.", type: "number", validation: (rule) => rule.integer().min(1) }),
     defineField({ name: "team", title: "Squadra", type: "string", validation: (rule) => rule.required() }),
     defineField({ name: "played", title: "Partite", type: "number", initialValue: 0, validation: (rule) => rule.integer().min(0) }),
     defineField({ name: "wins", title: "Vittorie", type: "number", initialValue: 0, validation: (rule) => rule.integer().min(0) }),

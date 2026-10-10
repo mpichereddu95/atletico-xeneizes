@@ -1,5 +1,12 @@
 # TODO
 
+## Aggiornamento 2026/27 - 10 ottobre 2026
+
+- [x] Verificare iscrizione in Coppa Cobram Girone D e nove squadre del girone.
+- [x] Separare classifica corrente e risultati storici; non riutilizzare statistiche 2025/26 nella rosa corrente.
+- [ ] Importare calendario e tesseramenti quando pubblicati da Calcio Liguria.
+- [ ] Trasferire lo snapshot iniziale 2026/27 in Sanity quando disponibile accesso di scrittura.
+
 ## Regole operative
 
 - consultare prima i file `docs/`

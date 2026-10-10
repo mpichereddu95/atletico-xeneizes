@@ -42,9 +42,9 @@ export const seasonSummaries: SeasonSummary[] = [
     label: "Stagione attuale",
     title: currentSeasonLabel,
     status: "current",
-    description: "Calendario ufficiale in aggiornamento. La nuova stagione verra pubblicata appena saranno disponibili i dati ufficiali.",
+    description: "Coppa Cobram - Girone D 2026/27: nove squadre, nessuna gara disputata. Calendario e tesseramenti in aggiornamento su Calcio Liguria. Dati verificati il 10 ottobre 2026.",
     href: "/partite",
-    hasOfficialData: false
+    hasOfficialData: true
   },
   {
     id: "archive-2025-26",

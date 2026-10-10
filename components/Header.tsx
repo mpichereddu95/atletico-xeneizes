@@ -4,7 +4,7 @@ import { Logo } from "@/components/Logo";
 
 export function Header() {
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-axBlack/88 backdrop-blur-xl">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-axBlack/[0.88] backdrop-blur-xl">
       <div className="section-shell flex h-[4.5rem] min-w-0 items-center justify-between gap-6">
         <Logo />
         <nav className="hidden items-center gap-6 lg:flex lg:flex-1 lg:justify-end" aria-label="Navigazione principale">

@@ -18,7 +18,7 @@ export function MatchCenterSection({ latestResult, nextMatch, matches, standings
   const next = nextMatch ?? [...matches].filter((match) => match.status === "scheduled").sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())[0] ?? null;
   const competition = latest?.competition ?? next?.competition ?? standings[0]?.competition ?? "Stagione";
   const season = latest?.season ?? next?.season ?? standings[0]?.season ?? "Archivio";
-  const tableRows = standings.filter((row) => row.competition === competition && row.season === season).sort((a, b) => a.position - b.position);
+  const tableRows = standings.filter((row) => row.competition === competition && row.season === season).sort((a, b) => (a.position ?? Infinity) - (b.position ?? Infinity));
   const clubStanding = tableRows.find((row) => row.team === CLUB_NAME);
 
   return (
@@ -27,13 +27,13 @@ export function MatchCenterSection({ latestResult, nextMatch, matches, standings
         <SectionHeading
           kicker="Match center"
           title="Partite, risultati e classifica"
-          text="Il punto rapido per seguire calendario, ultimo risultato e posizione in classifica senza lasciare la home."
+          text={`${competition} · ${season}`}
           tone="light"
         />
 
         <div className="grid gap-4 lg:grid-cols-[1fr_1fr_0.9fr]">
           <NextMatchPanel match={next} />
-          <MatchPanel kicker="Ultimo risultato" match={latest} empty="Nessun risultato disponibile." />
+          <MatchPanel kicker="Ultimo risultato" match={latest} empty="Nessun risultato pubblicato per questa stagione." />
 
           <article className="premium-panel-light bg-[#f7f5ef] p-5 sm:p-6">
             <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-axGold">Classifica sintetica</p>
@@ -42,7 +42,7 @@ export function MatchCenterSection({ latestResult, nextMatch, matches, standings
                 <div className="flex items-center justify-between gap-4">
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-[0.18em] text-axBlack/45">Atletico Xeneizes</p>
-                    <p className="mt-2 font-display text-4xl font-light leading-none text-axBlack">{clubStanding.position}°</p>
+                    <p className="mt-2 font-display text-4xl font-light leading-none text-axBlack">{clubStanding.position ? `${clubStanding.position}°` : "-"}</p>
                   </div>
                   <div className="text-right">
                     <p className="text-xs font-semibold uppercase tracking-[0.18em] text-axBlack/45">Punti</p>
@@ -54,7 +54,7 @@ export function MatchCenterSection({ latestResult, nextMatch, matches, standings
             <div className="mt-4 grid gap-2">
               {tableRows.slice(0, 4).map((row) => (
                 <div key={row.team} className="grid grid-cols-[32px_minmax(0,1fr)_42px] items-center gap-3 border-b border-axBlack/8 py-2 text-sm last:border-b-0">
-                  <span className="font-display text-xl font-light text-axGold">{row.position}</span>
+                  <span className="font-display text-xl font-light text-axGold">{row.position ?? "-"}</span>
                   <span className={row.team === CLUB_NAME ? "truncate font-semibold text-axBlack" : "truncate font-light text-axBlack/70"}>{row.team}</span>
                   <span className="text-right font-semibold text-axBlack">{row.points}</span>
                 </div>

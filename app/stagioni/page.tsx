@@ -26,7 +26,7 @@ export default async function StagioniPage() {
             {seasons.map((season) => {
               const seasonMatches = matches.filter((match) => match.season === season.title);
               const seasonStandings = standings.filter((row) => row.season === season.title);
-              const competitions = Array.from(new Set(seasonMatches.map((match) => match.competition)));
+              const competitions = Array.from(new Set([...seasonMatches.map((match) => match.competition), ...seasonStandings.map((row) => row.competition)]));
 
               return (
                 <article key={season.id} className="border border-axBlack/10 bg-[#f7f5ef] p-6">

@@ -18,7 +18,7 @@ export function PlayersSection({ players, variant = "full", limit = 8 }: Players
           <SectionHeading
             kicker="Rosa"
             title="Database giocatori"
-            text="Una selezione della rosa attuale con schede cliccabili e statistiche essenziali."
+            text={players.length ? "La rosa attuale e le statistiche della stagione." : "Rosa 2026/27 in aggiornamento: Calcio Liguria non ha ancora pubblicato i tesseramenti. Le schede 2025/26 restano consultabili nell'archivio."}
           />
 
           <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">

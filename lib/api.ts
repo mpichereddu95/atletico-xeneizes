@@ -1,4 +1,5 @@
-import { articles, cmsArticles, latestResult, matches, mediaItems, navigation, nextMatch, officialChannels, players, projectStatement, seasonSummaries, sponsors, staff, standings } from "@/data/club";
+import { articles, cmsArticles, matches, mediaItems, navigation, officialChannels, players, projectStatement, seasonSummaries, sponsors, staff, standings } from "@/data/club";
+import { currentSeasonLabel, currentStandings } from "@/data/season-2026-27";
 import {
   getSanityArticleBySlug,
   getSanityArticles,
@@ -16,9 +17,10 @@ export async function getNavigation() {
 }
 
 export async function getHomeSnapshot() {
+  const currentMatches = (await getMatches()).filter((match) => match.season === currentSeasonLabel);
   return {
-    latestResult,
-    nextMatch
+    latestResult: currentMatches.filter((match) => match.status === "played").sort((a, b) => b.date.localeCompare(a.date))[0] ?? null,
+    nextMatch: currentMatches.filter((match) => match.status === "scheduled").sort((a, b) => a.date.localeCompare(b.date))[0] ?? null
   };
 }
 
@@ -31,7 +33,7 @@ export async function getCurrentPlayers() {
   const excludedFromCurrentRoster = new Set(["stefano-montiel-noguera", "senad-hrustic"]);
   const allPlayers = await getPlayers();
 
-  return allPlayers.filter((player) => player.currentRoster !== false && !excludedFromCurrentRoster.has(player.id));
+  return allPlayers.filter((player) => player.seasons?.includes(currentSeasonLabel) && player.currentRoster !== false && !excludedFromCurrentRoster.has(player.id));
 }
 
 export async function getPlayerById(playerId: string) {
@@ -50,7 +52,9 @@ export async function getSeasonSummaries() {
 
 export async function getStandings() {
   const sanityStandings = await getSanityStandings();
-  return sanityStandings.length > 0 ? sanityStandings : standings;
+  const cmsCompetitions = new Set(sanityStandings.map((row) => `${row.season}:${row.competition}`));
+  const fallback = [...currentStandings, ...standings].filter((row) => !cmsCompetitions.has(`${row.season}:${row.competition}`));
+  return [...sanityStandings, ...fallback].sort((a, b) => b.season.localeCompare(a.season));
 }
 
 export async function getArticles() {
