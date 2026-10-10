@@ -1,4 +1,4 @@
-import { articles, cmsArticles, matches, mediaItems, navigation, officialChannels, players, projectStatement, seasonSummaries, sponsors, staff, standings } from "@/data/club";
+import { articles, cmsArticles, matches, mediaItems, navigation, officialChannels, players, projectStatement, seasonSummaries, sponsors, staff, standings, summerFriendliesSeasonLabel } from "@/data/club";
 import { currentSeasonLabel, currentStandings } from "@/data/season-2026-27";
 import {
   getSanityArticleBySlug,
@@ -43,7 +43,15 @@ export async function getPlayerById(playerId: string) {
 
 export async function getMatches() {
   const sanityMatches = await getSanityMatches();
-  return sanityMatches.length > 0 ? sanityMatches : matches;
+  if (sanityMatches.length === 0) return matches;
+
+  const cmsMatchKeys = new Set(sanityMatches.map((match) => `${match.season}|${match.competition}|${match.date}|${match.home}|${match.away}`));
+  const fallbackFriendlies = matches.filter((match) =>
+    match.season === summerFriendliesSeasonLabel &&
+    !cmsMatchKeys.has(`${match.season}|${match.competition}|${match.date}|${match.home}|${match.away}`)
+  );
+
+  return [...sanityMatches, ...fallbackFriendlies];
 }
 
 export async function getSeasonSummaries() {

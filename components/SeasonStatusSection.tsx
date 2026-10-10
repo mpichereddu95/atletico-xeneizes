@@ -7,8 +7,8 @@ type SeasonStatusSectionProps = {
 };
 
 export function SeasonStatusSection({ seasons }: SeasonStatusSectionProps) {
-  const primarySeasons = seasons.filter((season) => season.id !== "world-cup-estate-2026");
-  const secondaryArchive = seasons.find((season) => season.id === "world-cup-estate-2026");
+  const primarySeasons = seasons.filter((season) => season.id !== "summer-friendlies-2026");
+  const secondaryArchive = seasons.find((season) => season.id === "summer-friendlies-2026");
 
   return (
     <section className="bg-[#f7f5ef] py-14 text-axBlack lg:py-20">

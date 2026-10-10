@@ -32,6 +32,7 @@ export const clubSources = {
 const season = "2025/26";
 export const currentSeasonLabel = "2026/27";
 export const archiveSeasonLabel = season;
+export const summerFriendliesSeasonLabel = "Amichevoli Estive 2026";
 const groupCompetition = "Coppa Cobram - Girone C";
 const pouleCompetition = "Coppa Cobram - Poule Scudetto";
 const fallbackAssists = null;
@@ -56,11 +57,11 @@ export const seasonSummaries: SeasonSummary[] = [
     hasOfficialData: true
   },
   {
-    id: "world-cup-estate-2026",
+    id: "summer-friendlies-2026",
     label: "Archivio estivo",
-    title: "World Cup / Estate 2026",
+    title: summerFriendliesSeasonLabel,
     status: "archive",
-    description: "Archivio estivo concluso. Risultati, contenuti e materiali ufficiali saranno pubblicati quando confermati dal club.",
+    description: "Archivio aggiornabile delle amichevoli estive 2026. Sono registrate le gare disputate finora; nuove partite potranno essere aggiunte quando confermate dal club.",
     href: "/stagioni",
     hasOfficialData: false
   }
@@ -346,7 +347,38 @@ export const matches: Match[] = [
     venue: "Via dell Acciaio",
     score: "3-2",
     status: "played"
-  }
+  },
+  ...[
+    ["2026-05-14", "IL CALCIO SECONDO ALE", "ATLETICO XENEIZES 149", "6-13"],
+    ["2026-05-23", "TOULI FC", "ATLETICO XENEIZES 149", "1-3"],
+    ["2026-06-25", "ATLETICO XENEIZES 149", "IL CALCIO SECONDO ALE", "6-5"],
+    ["2026-06-29", "SBROCCA JUNIORS FC", "ATLETICO XENEIZES 149", "5-6"],
+    ["2026-07-06", "SBROCCA JUNIORS FC", "ATLETICO XENEIZES 149", "7-5"],
+    ["2026-07-09", "ATHLETIC FIRE", "ATLETICO XENEIZES 149", "4-18"],
+    ["2026-07-16", "TOULI FC", "ATLETICO XENEIZES 149", "5-9"],
+    ["2026-07-21", "ATLETICO XENEIZES 149", "TOULI FC", "4-5"],
+    ["2026-07-29", "ATLETICO XENEIZES 149", "BURLANDO BEER", "6-1"],
+    ["2026-08-06", "ATLETICO XENEIZES 149", "DRINK TEAM 2015", "5-6"],
+    ["2026-08-11", "ATLETICO XENEIZES 149", "IL CALCIO SECONDO ALE", "6-2"],
+    ["2026-08-26", "ATLETICO XENEIZES 149", "ATHLETIC FIRE", "16-5"],
+    ["2026-09-08", "CINQUANTADUE ROSSO F.C.", "ATLETICO XENEIZES 149", "4-9"],
+    ["2026-09-15", "ATLETICO XENEIZES 149", "CERBERO FC", "6-2"],
+    ["2026-09-23", "ATLETICO XENEIZES 149", "DRINK TEAM 2015", "7-7"],
+    ["2026-09-30", "AGUILAS ZENA FC", "ATLETICO XENEIZES 149", "2-2"]
+  ].map(([date, home, away, score], index): Match => ({
+    id: `summer-2026-${String(index + 1).padStart(2, "0")}`,
+    season: summerFriendliesSeasonLabel,
+    competition: summerFriendliesSeasonLabel,
+    phase: "Amichevole",
+    round: String(index + 1),
+    date,
+    kickoff: "",
+    home,
+    away,
+    venue: "",
+    score,
+    status: "played"
+  }))
 ];
 
 export const latestResult = matches[matches.length - 1];

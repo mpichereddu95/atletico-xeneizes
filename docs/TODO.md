@@ -7,6 +7,12 @@
 - [ ] Importare calendario e tesseramenti quando pubblicati da Calcio Liguria.
 - [ ] Trasferire lo snapshot iniziale 2026/27 in Sanity quando disponibile accesso di scrittura.
 
+## Archivio amichevoli estive - 11 ottobre 2026
+
+- [x] Rinominare l'archivio in Amichevoli Estive 2026, distinto dal campionato.
+- [x] Inserire i 16 risultati riportati nella locandina del club e predisporre la sezione per aggiornamenti successivi.
+- [ ] Aggiungere le prossime amichevoli quando confermate.
+
 ## Responsive - 10 ottobre 2026
 
 - [x] Riorganizzare le card dei risultati: data separata, punteggio ed esito distinti, avversaria e dettagli leggibili su una riga dedicata.

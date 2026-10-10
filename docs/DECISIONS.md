@@ -23,6 +23,13 @@
 - Il grafico stagione usa una linea a gradini per i punti cumulativi partita per partita, una scala leggibile, riferimenti alle giornate e dimensione proporzionale al pannello.
 - La selezione del punto mantiene dettaglio di giornata, avversario, risultato, punti guadagnati e totale, utilizzabile anche da tastiera.
 
+## 2026-10-11 - Archivio amichevoli estive
+
+- L'archivio "World Cup / Estate 2026" viene rinominato "Amichevoli Estive 2026" e resta separato dalle competizioni ufficiali.
+- I 16 risultati riportati nella locandina del club sono registrati come partite disputate; orari e impianti non presenti nella fonte restano vuoti.
+- L'archivio compare come sezione dedicata in Stagioni e come competizione selezionabile in Partite; nuove gare si aggiungono ai dati strutturati o a Sanity.
+- Quando Sanity restituisce altre partite, le amichevoli presenti solo nel fallback statico vengono unite senza duplicare quelle gia inserite nel CMS.
+
 ## Formato
 
 Ogni decisione va registrata con:

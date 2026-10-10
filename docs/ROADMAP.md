@@ -4,6 +4,7 @@
 
 - [x] Girone D Coppa Cobram verificato il 10 ottobre 2026, classifica iniziale e archivio separati.
 - [ ] Calendario e rosa in attesa di pubblicazione della fonte.
+- [x] Archivio separato e aggiornabile delle Amichevoli Estive 2026 con 16 risultati confermati dal club.
 
 ## Visione
 

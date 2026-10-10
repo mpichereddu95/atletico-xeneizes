@@ -99,7 +99,7 @@ Contiene:
 
 - stagione attuale con stato pubblico in aggiornamento finche non sono disponibili dati ufficiali
 - archivio storico 2025/26 con risultati, classifica, rosa e statistiche
-- archivio estivo World Cup / Estate 2026 da completare solo con materiali confermati dal club
+- archivio aggiornabile Amichevoli Estive 2026 con i 16 risultati confermati dalla locandina del club; ulteriori gare da aggiungere quando disponibili
 
 ### Canali ufficiali
 

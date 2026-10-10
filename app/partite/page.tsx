@@ -11,7 +11,7 @@ export default async function PartitePage() {
       <PageHero
         kicker="Partite"
         title="Calendario, risultati e classifica"
-        text="Calendario della stagione in corso in aggiornamento e archivio completo 2025/26 con risultati, classifica e Poule Scudetto."
+        text="Calendario della stagione in corso in aggiornamento, archivio 2025/26 e risultati delle Amichevoli Estive 2026."
         primaryCta={{ href: "/", label: "Torna alla home" }}
         secondaryCta={{ href: "/news", label: "Ultimi report" }}
       />

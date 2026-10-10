@@ -45,7 +45,7 @@ Costruire una piattaforma sportiva ufficiale per:
 - `lib/api.ts` resta il punto unico da cui le pagine leggono dati.
 - La hero attuale non va sostituita: rappresenta il quartiere di nascita della squadra.
 - Stagione attuale e archivio 2025/26 devono restare separati.
-- World Cup / Estate 2026 e archivio secondario, non sezione centrale.
+- Amichevoli Estive 2026 e archivio secondario aggiornabile, distinto dai dati ufficiali del campionato.
 - Montiel e Hrustic restano nello storico ma non nella rosa attuale finche non arrivano tesseramenti aggiornati.
 
 ## Design Da Rispettare
@@ -72,7 +72,7 @@ Costruire una piattaforma sportiva ufficiale per:
 - Calendario stagione attuale.
 - Tesseramenti aggiornati.
 - Risultati stagione attuale.
-- Contenuti World Cup / Estate 2026 confermati.
+- Nuove amichevoli estive 2026 da inserire quando confermate dal club.
 - Video e gallery ufficiali.
 
 ## Sicurezza Da Ricordare

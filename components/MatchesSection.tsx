@@ -45,7 +45,8 @@ export function MatchesSection({ matches, standings }: MatchesSectionProps) {
     return outcomeFilter === outcome;
   });
 
-  const summary = getSummary(matches, standings, season);
+  const isFriendlyArchive = effectiveCompetition === "Amichevoli Estive 2026";
+  const summary = getSummary(filteredMatches, standings, season);
 
   return (
     <section id="partite" className="bg-white py-20 text-axBlack lg:py-28">
@@ -66,10 +67,10 @@ export function MatchesSection({ matches, standings }: MatchesSectionProps) {
             </div>
 
             <div className="mt-8 grid gap-3">
-              <SummaryItem label="Posizione nel girone" value={summary.position} />
+              <SummaryItem label={isFriendlyArchive ? "Amichevoli" : "Posizione nel girone"} value={summary.position} />
               <SummaryItem label="Bilancio" value={summary.record} />
               <SummaryItem label="Reti" value={summary.goals} />
-              <SummaryItem label="Fase finale" value={summary.finalPhase} />
+              <SummaryItem label={isFriendlyArchive ? "Stato archivio" : "Fase finale"} value={isFriendlyArchive ? "In aggiornamento" : summary.finalPhase} />
             </div>
           </aside>
 
@@ -196,14 +197,14 @@ function CalendarPane({ matches }: { matches: Match[] }) {
         <div key={match.id} className="grid min-w-0 gap-4 border border-axBlack/10 p-4 lg:grid-cols-[120px_minmax(0,1fr)_auto] lg:items-center">
           <div>
             <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-axGold">{formatDate(match.date)}</p>
-            <p className="mt-1 text-xs font-light text-axBlack/58">{match.kickoff}</p>
+            {match.kickoff ? <p className="mt-1 text-xs font-light text-axBlack/58">{match.kickoff}</p> : null}
           </div>
           <div className="min-w-0">
             <p className="text-base font-light text-axBlack [overflow-wrap:anywhere]">
               {match.home} <span className="text-axGold">vs</span> {match.away}
             </p>
             <p className="mt-1 text-sm font-light text-axBlack/58">
-              {match.venue} · {match.phase}
+              {[match.phase, match.venue].filter(Boolean).join(" · ")}
             </p>
           </div>
           <div className="justify-self-start md:justify-self-end">
@@ -282,7 +283,7 @@ function CompactMatchRow({ match }: { match: Match }) {
       <div className="min-w-0">
         <p className="text-[15px] font-medium leading-snug text-axBlack [overflow-wrap:anywhere] sm:text-base">{opponent}</p>
         <p className="mt-1 text-xs font-light leading-snug text-axBlack/58 [overflow-wrap:anywhere] sm:text-sm">
-          {match.phase} · {match.venue}
+          {[match.phase, match.venue].filter(Boolean).join(" · ")}
         </p>
       </div>
     </div>
@@ -382,11 +383,23 @@ function EmptyState({ message }: { message: string }) {
 function getSummary(matches: Match[], standings: Standing[], season: string) {
   const tableRow = standings.find((row) => row.season === season && row.team === "ATLETICO XENEIZES 149");
   const finalPhaseMatches = matches.filter((match) => match.season === season && match.phase === "Poule Scudetto");
+  const played = matches.filter((match) => match.season === season && match.status === "played" && match.score);
+  const friendlyRecord = played.reduce((record, match) => {
+    const [homeGoals, awayGoals] = match.score!.split("-").map(Number);
+    const teamGoals = match.home === "ATLETICO XENEIZES 149" ? homeGoals : awayGoals;
+    const opponentGoals = match.home === "ATLETICO XENEIZES 149" ? awayGoals : homeGoals;
+    record.goalsFor += teamGoals;
+    record.goalsAgainst += opponentGoals;
+    if (teamGoals > opponentGoals) record.wins += 1;
+    else if (teamGoals < opponentGoals) record.losses += 1;
+    else record.draws += 1;
+    return record;
+  }, { wins: 0, draws: 0, losses: 0, goalsFor: 0, goalsAgainst: 0 });
 
   return {
-    position: tableRow?.position ? `${tableRow.position}° posto` : "Non ancora assegnata",
-    record: tableRow ? `${tableRow.wins}V · ${tableRow.draws}N · ${tableRow.losses}P` : "n.d.",
-    goals: tableRow ? `${tableRow.goalsFor} fatti · ${tableRow.goalsAgainst} subiti` : "n.d.",
+    position: tableRow?.position ? `${tableRow.position}° posto` : played.length ? `${played.length} disputate` : "Non ancora assegnata",
+    record: tableRow ? `${tableRow.wins}V · ${tableRow.draws}N · ${tableRow.losses}P` : played.length ? `${friendlyRecord.wins}V · ${friendlyRecord.draws}N · ${friendlyRecord.losses}P` : "n.d.",
+    goals: tableRow ? `${tableRow.goalsFor} fatti · ${tableRow.goalsAgainst} subiti` : played.length ? `${friendlyRecord.goalsFor} fatti · ${friendlyRecord.goalsAgainst} subiti` : "n.d.",
     finalPhase: finalPhaseMatches.length > 0 ? `${finalPhaseMatches.length} gare di Poule` : "non disponibile"
   };
 }

@@ -30,7 +30,7 @@ export type Match = {
   id: string;
   season: string;
   competition: string;
-  phase: "Girone C" | "Girone D" | "Poule Scudetto";
+  phase: "Girone C" | "Girone D" | "Poule Scudetto" | "Amichevole";
   round: string;
   date: string;
   kickoff: string;
