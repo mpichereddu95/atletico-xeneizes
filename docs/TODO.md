@@ -25,9 +25,10 @@
 
 - [x] Identificare le dipendenze parent per `js-yaml`, `smol-toml`, `uuid` e `postcss-selector-parser`.
 - [x] Aggiornare nel lock npm `js-yaml`, `smol-toml` e `uuid` alle patch compatibili.
-- [ ] Aggiornare i parent legacy `@sanity/codegen`/`chokidar` e `argparse` per rimuovere `braces` e `sprintf-js` vulnerabili.
-- [ ] Verificare `/studio`, build Linux Hostinger e nuova scansione.
-- [ ] Ripetere la scansione dopo il deploy.
+- [x] Aggiornare `postcss-selector-parser` a 7.1.6; typecheck e CSS Tailwind verificati.
+- [x] Scansione Hostinger post-deploy: 0 critici, 0 alti, 1 moderato (prima del fix parser).
+- [ ] Verificare build Linux Hostinger e nuova scansione dopo il fix parser.
+- [ ] Valutare separatamente `braces` e `sprintf-js` rilevati dall'audit npm nella toolchain Sanity.
 
 ## Responsive - 10 ottobre 2026
 

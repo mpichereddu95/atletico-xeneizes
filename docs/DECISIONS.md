@@ -37,7 +37,8 @@
 - La dipendenza PostCSS diretta e il suo override npm devono mantenere lo stesso intervallo; un disallineamento blocca `npm install` e il deploy.
 - Verificare build Hostinger e nuova scansione prima di considerare risolti gli avvisi.
 - Dopo il deploy Hostinger ha confermato 0 critici, ma 10 vulnerabilita transitive residue. Applicare override mirati, mantenendo js-yaml sulla major 3 richiesta da `@vercel/frameworks` e aggiornando uuid solo sotto `typeid-js`.
-- Non forzare `postcss-selector-parser` 7.x sui consumer che dichiarano 6.x, ne usare `npm audit fix --force` che retrocede Sanity; aggiornare prima i pacchetti parent e validare Studio.
+- Hostinger ha lasciato un solo avviso moderato su `postcss-selector-parser`; aggiornare a 7.1.6 come raccomandato dal pannello e verificare typecheck, CSS Tailwind e build Hostinger.
+- Non usare `npm audit fix --force`, che propone il downgrade breaking di Sanity; valutare separatamente gli avvisi del grafo CMS non mostrati dallo scanner Hostinger.
 
 ## Formato
 

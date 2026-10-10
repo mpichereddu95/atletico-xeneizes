@@ -5,7 +5,7 @@
 - [x] Girone D Coppa Cobram verificato il 10 ottobre 2026, classifica iniziale e archivio separati.
 - [ ] Calendario e rosa in attesa di pubblicazione della fonte.
 - [x] Archivio separato e aggiornabile delle Amichevoli Estive 2026 con 16 risultati confermati dal club.
-- [ ] Aggiornare i parent legacy Sanity e verificare la scansione residua Hostinger (braces, sprintf-js, parser selector fuori range).
+- [ ] Verificare la build e scansione Hostinger dopo l'aggiornamento `postcss-selector-parser` 7.1.6; valutare separatamente gli alert non rilevati del grafo Sanity.
 
 ## Visione
 
