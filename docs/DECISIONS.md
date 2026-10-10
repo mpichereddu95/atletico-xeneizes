@@ -39,6 +39,7 @@
 - Dopo il deploy Hostinger ha confermato 0 critici, ma 10 vulnerabilita transitive residue. Applicare override mirati, mantenendo js-yaml sulla major 3 richiesta da `@vercel/frameworks` e aggiornando uuid solo sotto `typeid-js`.
 - Hostinger ha lasciato un solo avviso moderato su `postcss-selector-parser`; aggiornare a 7.1.6 come raccomandato dal pannello e verificare typecheck, CSS Tailwind e build Hostinger.
 - Non usare `npm audit fix --force`, che propone il downgrade breaking di Sanity; valutare separatamente gli avvisi del grafo CMS non mostrati dallo scanner Hostinger.
+- La scansione Hostinger successiva al deploy `e70b8fe` (2026-10-11 00:49) mostra zero vulnerabilita; build Next.js Linux completata correttamente.
 
 ## Formato
 

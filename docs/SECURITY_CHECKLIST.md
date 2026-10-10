@@ -62,9 +62,9 @@ pnpm outdated --prod
 
 Ultimo audit eseguito:
 
-- Hostinger ha rilevato 33 avvisi (3 critici, 14 alti, 16 moderati) il 2026-10-11; dopo gli aggiornamenti delle dipendenze lo scanner ha confermato 0 critici e 0 alti, con 1 moderato residuo (`postcss-selector-parser@6.1.4`).
+- Hostinger ha rilevato 33 avvisi (3 critici, 14 alti, 16 moderati) il 2026-10-11; dopo gli aggiornamenti delle dipendenze la scansione del 2026-10-11 00:49 ha confermato zero vulnerabilita.
 - Le patch compatibili aggiornano `js-yaml` a 3.15.2 e `smol-toml` a 1.9.1 sotto `@vercel/frameworks`, e `uuid` a 11.1.1 sotto `typeid-js`.
-- `postcss-selector-parser` e aggiornato a 7.1.6 come richiesto dallo scanner; typecheck, parsing selector e compilazione CSS Tailwind passano.
+- `postcss-selector-parser` e aggiornato a 7.1.6 come richiesto dallo scanner; typecheck, parsing selector, compilazione CSS Tailwind e build Linux Hostinger passano.
 - `npm audit --omit=dev` include anche vulnerabilita della toolchain Sanity (`braces` e `sprintf-js`) non presenti nell'ultima scansione Hostinger. `npm audit fix --force` propone un downgrade breaking di Sanity e non va usato senza valutare aggiornamento del CMS.
 - Il primo tentativo di deploy e fallito per un override PostCSS non allineato; dipendenza diretta e override devono avere lo stesso intervallo.
 

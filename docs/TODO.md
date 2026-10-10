@@ -26,8 +26,8 @@
 - [x] Identificare le dipendenze parent per `js-yaml`, `smol-toml`, `uuid` e `postcss-selector-parser`.
 - [x] Aggiornare nel lock npm `js-yaml`, `smol-toml` e `uuid` alle patch compatibili.
 - [x] Aggiornare `postcss-selector-parser` a 7.1.6; typecheck e CSS Tailwind verificati.
-- [x] Scansione Hostinger post-deploy: 0 critici, 0 alti, 1 moderato (prima del fix parser).
-- [ ] Verificare build Linux Hostinger e nuova scansione dopo il fix parser.
+- [x] Build Linux Hostinger completata per `e70b8fe`.
+- [x] Scansione Hostinger del 2026-10-11 00:49: nessuna vulnerabilita rilevata.
 - [ ] Valutare separatamente `braces` e `sprintf-js` rilevati dall'audit npm nella toolchain Sanity.
 
 ## Responsive - 10 ottobre 2026
