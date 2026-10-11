@@ -42,6 +42,7 @@
 
 - Il selettore stagione in Partite mostra dall'alto: 2026/27, Amichevoli Estive 2026, 2025/26.
 - Dal basso verso l'alto, l'ordine e 2025/26, amichevoli, 2026/27. La stagione corrente resta selezionata all'apertura; stagioni future non riconosciute vengono elencate dopo quelle note.
+- La pagina Partite viene servita dinamicamente per evitare che il browser mobile mantenga HTML statico di un deployment precedente.
 
 ## 2026-10-11 - Patch vulnerabilita Node.js
 

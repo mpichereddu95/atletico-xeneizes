@@ -7,6 +7,7 @@
 - [x] Archivio separato e aggiornabile delle Amichevoli Estive 2026 con 16 risultati confermati dal club.
 - [x] Database giocatori separato per 2026/27 e 2025/26, con schede attuali predisposte per foto e statistiche.
 - [x] Ordinare il filtro stagioni dall'alto in basso: 2026/27, amichevoli estive, archivio 2025/26.
+- [x] Evitare HTML statico obsoleto nella pagina Partite e selezionare 2026/27 all'apertura.
 - [ ] Completare foto, numeri di maglia e statistiche 2026/27 quando forniti dal club.
 - [x] Patch dipendenze Hostinger: build Linux e scansione del 2026-10-11 completate, zero vulnerabilita rilevate. Continuare a monitorare gli audit npm completi del grafo Sanity.
 

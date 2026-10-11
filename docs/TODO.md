@@ -20,6 +20,7 @@
 - [x] Inserire i 16 risultati riportati nella locandina del club e predisporre la sezione per aggiornamenti successivi.
 - [ ] Aggiungere le prossime amichevoli quando confermate.
 - [x] Ordinare le stagioni nel filtro Partite con 2026/27 in alto, amichevoli al centro, 2025/26 in basso.
+- [x] Correggere il default 2026/27 e servire la pagina Partite senza cache HTML statica, per browser mobile aggiornati.
 
 ## Vulnerabilita Node.js - 11 ottobre 2026
 

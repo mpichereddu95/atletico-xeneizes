@@ -3,6 +3,8 @@ import { archiveSeasonLabel, currentSeasonLabel, summerFriendliesSeasonLabel } f
 import { PageHero } from "@/components/PageHero";
 import { getMatches, getSeasonSummaries, getStandings } from "@/lib/api";
 
+export const dynamic = "force-dynamic";
+
 export default async function PartitePage() {
   const [matches, standings, seasons] = await Promise.all([getMatches(), getStandings(), getSeasonSummaries()]);
   const currentSeason = seasons.find((season) => season.status === "current");

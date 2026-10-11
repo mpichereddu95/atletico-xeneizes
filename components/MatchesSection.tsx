@@ -26,7 +26,7 @@ export function MatchesSection({ matches, standings, seasonOrder }: MatchesSecti
     return indexA - indexB;
   });
   const [season, setSeason] = useState(() => {
-    const defaultSeason = seasonOrder[seasonOrder.length - 1];
+    const defaultSeason = seasonOrder[0];
     return seasons.includes(defaultSeason) ? defaultSeason : seasons[0] ?? "";
   });
   const [view, setView] = useState<MatchView>("overview");
