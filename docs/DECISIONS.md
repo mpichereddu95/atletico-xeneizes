@@ -38,6 +38,11 @@
 - Record Sanity e fallback statici vengono uniti per ID, cosi le schede attuali restano visibili insieme ai dati CMS storici.
 - Statistiche Sanity non compilate restano null e non vengono convertite in zeri.
 
+## 2026-10-11 - Ordine filtro stagioni
+
+- Il selettore stagione in Partite segue l'ordine cronologico: 2025/26, Amichevoli Estive 2026, 2026/27.
+- La stagione 2026/27 resta selezionata all'apertura; stagioni future non riconosciute vengono elencate dopo quelle note.
+
 ## 2026-10-11 - Patch vulnerabilita Node.js
 
 - Hostinger ha segnalato vulnerabilita critiche in Next.js 16.2.9 e vulnerabilita in PostCSS 8.5.15.

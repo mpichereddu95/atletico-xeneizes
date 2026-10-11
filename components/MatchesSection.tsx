@@ -9,14 +9,26 @@ import { SeasonTrendChart } from "@/components/SeasonTrendChart";
 type MatchesSectionProps = {
   matches: Match[];
   standings: Standing[];
+  seasonOrder: string[];
 };
 
 type MatchView = "overview" | "results" | "calendar" | "table";
 type OutcomeFilter = "all" | "win" | "draw" | "loss";
 
-export function MatchesSection({ matches, standings }: MatchesSectionProps) {
-  const seasons = Array.from(new Set([...matches.map((match) => match.season), ...standings.map((row) => row.season)])).sort().reverse();
-  const [season, setSeason] = useState(seasons[0] ?? "");
+export function MatchesSection({ matches, standings, seasonOrder }: MatchesSectionProps) {
+  const availableSeasons = new Set([...matches.map((match) => match.season), ...standings.map((row) => row.season)]);
+  const seasons = Array.from(availableSeasons).sort((a, b) => {
+    const indexA = seasonOrder.indexOf(a);
+    const indexB = seasonOrder.indexOf(b);
+    if (indexA === -1 && indexB === -1) return a.localeCompare(b);
+    if (indexA === -1) return 1;
+    if (indexB === -1) return -1;
+    return indexA - indexB;
+  });
+  const [season, setSeason] = useState(() => {
+    const defaultSeason = seasonOrder[seasonOrder.length - 1];
+    return seasons.includes(defaultSeason) ? defaultSeason : seasons[0] ?? "";
+  });
   const [view, setView] = useState<MatchView>("overview");
   const [outcomeFilter, setOutcomeFilter] = useState<OutcomeFilter>("all");
 

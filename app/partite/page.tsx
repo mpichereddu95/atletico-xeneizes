@@ -1,4 +1,5 @@
 import { MatchesSection } from "@/components/MatchesSection";
+import { archiveSeasonLabel, currentSeasonLabel, summerFriendliesSeasonLabel } from "@/data/club";
 import { PageHero } from "@/components/PageHero";
 import { getMatches, getSeasonSummaries, getStandings } from "@/lib/api";
 
@@ -26,7 +27,7 @@ export default async function PartitePage() {
           </div>
         </section>
       ) : null}
-      <MatchesSection matches={matches} standings={standings} />
+      <MatchesSection matches={matches} standings={standings} seasonOrder={[archiveSeasonLabel, summerFriendliesSeasonLabel, currentSeasonLabel]} />
     </main>
   );
 }
