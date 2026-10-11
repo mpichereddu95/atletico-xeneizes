@@ -47,18 +47,18 @@ const playerProjection = `{
   "seasons": [season->name],
   birthLabel,
   "photo": {
-    "src": coalesce(photo.asset->url, externalPhotoUrl),
+    "src": coalesce(photo.asset->url, externalPhotoUrl, ""),
     "alt": coalesce(photo.alt, name)
   },
   bio,
   sourceUrl,
   "stats": {
-    "appearances": coalesce(appearances, 0),
-    "goals": coalesce(goals, 0),
+    appearances,
+    goals,
     assists,
-    "yellowCards": coalesce(yellowCards, 0),
-    "redCards": coalesce(redCards, 0),
-    "ownGoals": coalesce(ownGoals, 0),
+    yellowCards,
+    redCards,
+    ownGoals,
     bestPlayerAwards,
     bestGoalkeeperAwards
   }
@@ -187,7 +187,7 @@ export async function getSanityPlayers() {
     `*[_type == "player" && defined(slug.current)] | order(role asc, name asc) ${playerProjection}`
   );
 
-  return players?.filter((player) => player.id && player.name && player.photo.src) ?? [];
+  return players?.filter((player) => player.id && player.name) ?? [];
 }
 
 export async function getSanityMatches() {

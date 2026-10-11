@@ -47,6 +47,7 @@ Costruire una piattaforma sportiva ufficiale per:
 - Stagione attuale e archivio 2025/26 devono restare separati.
 - Amichevoli Estive 2026 e archivio secondario aggiornabile, distinto dai dati ufficiali del campionato.
 - Montiel e Hrustic restano nello storico ma non nella rosa attuale finche non arrivano tesseramenti aggiornati.
+- Database giocatori separato per 2026/27 e 2025/26; dati attuali non comunicati restano nulli e indicati come non disponibili.
 
 ## Design Da Rispettare
 
@@ -71,6 +72,7 @@ Costruire una piattaforma sportiva ufficiale per:
 - Logo/materiali sponsor ufficiali.
 - Calendario stagione attuale.
 - Tesseramenti aggiornati.
+- Foto, numeri di maglia e statistiche della rosa 2026/27.
 - Risultati stagione attuale.
 - Nuove amichevoli estive 2026 da inserire quando confermate dal club.
 - Video e gallery ufficiali.
@@ -104,6 +106,7 @@ Costruire una piattaforma sportiva ufficiale per:
 - Snapshot verificato in `data/season-2026-27.ts`. Sanity resta prioritario per ogni coppia stagione/competizione; lo snapshot integra solo le competizioni assenti dal CMS.
 - Nessun token di scrittura Sanity disponibile in questa sessione: nessuna modifica ai documenti CMS.
 - Le correzioni Cantoro centrocampista, Gallone e Nucera difensori restano valide; Montiel e Hrustic restano nello storico.
+- Il club ha fornito la rosa 2026/27 con nomi e ruoli per il database; la fonte Calcio Liguria non pubblicava ancora i tesseramenti. Le nuove schede non ereditano statistiche o foto 2025/26.
 
 1. Inserire contenuti reali minimi in Sanity seguendo `docs/EDITORIAL_WORKFLOW.md`.
 2. Personalizzare Sanity Studio con viste editoriali per Home, Rosa attuale, Archivio, Partite, Match report, Sponsor e Media.
@@ -112,6 +115,7 @@ Costruire una piattaforma sportiva ufficiale per:
 5. Definire override club separati dai dati ufficiali.
 6. Chiarire o disattivare `/admin` finche non sara sicuro.
 7. Aggiornare dati 2026/27 quando Calcio Liguria pubblichera calendario e tesseramenti.
+8. Completare foto, numeri e statistiche della rosa 2026/27 quando comunicati dal club.
 
 ## Come Usare Questa Memoria Nelle Prossime Sessioni
 

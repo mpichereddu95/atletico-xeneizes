@@ -30,6 +30,14 @@
 - L'archivio compare come sezione dedicata in Stagioni e come competizione selezionabile in Partite; nuove gare si aggiungono ai dati strutturati o a Sanity.
 - Quando Sanity restituisce altre partite, le amichevoli presenti solo nel fallback statico vengono unite senza duplicare quelle gia inserite nel CMS.
 
+## 2026-10-11 - Rose e schede per stagione
+
+- La rosa 2026/27 e l'archivio 2025/26 sono selezionabili separatamente nel Database giocatori.
+- Le 12 schede attuali usano nomi e ruoli comunicati dal club; l'allenatore resta nella sezione Staff.
+- Foto, statistiche e numeri non comunicati restano non disponibili: i valori 2025/26 non vengono copiati nella nuova stagione.
+- Record Sanity e fallback statici vengono uniti per ID, cosi le schede attuali restano visibili insieme ai dati CMS storici.
+- Statistiche Sanity non compilate restano null e non vengono convertite in zeri.
+
 ## 2026-10-11 - Patch vulnerabilita Node.js
 
 - Hostinger ha segnalato vulnerabilita critiche in Next.js 16.2.9 e vulnerabilita in PostCSS 8.5.15.

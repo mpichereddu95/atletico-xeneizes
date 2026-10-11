@@ -40,7 +40,11 @@ export default async function PlayerDetailPage({ params }: PlayerDetailPageProps
       <section className="bg-axBlack py-20 lg:py-24">
         <div className="section-shell grid min-w-0 gap-10 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)]">
           <div className="relative aspect-[4/5] overflow-hidden border border-white/10 bg-black">
-            <Image src={player.photo.src} alt={player.photo.alt} fill sizes="(max-width: 1024px) 100vw, 40vw" priority className="object-cover" />
+            {player.photo.src ? (
+              <Image src={player.photo.src} alt={player.photo.alt} fill sizes="(max-width: 1024px) 100vw, 40vw" priority className="object-cover" />
+            ) : (
+              <div className="flex h-full items-center justify-center text-xs font-bold uppercase tracking-[0.2em] text-white/35">Foto da inserire</div>
+            )}
             <div className="absolute inset-0 bg-gradient-to-t from-axBlack via-transparent to-transparent" />
             <span className="absolute left-5 top-5 border border-white/15 bg-black/60 px-4 py-3 text-sm font-black uppercase tracking-[0.18em] text-white/72">
               Numero {player.number ?? "--"}
@@ -60,7 +64,7 @@ export default async function PlayerDetailPage({ params }: PlayerDetailPageProps
                 </p>
                 <p>
                   <span className="block text-xs font-black uppercase tracking-[0.18em] text-white/40">Data di nascita</span>
-                  {player.birthLabel}
+                  {player.birthLabel || "n.d."}
                 </p>
               </div>
               <p className="text-base leading-7 text-white/74 [overflow-wrap:anywhere]">{player.bio}</p>
@@ -80,12 +84,12 @@ export default async function PlayerDetailPage({ params }: PlayerDetailPageProps
             <div className="border border-white/10 bg-white/[0.04] p-6">
               <p className="text-xs font-black uppercase tracking-[0.24em] text-axGold">Fonte dati</p>
               <p className="mt-3 max-w-2xl text-base leading-7 text-white/68">
-                Questa scheda usa i numeri ufficiali del Girone C 2025/26 pubblicati da Calcio Liguria e le correzioni manuali approvate dal club.
+                {player.seasons?.includes("2026/27")
+                  ? "Scheda della rosa 2026/27 predisposta con i dati comunicati dal club. Statistiche, foto e numero di maglia saranno aggiunti quando disponibili."
+                  : "Questa scheda riporta i dati della stagione 2025/26 pubblicati da Calcio Liguria e le correzioni manuali approvate dal club."}
               </p>
               <div className="mt-6 flex flex-wrap gap-4">
-                <a href={player.sourceUrl} target="_blank" rel="noreferrer" className="inline-flex text-sm font-black uppercase tracking-[0.2em] text-white transition hover:text-axGold">
-                  Apri la scheda fonte
-                </a>
+                {player.sourceUrl && <a href={player.sourceUrl} target="_blank" rel="noreferrer" className="inline-flex text-sm font-black uppercase tracking-[0.2em] text-white transition hover:text-axGold">Apri la scheda fonte</a>}
                 <Link href="/news" className="inline-flex text-sm font-black uppercase tracking-[0.2em] text-white/72 transition hover:text-axGold">
                   Leggi le news del club
                 </Link>

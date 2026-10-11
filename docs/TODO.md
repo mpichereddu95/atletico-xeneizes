@@ -7,6 +7,13 @@
 - [ ] Importare calendario e tesseramenti quando pubblicati da Calcio Liguria.
 - [ ] Trasferire lo snapshot iniziale 2026/27 in Sanity quando disponibile accesso di scrittura.
 
+## Database giocatori - 11 ottobre 2026
+
+- [x] Separare la rosa 2026/27 dall'archivio 2025/26 senza alterare lo storico.
+- [x] Inserire i 12 nomi e i ruoli indicati dal club; escludere l'allenatore dal database.
+- [x] Predisporre spazio per foto e statistiche; non assegnare numeri di maglia.
+- [ ] Aggiungere foto, numeri e statistiche quando comunicati.
+
 ## Archivio amichevoli estive - 11 ottobre 2026
 
 - [x] Rinominare l'archivio in Amichevoli Estive 2026, distinto dal campionato.

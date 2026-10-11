@@ -669,6 +669,38 @@ export const players: Player[] = [
   }
 ];
 
+const pendingPlayerStats: Player["stats"] = {
+  appearances: null, goals: null, assists: null, yellowCards: null,
+  redCards: null, ownGoals: null, bestPlayerAwards: null, bestGoalkeeperAwards: null
+};
+
+const currentRosterEntries: Array<[string, string, Player["role"]]> = [
+  ["lorenzo-grimaud", "Lorenzo Grimaud", "Portiere"],
+  ["daniele-fiorini", "Daniele Fiorini", "Portiere"],
+  ["daniele-velardo", "Daniele Velardo", "Difensore"],
+  ["davide-gallone", "Davide Gallone", "Difensore"],
+  ["mattia-galasso", "Mattia Galasso", "Difensore"],
+  ["matteo-micci", "Matteo Micci", "Difensore"],
+  ["andrea-costanzo", "Andrea Costanzo", "Centrocampista"],
+  ["salvatore-salleo", "Salvatore Salleo", "Centrocampista"],
+  ["antonio-zarro", "Antonio Zarro", "Centrocampista"],
+  ["mirko-mancini", "Mirko Mancini", "Centrocampista"],
+  ["federico-cantoro", "Federico Cantoro", "Centrocampista"],
+  ["riccardo-nucera", "Riccardo Nucera", "Attaccante"]
+];
+
+export const currentPlayers: Player[] = currentRosterEntries.map(([id, name, role]): Player => ({
+  id: `${id}-2026-27`, name, number: null, role,
+  seasons: [currentSeasonLabel], currentRoster: true, birthLabel: "n.d.",
+  photo: { src: "", alt: `Foto di ${name} da inserire` },
+  bio: "Scheda della stagione 2026/27. Foto e statistiche saranno aggiunte quando disponibili.",
+  sourceUrl: "", stats: { ...pendingPlayerStats }
+}));
+
+for (const player of players) {
+  player.seasons ??= [archiveSeasonLabel];
+}
+
 export const standings: Standing[] = [
   { position: 1, season, competition: groupCompetition, team: "LA MASIA", points: 43, played: 18, wins: 14, draws: 1, losses: 3, goalsFor: 119, goalsAgainst: 48, difference: 71 },
   { position: 2, season, competition: groupCompetition, team: "DE WAVE GROUP", points: 38, played: 18, wins: 11, draws: 5, losses: 2, goalsFor: 74, goalsAgainst: 41, difference: 33 },

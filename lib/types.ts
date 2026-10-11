@@ -15,12 +15,12 @@ export type Player = {
   bio: string;
   sourceUrl: string;
   stats: {
-    appearances: number;
-    goals: number;
+    appearances: PlayerStatValue;
+    goals: PlayerStatValue;
     assists: PlayerStatValue;
-    yellowCards: number;
-    redCards: number;
-    ownGoals: number;
+    yellowCards: PlayerStatValue;
+    redCards: PlayerStatValue;
+    ownGoals: PlayerStatValue;
     bestPlayerAwards: PlayerStatValue;
     bestGoalkeeperAwards: PlayerStatValue;
   };

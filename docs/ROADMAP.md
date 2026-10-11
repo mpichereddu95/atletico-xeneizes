@@ -5,6 +5,8 @@
 - [x] Girone D Coppa Cobram verificato il 10 ottobre 2026, classifica iniziale e archivio separati.
 - [ ] Calendario e rosa in attesa di pubblicazione della fonte.
 - [x] Archivio separato e aggiornabile delle Amichevoli Estive 2026 con 16 risultati confermati dal club.
+- [x] Database giocatori separato per 2026/27 e 2025/26, con schede attuali predisposte per foto e statistiche.
+- [ ] Completare foto, numeri di maglia e statistiche 2026/27 quando forniti dal club.
 - [x] Patch dipendenze Hostinger: build Linux e scansione del 2026-10-11 completate, zero vulnerabilita rilevate. Continuare a monitorare gli audit npm completi del grafo Sanity.
 
 ## Visione

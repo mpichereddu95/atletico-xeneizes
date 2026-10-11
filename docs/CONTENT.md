@@ -22,8 +22,10 @@ Contiene:
 
 Contiene:
 
+- rose separate per stagione 2026/27 e archivio 2025/26
 - elenco giocatori per ruolo
-- statistiche rapide
+- schede attuali predisposte per foto e statistiche da completare
+- numeri di maglia non inseriti finche non comunicati dal club
 - link a scheda giocatore
 
 ### Scheda giocatore

@@ -1,4 +1,4 @@
-import { articles, cmsArticles, matches, mediaItems, navigation, officialChannels, players, projectStatement, seasonSummaries, sponsors, staff, standings, summerFriendliesSeasonLabel } from "@/data/club";
+import { articles, cmsArticles, currentPlayers, matches, mediaItems, navigation, officialChannels, players, projectStatement, seasonSummaries, sponsors, staff, standings, summerFriendliesSeasonLabel } from "@/data/club";
 import { currentSeasonLabel, currentStandings } from "@/data/season-2026-27";
 import {
   getSanityArticleBySlug,
@@ -26,14 +26,16 @@ export async function getHomeSnapshot() {
 
 export async function getPlayers() {
   const sanityPlayers = await getSanityPlayers();
-  return sanityPlayers.length > 0 ? sanityPlayers : players;
+  const byId = new Map(players.map((player) => [player.id, player]));
+  for (const player of currentPlayers) byId.set(player.id, player);
+  for (const player of sanityPlayers) byId.set(player.id, player);
+  return Array.from(byId.values());
 }
 
 export async function getCurrentPlayers() {
-  const excludedFromCurrentRoster = new Set(["stefano-montiel-noguera", "senad-hrustic"]);
   const allPlayers = await getPlayers();
 
-  return allPlayers.filter((player) => player.seasons?.includes(currentSeasonLabel) && player.currentRoster !== false && !excludedFromCurrentRoster.has(player.id));
+  return allPlayers.filter((player) => player.seasons?.includes(currentSeasonLabel) && player.currentRoster !== false);
 }
 
 export async function getPlayerById(playerId: string) {

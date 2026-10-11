@@ -41,12 +41,12 @@ export const playerType = defineType({
       initialValue: true,
       description: "Disattiva per mantenere il giocatore nello storico senza mostrarlo nella rosa della stagione in corso."
     }),
-    defineField({ name: "appearances", title: "Presenze", type: "number", initialValue: 0, validation: (rule) => rule.integer().min(0) }),
-    defineField({ name: "goals", title: "Gol", type: "number", initialValue: 0, validation: (rule) => rule.integer().min(0) }),
+    defineField({ name: "appearances", title: "Presenze", type: "number", validation: (rule) => rule.integer().min(0) }),
+    defineField({ name: "goals", title: "Gol", type: "number", validation: (rule) => rule.integer().min(0) }),
     defineField({ name: "assists", title: "Assist", type: "number", validation: (rule) => rule.integer().min(0) }),
-    defineField({ name: "yellowCards", title: "Ammonizioni", type: "number", initialValue: 0, validation: (rule) => rule.integer().min(0) }),
-    defineField({ name: "redCards", title: "Espulsioni", type: "number", initialValue: 0, validation: (rule) => rule.integer().min(0) }),
-    defineField({ name: "ownGoals", title: "Autogol", type: "number", initialValue: 0, validation: (rule) => rule.integer().min(0) }),
+    defineField({ name: "yellowCards", title: "Ammonizioni", type: "number", validation: (rule) => rule.integer().min(0) }),
+    defineField({ name: "redCards", title: "Espulsioni", type: "number", validation: (rule) => rule.integer().min(0) }),
+    defineField({ name: "ownGoals", title: "Autogol", type: "number", validation: (rule) => rule.integer().min(0) }),
     defineField({ name: "bestPlayerAwards", title: "Migliore in campo", type: "number", validation: (rule) => rule.integer().min(0) }),
     defineField({ name: "bestGoalkeeperAwards", title: "Miglior portiere", type: "number", validation: (rule) => rule.integer().min(0) }),
     defineField({
