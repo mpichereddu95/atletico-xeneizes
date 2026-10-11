@@ -54,7 +54,7 @@ Campi minimi:
 - testo alternativo;
 - contenuto articolo.
 
-Ogni articolo pubblicato nella pagina News include la condivisione diretta su WhatsApp, Facebook, X e Telegram, oltre alla copia del link canonico. I pulsanti usano titolo e URL dello specifico articolo, quindi la funzione vale automaticamente anche per i nuovi contenuti pubblicati da Sanity.
+Ogni articolo pubblicato nella pagina News include la condivisione diretta su WhatsApp, Facebook, X e Telegram, oltre alla copia del link canonico. Instagram non fornisce un composer web per condividere un URL: il pulsante dedicato copia il link e apre Instagram, dove potra essere incollato. I pulsanti usano titolo e URL dello specifico articolo, quindi la funzione vale automaticamente anche per i nuovi contenuti pubblicati da Sanity.
 
 Tono:
 

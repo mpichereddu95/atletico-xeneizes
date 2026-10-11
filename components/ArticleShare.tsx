@@ -14,11 +14,12 @@ export function ArticleShare({ title, slug }: ArticleShareProps) {
   const articleUrl = `${siteUrl}/news/${slug}`;
   const encodedUrl = encodeURIComponent(articleUrl);
   const encodedTitle = encodeURIComponent(title);
-  const shareLinks = [
+  const shareLinks: { label: string; href: string; copyFirst?: boolean }[] = [
     { label: "WhatsApp", href: `https://wa.me/?text=${encodedTitle}%20${encodedUrl}` },
     { label: "Facebook", href: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}` },
     { label: "X", href: `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}` },
-    { label: "Telegram", href: `https://t.me/share/url?url=${encodedUrl}&text=${encodedTitle}` }
+    { label: "Telegram", href: `https://t.me/share/url?url=${encodedUrl}&text=${encodedTitle}` },
+    { label: "Instagram", href: "https://www.instagram.com/", copyFirst: true }
   ];
 
   async function copyArticleLink() {
@@ -44,6 +45,7 @@ export function ArticleShare({ title, slug }: ArticleShareProps) {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`Condividi su ${item.label}`}
+            onClick={item.copyFirst ? copyArticleLink : undefined}
             className="focus-ring inline-flex min-h-11 items-center border border-white/15 px-3 py-2 text-sm font-semibold text-white transition hover:border-axGold hover:text-axGold"
           >
             {item.label}
@@ -57,7 +59,9 @@ export function ArticleShare({ title, slug }: ArticleShareProps) {
           {copied ? "Link copiato" : "Copia link"}
         </button>
       </div>
-      <p className="sr-only" aria-live="polite">{copied ? "Link dell'articolo copiato negli appunti." : ""}</p>
+      <p className="sr-only" aria-live="polite">
+        {copied ? "Link dell'articolo copiato negli appunti. Puoi incollarlo su Instagram." : ""}
+      </p>
     </section>
   );
 }

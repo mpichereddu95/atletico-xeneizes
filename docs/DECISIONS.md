@@ -2,7 +2,7 @@
 
 ## 2026-10-11 - Condivisione news
 
-- Ogni pagina articolo offre condivisione diretta su WhatsApp, Facebook, X e Telegram e copia del link canonico.
+- Ogni pagina articolo offre condivisione diretta su WhatsApp, Facebook, X e Telegram, oltre a copia del link canonico e collegamento Instagram con permalink copiato.
 - I link social vengono costruiti dal titolo e dallo slug dell'articolo, cosi valgono anche per i contenuti futuri pubblicati tramite Sanity senza campi o interventi editoriali aggiuntivi.
 
 ## 2026-10-11 - Aggiornamento area Staff
