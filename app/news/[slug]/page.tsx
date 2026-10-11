@@ -4,7 +4,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArticleBody } from "@/components/ArticleBody";
 import { ArticleShare } from "@/components/ArticleShare";
-import { getArticleBySlug, getArticleSlugs } from "@/lib/api";
+import { getArticleBySlug } from "@/lib/api";
+
+export const dynamic = "force-dynamic";
+
 import { formatLongDate } from "@/lib/utils";
 
 type ArticlePageProps = {
@@ -12,12 +15,6 @@ type ArticlePageProps = {
     slug: string;
   }>;
 };
-
-export async function generateStaticParams() {
-  const slugs = await getArticleSlugs();
-
-  return slugs.map((slug) => ({ slug }));
-}
 
 export async function generateMetadata({ params }: ArticlePageProps): Promise<Metadata> {
   const { slug } = await params;

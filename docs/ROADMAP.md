@@ -69,7 +69,7 @@ Stato: in corso
 
 ## Fase 4 - Editoriale e CMS
 
-Stato: completata per v1
+Stato: collegamento editoriale in verifica
 
 - [x] scegliere Sanity come CMS editoriale principale
 - [x] documentare modello contenuti Sanity v1
@@ -78,6 +78,7 @@ Stato: completata per v1
 - [x] workflow redazionale base tramite Studio e token editoriale
 - [x] documentare checklist editoriale Sanity
 - [x] immagini dedicate per articolo
+- [ ] configurare il token read-only Sanity in Hostinger e verificare contenuti CMS in produzione
 - [x] contenuti reali v1 sincronizzati in Sanity
 
 ## Fase 5 - Backoffice / aggiornamenti

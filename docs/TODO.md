@@ -89,7 +89,7 @@
 - [x] reinserire match report e comunicati reali in Sanity
 - [x] sincronizzare dati sportivi reali completi da `data/club.ts` a Sanity
 - [x] aggiungere script riutilizzabile `npm run sanity:sync`
-- [ ] configurare `SANITY_API_READ_TOKEN` su Hostinger
+- [ ] configurare `SANITY_API_READ_TOKEN` su Hostinger (bloccato: token read-only Sanity non disponibile nell'ambiente locale)
 - [ ] progettare file di override ufficiali del club
 - [ ] definire convenzioni per aggiornamento dati sportivi
 - [ ] documentare component ownership per le sezioni principali

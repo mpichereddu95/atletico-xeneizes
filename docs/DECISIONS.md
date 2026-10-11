@@ -68,6 +68,12 @@
 
 ## Formato
 
+## 2026-10-11 - Lettura CMS in produzione
+
+- Le route elenco e dettaglio News devono essere dinamiche per riflettere gli aggiornamenti Sanity senza restare congelate durante la build.
+- Gli errori HTTP/configurazione Sanity sono registrati lato server senza includere credenziali o body della risposta.
+- Il sito continua a usare i fallback statici finche il token read-only non e configurato; non rendere pubblico il dataset come scorciatoia.
+
 Ogni decisione va registrata con:
 
 - data

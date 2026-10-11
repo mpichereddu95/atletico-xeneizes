@@ -5,6 +5,8 @@ import { PageHero } from "@/components/PageHero";
 import { getArticles } from "@/lib/api";
 import { formatDate } from "@/lib/utils";
 
+export const dynamic = "force-dynamic";
+
 export default async function NewsPage() {
   const articles = await getArticles();
   const featuredArticle = articles[0];

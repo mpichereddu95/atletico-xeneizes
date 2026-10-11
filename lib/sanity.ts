@@ -131,6 +131,7 @@ function queryUrl(query: string) {
 
 async function sanityFetch<T>(query: string) {
   if (!isSanityConfigured()) {
+    console.error("[sanity] Missing NEXT_PUBLIC_SANITY_PROJECT_ID or NEXT_PUBLIC_SANITY_DATASET.");
     return null;
   }
 
@@ -141,12 +142,14 @@ async function sanityFetch<T>(query: string) {
     });
 
     if (!response.ok) {
+      console.error(`[sanity] Read request failed with HTTP ${response.status}.`);
       return null;
     }
 
     const payload = (await response.json()) as { result: T };
     return payload.result;
   } catch {
+    console.error("[sanity] Read request failed before receiving a response.");
     return null;
   }
 }
