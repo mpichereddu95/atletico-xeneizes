@@ -730,11 +730,6 @@ export const staff: StaffMember[] = [
     role: "Capitano",
     bio: "Capitano dell'Atletico Xeneizes per la stagione 2025/26."
   },
-  {
-    name: "Matteo Margorani",
-    role: "Dirigente",
-    bio: "Dirigente presente nella rosa ufficiale pubblicata da Calcio Liguria. Andrea Rao e stato rimosso da questa sezione su indicazione del club."
-  }
 ];
 
 export const sponsors: Sponsor[] = [

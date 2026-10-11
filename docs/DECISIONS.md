@@ -1,5 +1,10 @@
 # DECISIONS
 
+## 2026-10-11 - Aggiornamento area Staff
+
+- Su indicazione del club, Matteo Margorani non deve comparire nell'area Staff con il ruolo di dirigente.
+- Rimuovere il record dal dataset centrale `data/club.ts`; gli altri ruoli dello staff restano invariati.
+
 ## 2026-10-10 - Avvio stagione 2026/27
 
 - Fonte: Calcio Liguria, Coppa Cobram Girone D, progetto 1283; schede Info, Rosa e Calendario del club verificate il 10 ottobre.
