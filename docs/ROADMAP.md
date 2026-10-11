@@ -11,6 +11,7 @@
 - [ ] Completare foto, numeri di maglia e statistiche 2026/27 quando forniti dal club.
 - [x] Patch dipendenze Hostinger: build Linux e scansione del 2026-10-11 completate, zero vulnerabilita rilevate. Continuare a monitorare gli audit npm completi del grafo Sanity.
 - [x] Rimuovere Matteo Margorani dall'area Staff come dirigente su indicazione del club.
+- [x] Aggiungere condivisione articoli su WhatsApp, Facebook, X e Telegram e copia del link.
 
 ## Visione
 

@@ -1,5 +1,10 @@
 # DECISIONS
 
+## 2026-10-11 - Condivisione news
+
+- Ogni pagina articolo offre condivisione diretta su WhatsApp, Facebook, X e Telegram e copia del link canonico.
+- I link social vengono costruiti dal titolo e dallo slug dell'articolo, cosi valgono anche per i contenuti futuri pubblicati tramite Sanity senza campi o interventi editoriali aggiuntivi.
+
 ## 2026-10-11 - Aggiornamento area Staff
 
 - Su indicazione del club, Matteo Margorani non deve comparire nell'area Staff con il ruolo di dirigente.

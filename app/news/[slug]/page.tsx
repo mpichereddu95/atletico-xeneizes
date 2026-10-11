@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArticleBody } from "@/components/ArticleBody";
+import { ArticleShare } from "@/components/ArticleShare";
 import { getArticleBySlug, getArticleSlugs } from "@/lib/api";
 import { formatLongDate } from "@/lib/utils";
 
@@ -101,6 +102,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               ) : null}
             </div>
             <aside className="grid gap-5 self-start">
+              <ArticleShare title={article.title} slug={article.slug} />
               <div className="border border-white/10 bg-white/[0.04] p-6">
                 <p className="text-xs font-black uppercase tracking-[0.24em] text-axGold">Autore</p>
                 <p className="mt-4 font-display text-3xl font-black uppercase text-white">{article.author}</p>

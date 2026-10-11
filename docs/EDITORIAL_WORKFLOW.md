@@ -54,6 +54,8 @@ Campi minimi:
 - testo alternativo;
 - contenuto articolo.
 
+Ogni articolo pubblicato nella pagina News include la condivisione diretta su WhatsApp, Facebook, X e Telegram, oltre alla copia del link canonico. I pulsanti usano titolo e URL dello specifico articolo, quindi la funzione vale automaticamente anche per i nuovi contenuti pubblicati da Sanity.
+
 Tono:
 
 - ufficiale;

@@ -18,6 +18,10 @@
 
 - [x] Rimuovere Matteo Margorani dall'area tecnica come dirigente su indicazione del club.
 
+## Condivisione news - 11 ottobre 2026
+
+- [x] Aggiungere azioni di condivisione per ogni articolo e copia del link canonico.
+
 ## Archivio amichevoli estive - 11 ottobre 2026
 
 - [x] Rinominare l'archivio in Amichevoli Estive 2026, distinto dal campionato.
