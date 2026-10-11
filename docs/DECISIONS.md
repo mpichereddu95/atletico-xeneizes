@@ -40,8 +40,8 @@
 
 ## 2026-10-11 - Ordine filtro stagioni
 
-- Il selettore stagione in Partite segue l'ordine cronologico: 2025/26, Amichevoli Estive 2026, 2026/27.
-- La stagione 2026/27 resta selezionata all'apertura; stagioni future non riconosciute vengono elencate dopo quelle note.
+- Il selettore stagione in Partite mostra dall'alto: 2026/27, Amichevoli Estive 2026, 2025/26.
+- Dal basso verso l'alto, l'ordine e 2025/26, amichevoli, 2026/27. La stagione corrente resta selezionata all'apertura; stagioni future non riconosciute vengono elencate dopo quelle note.
 
 ## 2026-10-11 - Patch vulnerabilita Node.js
 

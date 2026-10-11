@@ -19,7 +19,7 @@
 - [x] Rinominare l'archivio in Amichevoli Estive 2026, distinto dal campionato.
 - [x] Inserire i 16 risultati riportati nella locandina del club e predisporre la sezione per aggiornamenti successivi.
 - [ ] Aggiungere le prossime amichevoli quando confermate.
-- [x] Ordinare le stagioni nel filtro Partite dal 2025/26 alla stagione corrente.
+- [x] Ordinare le stagioni nel filtro Partite con 2026/27 in alto, amichevoli al centro, 2025/26 in basso.
 
 ## Vulnerabilita Node.js - 11 ottobre 2026
 

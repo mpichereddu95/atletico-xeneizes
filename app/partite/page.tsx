@@ -27,7 +27,7 @@ export default async function PartitePage() {
           </div>
         </section>
       ) : null}
-      <MatchesSection matches={matches} standings={standings} seasonOrder={[archiveSeasonLabel, summerFriendliesSeasonLabel, currentSeasonLabel]} />
+      <MatchesSection matches={matches} standings={standings} seasonOrder={[currentSeasonLabel, summerFriendliesSeasonLabel, archiveSeasonLabel]} />
     </main>
   );
 }
