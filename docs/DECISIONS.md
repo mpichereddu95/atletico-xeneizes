@@ -2,8 +2,9 @@
 
 ## 2026-10-11 - Condivisione news
 
-- Ogni pagina articolo offre condivisione diretta su WhatsApp, Facebook, X e Telegram, oltre a copia del link canonico e collegamento Instagram con permalink copiato.
-- I link social vengono costruiti dal titolo e dallo slug dell'articolo, cosi valgono anche per i contenuti futuri pubblicati tramite Sanity senza campi o interventi editoriali aggiuntivi.
+- Ogni articolo espone metadata Open Graph/Twitter con titolo, sommario e immagine per le anteprime dei social che supportano il link sharing.
+- Instagram Stories riceve una grafica 9:16 con il menu di condivisione nativo. L'aggiunta dello sticker Link resta un passaggio manuale dentro Instagram; un sito web non puo inserirlo nell'app al posto dell'utente.
+- Condivisioni social e grafica usano i dati dello specifico articolo, senza passaggi aggiuntivi in Sanity.
 
 ## 2026-10-11 - Aggiornamento area Staff
 

@@ -32,7 +32,19 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
   return {
     title: `${article.title} | Atletico Xeneizes`,
     description: article.excerpt,
+    alternates: {
+      canonical: `/news/${article.slug}`
+    },
     openGraph: {
+      type: "article",
+      url: `/news/${article.slug}`,
+      siteName: "Atletico Xeneizes 149",
+      title: article.title,
+      description: article.excerpt,
+      images: [{ url: article.coverImage.src, alt: article.coverImage.alt }]
+    },
+    twitter: {
+      card: "summary_large_image",
       title: article.title,
       description: article.excerpt,
       images: [article.coverImage.src]

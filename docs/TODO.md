@@ -20,7 +20,7 @@
 
 ## Condivisione news - 11 ottobre 2026
 
-- [x] Aggiungere azioni di condivisione per ogni articolo e copia del link canonico.
+- [x] Aggiungere anteprime Open Graph/Twitter, condivisione su social e grafica dedicata Instagram Stories.
 
 ## Archivio amichevoli estive - 11 ottobre 2026
 
