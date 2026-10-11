@@ -20,7 +20,7 @@
 
 ## Condivisione news - 11 ottobre 2026
 
-- [x] Aggiungere anteprime Open Graph/Twitter, condivisione su social e grafica dedicata Instagram Stories.
+- [x] Limitare le azioni visibili a Copia link, mantenendo il riquadro e i metadata per le anteprime.
 
 ## Archivio amichevoli estive - 11 ottobre 2026
 

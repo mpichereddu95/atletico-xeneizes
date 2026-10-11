@@ -2,9 +2,9 @@
 
 ## 2026-10-11 - Condivisione news
 
-- Ogni articolo espone metadata Open Graph/Twitter con titolo, sommario e immagine per le anteprime dei social che supportano il link sharing.
-- Instagram Stories riceve una grafica 9:16 con il menu di condivisione nativo. L'aggiunta dello sticker Link resta un passaggio manuale dentro Instagram; un sito web non puo inserirlo nell'app al posto dell'utente.
-- Condivisioni social e grafica usano i dati dello specifico articolo, senza passaggi aggiuntivi in Sanity.
+- Nel riquadro "Condividi la notizia" resta solo il pulsante per copiare il link canonico dell'articolo.
+- I metadata Open Graph/Twitter restano attivi per mostrare titolo, sommario e immagine quando il link viene incollato sui social; non vengono mostrati pulsanti social sul sito.
+- La condivisione diretta in Instagram Stories non e supportata dal sito web e non viene simulata con un'apertura dell'app o un'immagine scaricata.
 
 ## 2026-10-11 - Aggiornamento area Staff
 

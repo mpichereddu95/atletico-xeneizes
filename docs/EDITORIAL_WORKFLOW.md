@@ -54,7 +54,7 @@ Campi minimi:
 - testo alternativo;
 - contenuto articolo.
 
-Ogni articolo pubblicato nella pagina News include condivisione su WhatsApp, Facebook, X e Telegram, oltre alla copia del link canonico. I metadata Open Graph e Twitter usano titolo, sommario e copertina dell'articolo per le anteprime social. Instagram Stories riceve una grafica verticale generata con copertina, titolo e URL tramite il menu nativo del dispositivo; per rendere l'URL cliccabile, chi pubblica deve aggiungere lo sticker Link in Instagram. I pulsanti usano i dati dello specifico articolo, quindi valgono automaticamente anche per i nuovi contenuti pubblicati da Sanity.
+Ogni pagina articolo mostra il riquadro "Condividi la notizia" con il solo comando per copiare il link canonico. I metadata Open Graph e Twitter mantengono titolo, sommario e copertina dell'articolo per generare l'anteprima quando il link viene incollato su una piattaforma social.
 
 Tono:
 
